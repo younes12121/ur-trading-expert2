@@ -1,0 +1,244 @@
+{
+  "platforms": {
+    "twitter": {
+      "handle": "@URTradingExpert",
+      "theme": "Professional trading signals and AI-powered market analysis",
+      "content_focus": [
+        "market_updates",
+        "trading_tips",
+        "signal_examples"
+      ],
+      "posting_frequency": "8-12 posts/day",
+      "engagement_strategy": "respond_within_2_hours",
+      "growth_targets": {
+        "month_1": 1000,
+        "month_3": 5000,
+        "month_6": 15000,
+        "year_1": 50000
+      }
+    },
+    "linkedin": {
+      "page_name": "UR Trading Expert",
+      "theme": "Professional trading platform for serious traders",
+      "content_focus": [
+        "thought_leadership",
+        "case_studies",
+        "industry_insights"
+      ],
+      "posting_frequency": "3-5 posts/week",
+      "engagement_strategy": "professional_networking",
+      "target_audience": [
+        "finance_professionals",
+        "fund_managers",
+        "serious_traders"
+      ]
+    },
+    "youtube": {
+      "channel_name": "UR Trading Expert",
+      "theme": "Educational trading content and market analysis",
+      "content_types": [
+        "tutorials",
+        "market_reviews",
+        "strategy_explanations"
+      ],
+      "posting_frequency": "2 videos/week",
+      "video_formats": [
+        "shorts_15s",
+        "tutorials_5min",
+        "analysis_10min"
+      ],
+      "monetization_ready": true
+    },
+    "telegram": {
+      "channels": {
+        "main": "@URTradingExpert",
+        "premium": "@URTradingPremium",
+        "educational": "@URTradingEdu"
+      },
+      "theme": "Real-time trading signals and community",
+      "content_focus": [
+        "live_signals",
+        "market_alerts",
+        "community_discussion"
+      ],
+      "posting_frequency": "10-20 messages/day",
+      "member_targets": {
+        "main": 10000,
+        "premium": 1000,
+        "educational": 5000
+      }
+    }
+  },
+  "branding": {
+    "logo": {
+      "primary": "UR Trading Expert logo with shield and arrow",
+      "variations": [
+        "square",
+        "horizontal",
+        "icon_only"
+      ],
+      "colors": {
+        "primary": "#1a73e8",
+        "secondary": "#34a853",
+        "accent": "#ea4335"
+      }
+    },
+    "visual_style": {
+      "charts": "clean, professional charts with UR branding",
+      "thumbnails": "high-contrast, readable text overlays",
+      "templates": "consistent color scheme and typography"
+    },
+    "voice_and_tone": {
+      "professional": "Expert analysis without arrogance",
+      "educational": "Teaching-focused, patient explanations",
+      "community": "Inclusive, supportive environment"
+    }
+  },
+  "content_strategy": {
+    "content_pillars": [
+      {
+        "name": "Market Analysis",
+        "frequency": "daily",
+        "platforms": [
+          "twitter",
+          "telegram",
+          "youtube"
+        ],
+        "examples": [
+          "Daily market open analysis",
+          "Weekly market recap",
+          "Economic event impact"
+        ]
+      },
+      {
+        "name": "Educational Content",
+        "frequency": "3x/week",
+        "platforms": [
+          "youtube",
+          "linkedin",
+          "blog"
+        ],
+        "examples": [
+          "Trading strategy tutorials",
+          "Risk management guides",
+          "Technical analysis lessons"
+        ]
+      },
+      {
+        "name": "Signal Showcases",
+        "frequency": "daily",
+        "platforms": [
+          "telegram",
+          "twitter"
+        ],
+        "examples": [
+          "Live signal examples",
+          "Performance updates",
+          "Entry/exit analysis"
+        ]
+      },
+      {
+        "name": "Community Engagement",
+        "frequency": "ongoing",
+        "platforms": [
+          "all"
+        ],
+        "examples": [
+          "Q&A sessions",
+          "User testimonials",
+          "Community spotlights"
+        ]
+      }
+    ],
+    "content_calendar": {
+      "monday": [
+        "Market analysis",
+        "Weekly strategy preview",
+        "Educational content"
+      ],
+      "tuesday": [
+        "Signal showcase",
+        "Market update",
+        "Community Q&A"
+      ],
+      "wednesday": [
+        "Deep dive analysis",
+        "Trading psychology",
+        "User spotlight"
+      ],
+      "thursday": [
+        "Economic calendar",
+        "Risk management",
+        "Product features"
+      ],
+      "friday": [
+        "Weekly recap",
+        "Weekend preview",
+        "Community highlights"
+      ],
+      "weekend": [
+        "Market outlook",
+        "Educational series",
+        "Community engagement"
+      ]
+    }
+  },
+  "engagement_strategy": {
+    "response_times": {
+      "twitter": "within 2 hours",
+      "linkedin": "within 4 hours",
+      "telegram": "within 30 minutes",
+      "youtube_comments": "within 24 hours"
+    },
+    "engagement_types": [
+      "direct_responses",
+      "content_replies",
+      "question_answer_sessions",
+      "user_generated_content_sharing",
+      "collaborative_posts"
+    ],
+    "community_building": [
+      "welcome_messages",
+      "user_onboarding",
+      "achievement_recognition",
+      "exclusive_content_for_active_members",
+      "referral_program_promotion"
+    ]
+  },
+  "growth_strategy": {
+    "organic_growth": [
+      "consistent_high_quality_content",
+      "cross_platform_sharing",
+      "community_engagement",
+      "collaborations_and_shoutouts",
+      "seo_optimized_content"
+    ],
+    "paid_promotion": [
+      "twitter_ads",
+      "linkedin_ads",
+      "youtube_ads",
+      "telegram_channel_promotion",
+      "influencer_partnerships"
+    ],
+    "growth_targets": {
+      "month_1": {
+        "twitter_followers": 1000,
+        "linkedin_followers": 300,
+        "youtube_subscribers": 100,
+        "telegram_members": 1000
+      },
+      "month_3": {
+        "twitter_followers": 5000,
+        "linkedin_followers": 1500,
+        "youtube_subscribers": 500,
+        "telegram_members": 5000
+      },
+      "month_6": {
+        "twitter_followers": 15000,
+        "linkedin_followers": 4000,
+        "youtube_subscribers": 2000,
+        "telegram_members": 15000
+      }
+    }
+  }
+}

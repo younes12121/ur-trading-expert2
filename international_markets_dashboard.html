@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Markets Dashboard - Global Trading Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .international-glow {
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+        }
+        .market-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .signal-buy {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+        .signal-sell {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        .signal-hold {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        .asian-market {
+            border-left: 4px solid #f1c40f;
+        }
+        .emerging-market {
+            border-left: 4px solid #e67e22;
+        }
+        .crypto-market {
+            border-left: 4px solid #9b59b6;
+        }
+        .major-currency {
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="bg-black/20 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-lucide="globe" class="w-8 h-8 text-blue-400 mr-3"></i>
+                        <h1 class="text-xl font-bold">International Markets</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-green-400"></i>
+                        <span class="text-sm" id="current-time">Loading...</span>
+                    </div>
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <i data-lucide="user" class="w-4 h-4 text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-2">🌍 Global Trading Intelligence</h2>
+            <p class="text-white/70">Real-time signals across international markets powered by AI analysis</p>
+        </div>
+
+        <!-- Market Overview Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="market-card rounded-lg p-6 international-glow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Active Markets</p>
+                        <p class="text-2xl font-bold" id="active-markets">8</p>
+                    </div>
+                    <i data-lucide="activity" class="w-8 h-8 text-blue-400"></i>
+                </div>
+            </div>
+            <div class="market-card rounded-lg p-6 international-glow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Strong Signals</p>
+                        <p class="text-2xl font-bold text-green-400" id="strong-signals">0</p>
+                    </div>
+                    <i data-lucide="trending-up" class="w-8 h-8 text-green-400"></i>
+                </div>
+            </div>
+            <div class="market-card rounded-lg p-6 international-glow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Global Sessions</p>
+                        <p class="text-2xl font-bold" id="active-sessions">3</p>
+                    </div>
+                    <i data-lucide="clock" class="w-8 h-8 text-yellow-400"></i>
+                </div>
+            </div>
+            <div class="market-card rounded-lg p-6 international-glow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Avg Confidence</p>
+                        <p class="text-2xl font-bold text-purple-400" id="avg-confidence">0%</p>
+                    </div>
+                    <i data-lucide="target" class="w-8 h-8 text-purple-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Categories -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4">📊 Market Categories</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="asian-market market-card rounded-lg p-4">
+                    <div class="flex items-center mb-2">
+                        <i data-lucide="sun" class="w-5 h-5 text-yellow-400 mr-2"></i>
+                        <span class="font-semibold">Asian Markets</span>
+                    </div>
+                    <p class="text-sm text-white/70">CNY, JPY focus</p>
+                    <p class="text-xs text-white/50 mt-1">Lower volatility, Asian session</p>
+                </div>
+                <div class="major-currency market-card rounded-lg p-4">
+                    <div class="flex items-center mb-2">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 text-blue-400 mr-2"></i>
+                        <span class="font-semibold">Major Currencies</span>
+                    </div>
+                    <p class="text-sm text-white/70">EUR, GBP, AUD</p>
+                    <p class="text-xs text-white/50 mt-1">High liquidity, global hours</p>
+                </div>
+                <div class="emerging-market market-card rounded-lg p-4">
+                    <div class="flex items-center mb-2">
+                        <i data-lucide="trending-up" class="w-5 h-5 text-orange-400 mr-2"></i>
+                        <span class="font-semibold">Emerging Markets</span>
+                    </div>
+                    <p class="text-sm text-white/70">BRL, MXN, ZAR</p>
+                    <p class="text-xs text-white/50 mt-1">Higher volatility, regional</p>
+                </div>
+                <div class="crypto-market market-card rounded-lg p-4">
+                    <div class="flex items-center mb-2">
+                        <i data-lucide="bitcoin" class="w-5 h-5 text-purple-400 mr-2"></i>
+                        <span class="font-semibold">Crypto Futures</span>
+                    </div>
+                    <p class="text-sm text-white/70">ETH, BTC futures</p>
+                    <p class="text-xs text-white/50 mt-1">24/7 trading, extreme vol</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Signals Grid -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold">🎯 Live Trading Signals</h3>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors" onclick="refreshSignals()">
+                        <i data-lucide="refresh-cw" class="w-4 h-4 inline mr-2"></i>
+                        Refresh
+                    </button>
+                    <select id="signal-filter" class="bg-black/20 border border-white/20 rounded-lg px-3 py-2 text-sm">
+                        <option value="all">All Signals</option>
+                        <option value="buy">Buy Only</option>
+                        <option value="sell">Sell Only</option>
+                        <option value="strong">Strong Only (80%+)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="signals-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Signals will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Global Market Scanner -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold mb-6">🔍 Global Market Scanner</h3>
+            <div class="market-card rounded-lg p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-4">Market Correlation Matrix</h4>
+                        <canvas id="correlation-chart" width="300" height="200"></canvas>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Session Activity</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <div class="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+                                    Asian Session (CNY, JPY)
+                                </span>
+                                <span class="text-sm text-green-400">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <div class="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
+                                    European Session (EUR, GBP)
+                                </span>
+                                <span class="text-sm text-blue-400">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <div class="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
+                                    Americas Session (BRL, USD)
+                                </span>
+                                <span class="text-sm text-yellow-400">Opening Soon</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="flex items-center">
+                                    <div class="w-3 h-3 bg-purple-400 rounded-full mr-2"></div>
+                                    Crypto Markets (24/7)
+                                </span>
+                                <span class="text-sm text-purple-400">Always Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Regional Analysis -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Regional Performance -->
+            <div class="market-card rounded-lg p-6">
+                <h4 class="font-semibold mb-4">🌎 Regional Performance</h4>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-3 bg-black/20 rounded-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-red-400 mr-3"></i>
+                            <div>
+                                <p class="font-medium">Asia Pacific</p>
+                                <p class="text-sm text-white/60">CNY, JPY, AUD</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-green-400 font-semibold">+2.4%</p>
+                            <p class="text-xs text-white/60">24h change</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-black/20 rounded-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-400 mr-3"></i>
+                            <div>
+                                <p class="font-medium">Europe</p>
+                                <p class="text-sm text-white/60">EUR, GBP, CHF</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-red-400 font-semibold">-1.2%</p>
+                            <p class="text-xs text-white/60">24h change</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-black/20 rounded-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-orange-400 mr-3"></i>
+                            <div>
+                                <p class="font-medium">Americas</p>
+                                <p class="text-sm text-white/60">BRL, CAD, MXN</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-green-400 font-semibold">+1.8%</p>
+                            <p class="text-xs text-white/60">24h change</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Alerts -->
+            <div class="market-card rounded-lg p-6">
+                <h4 class="font-semibold mb-4">🚨 Market Alerts</h4>
+                <div class="space-y-3">
+                    <div class="p-3 bg-yellow-500/20 border border-yellow-500/30 rounded-lg">
+                        <div class="flex items-start">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-400 mr-3 mt-0.5"></i>
+                            <div>
+                                <p class="font-medium text-yellow-400">High Volatility Alert</p>
+                                <p class="text-sm text-white/80">ETH futures showing extreme volatility. Exercise caution.</p>
+                                <p class="text-xs text-white/60 mt-1">2 minutes ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-green-500/20 border border-green-500/30 rounded-lg">
+                        <div class="flex items-start">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-green-400 mr-3 mt-0.5"></i>
+                            <div>
+                                <p class="font-medium text-green-400">Strong Buy Signal</p>
+                                <p class="text-sm text-white/80">CNY showing strong bullish momentum across all timeframes.</p>
+                                <p class="text-xs text-white/60 mt-1">5 minutes ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-blue-500/20 border border-blue-500/30 rounded-lg">
+                        <div class="flex items-start">
+                            <i data-lucide="info" class="w-5 h-5 text-blue-400 mr-3 mt-0.5"></i>
+                            <div>
+                                <p class="font-medium text-blue-400">Session Change</p>
+                                <p class="text-sm text-white/80">European session now active. EUR and GBP pairs becoming more active.</p>
+                                <p class="text-xs text-white/60 mt-1">12 minutes ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour12: false,
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            });
+            document.getElementById('current-time').textContent = timeString;
+        }
+
+        // Sample market data
+        const marketData = [
+            {
+                symbol: 'CNY',
+                name: 'USD/CNY',
+                description: 'US Dollar vs Chinese Yuan',
+                direction: 'BUY',
+                confidence: 85,
+                entry: 7.1523,
+                stopLoss: 7.1423,
+                takeProfit1: 7.1723,
+                takeProfit2: 7.1923,
+                category: 'asian',
+                volatility: 'Low',
+                session: 'Asian',
+                lastUpdate: '2 min ago'
+            },
+            {
+                symbol: 'BRL',
+                name: 'USD/BRL',
+                description: 'US Dollar vs Brazilian Real',
+                direction: 'SELL',
+                confidence: 72,
+                entry: 5.4321,
+                stopLoss: 5.4521,
+                takeProfit1: 5.4021,
+                takeProfit2: 5.3721,
+                category: 'emerging',
+                volatility: 'High',
+                session: 'Americas',
+                lastUpdate: '5 min ago'
+            },
+            {
+                symbol: 'ETH',
+                name: 'ETH/USD',
+                description: 'Ethereum Futures',
+                direction: 'BUY',
+                confidence: 91,
+                entry: 3456.78,
+                stopLoss: 3420.78,
+                takeProfit1: 3520.78,
+                takeProfit2: 3580.78,
+                category: 'crypto',
+                volatility: 'Extreme',
+                session: '24/7',
+                lastUpdate: '1 min ago'
+            },
+            {
+                symbol: 'EUR',
+                name: 'EUR/USD',
+                description: 'Euro vs US Dollar',
+                direction: 'HOLD',
+                confidence: 55,
+                entry: 1.0850,
+                stopLoss: 1.0800,
+                takeProfit1: 1.0950,
+                takeProfit2: 1.1050,
+                category: 'major',
+                volatility: 'Medium',
+                session: 'European',
+                lastUpdate: '3 min ago'
+            },
+            {
+                symbol: 'JPY',
+                name: 'USD/JPY',
+                description: 'US Dollar vs Japanese Yen',
+                direction: 'BUY',
+                confidence: 78,
+                entry: 147.85,
+                stopLoss: 147.35,
+                takeProfit1: 148.85,
+                takeProfit2: 149.85,
+                category: 'asian',
+                volatility: 'Low',
+                session: 'Asian',
+                lastUpdate: '4 min ago'
+            },
+            {
+                symbol: 'GBP',
+                name: 'GBP/USD',
+                description: 'British Pound vs US Dollar',
+                direction: 'SELL',
+                confidence: 68,
+                entry: 1.2750,
+                stopLoss: 1.2850,
+                takeProfit1: 1.2650,
+                takeProfit2: 1.2550,
+                category: 'major',
+                volatility: 'Medium',
+                session: 'European',
+                lastUpdate: '6 min ago'
+            }
+        ];
+
+        // Render signals
+        function renderSignals(filter = 'all') {
+            const signalsGrid = document.getElementById('signals-grid');
+            const filteredData = marketData.filter(signal => {
+                if (filter === 'all') return true;
+                if (filter === 'buy') return signal.direction === 'BUY';
+                if (filter === 'sell') return signal.direction === 'SELL';
+                if (filter === 'strong') return signal.confidence >= 80;
+                return true;
+            });
+
+            signalsGrid.innerHTML = filteredData.map(signal => `
+                <div class="market-card rounded-lg p-6 ${getCategoryClass(signal.category)}">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h4 class="text-lg font-bold">${signal.symbol}</h4>
+                            <p class="text-sm text-white/70">${signal.name}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold ${getDirectionClass(signal.direction)}">
+                                ${signal.direction}
+                            </span>
+                            <p class="text-xs text-white/60 mt-1">${signal.confidence}% confidence</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white/70">Entry:</span>
+                            <span class="font-mono">${signal.entry.toLocaleString()}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white/70">Stop Loss:</span>
+                            <span class="font-mono text-red-400">${signal.stopLoss.toLocaleString()}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white/70">Take Profit 1:</span>
+                            <span class="font-mono text-green-400">${signal.takeProfit1.toLocaleString()}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-white/70">Take Profit 2:</span>
+                            <span class="font-mono text-green-400">${signal.takeProfit2.toLocaleString()}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Volatility: ${signal.volatility}</span>
+                        <span>Session: ${signal.session}</span>
+                    </div>
+                    <div class="text-xs text-white/50 mt-2 text-right">
+                        Updated ${signal.lastUpdate}
+                    </div>
+                </div>
+            `).join('');
+
+            // Update stats
+            updateStats(filteredData);
+        }
+
+        function getDirectionClass(direction) {
+            if (direction === 'BUY') return 'signal-buy';
+            if (direction === 'SELL') return 'signal-sell';
+            return 'signal-hold';
+        }
+
+        function getCategoryClass(category) {
+            if (category === 'asian') return 'asian-market';
+            if (category === 'emerging') return 'emerging-market';
+            if (category === 'crypto') return 'crypto-market';
+            return 'major-currency';
+        }
+
+        function updateStats(signals) {
+            const strongSignals = signals.filter(s => s.confidence >= 80).length;
+            const avgConfidence = signals.length > 0 ?
+                Math.round(signals.reduce((sum, s) => sum + s.confidence, 0) / signals.length) : 0;
+
+            document.getElementById('strong-signals').textContent = strongSignals;
+            document.getElementById('avg-confidence').textContent = `${avgConfidence}%`;
+        }
+
+        function refreshSignals() {
+            // Simulate refresh with slight data changes
+            marketData.forEach(signal => {
+                signal.confidence = Math.max(50, Math.min(95, signal.confidence + (Math.random() - 0.5) * 10));
+                signal.lastUpdate = 'just now';
+            });
+            renderSignals(document.getElementById('signal-filter').value);
+        }
+
+        // Initialize correlation chart
+        function initCorrelationChart() {
+            const ctx = document.getElementById('correlation-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['CNY', 'EUR', 'JPY', 'GBP', 'BRL', 'ETH'],
+                    datasets: [{
+                        label: 'Market Correlation',
+                        data: [0.3, 0.8, 0.6, 0.7, 0.4, 0.2],
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: {
+                                stepSize: 0.2
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Event listeners
+        document.getElementById('signal-filter').addEventListener('change', (e) => {
+            renderSignals(e.target.value);
+        });
+
+        // Initialize
+        updateTime();
+        setInterval(updateTime, 1000);
+        renderSignals();
+        initCorrelationChart();
+
+        // Auto refresh every 30 seconds
+        setInterval(() => {
+            refreshSignals();
+        }, 30000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "country": "China",
+  "country_code": "CN",
+  "currency": "CNY",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 190,
+      "currency": "CNY",
+      "interval": "month",
+      "description": "Premium subscription - China"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 650,
+      "currency": "CNY",
+      "interval": "month",
+      "description": "Vip subscription - China"
+    }
+  }
+}

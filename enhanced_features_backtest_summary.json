@@ -1,0 +1,176 @@
+{
+  "backtest_info": {
+    "start_capital": 500,
+    "end_capital": 123154.4405761023,
+    "total_return_pct": 24530.88811522046,
+    "total_trades": 189,
+    "total_wins": 186,
+    "win_rate": 98.4126984126984,
+    "date_run": "2025-12-19T12:22:44.256670",
+    "features_used": [
+      "Enhanced 20-Criteria System",
+      "Portfolio Optimizer",
+      "Market Structure Analyzer",
+      "AI/ML Quantum Systems",
+      "Multi-Asset Support"
+    ]
+  },
+  "system_performance": {
+    "ENHANCED_ELITE_A_PLUS": {
+      "trades": 30,
+      "wins": 30,
+      "pnl": 691.3355306066495,
+      "win_rate": 100.0
+    },
+    "ENHANCED_ULTRA_ELITE": {
+      "trades": 18,
+      "wins": 18,
+      "pnl": 904.7388805228353,
+      "win_rate": 100.0
+    },
+    "QUANTUM_ELITE_AI": {
+      "trades": 9,
+      "wins": 9,
+      "pnl": 758.3713703001029,
+      "win_rate": 100.0
+    },
+    "QUANTUM_INTRADAY_AI": {
+      "trades": 96,
+      "wins": 94,
+      "pnl": 44952.954319511395,
+      "win_rate": 97.91666666666666
+    },
+    "PORTFOLIO_OPTIMIZED": {
+      "trades": 36,
+      "wins": 35,
+      "pnl": 75347.04047516125,
+      "win_rate": 97.22222222222221
+    }
+  },
+  "monthly_stats": [
+    {
+      "month": "2024-12",
+      "trades": 11,
+      "wins": 11,
+      "pnl": 8430.966436327053,
+      "capital_end": 8930.966436327053,
+      "win_rate": 1.0,
+      "return_pct": 1686.1932872654104
+    },
+    {
+      "month": "2025-01",
+      "trades": 10,
+      "wins": 10,
+      "pnl": 3989.3630675187737,
+      "capital_end": 12920.329503845827,
+      "win_rate": 1.0,
+      "return_pct": 44.66888433587528
+    },
+    {
+      "month": "2025-02",
+      "trades": 15,
+      "wins": 15,
+      "pnl": 9081.004020786553,
+      "capital_end": 22001.33352463238,
+      "win_rate": 1.0,
+      "return_pct": 70.2846163333801
+    },
+    {
+      "month": "2025-03",
+      "trades": 18,
+      "wins": 17,
+      "pnl": 14908.35817060477,
+      "capital_end": 36909.691695237154,
+      "win_rate": 0.9444444444444444,
+      "return_pct": 67.76115708583565
+    },
+    {
+      "month": "2025-04",
+      "trades": 10,
+      "wins": 10,
+      "pnl": 3466.927329470212,
+      "capital_end": 40376.61902470737,
+      "win_rate": 1.0,
+      "return_pct": 9.392999968941995
+    },
+    {
+      "month": "2025-05",
+      "trades": 28,
+      "wins": 28,
+      "pnl": 23329.98215019501,
+      "capital_end": 63706.601174902375,
+      "win_rate": 1.0,
+      "return_pct": 57.780920527097294
+    },
+    {
+      "month": "2025-06",
+      "trades": 18,
+      "wins": 18,
+      "pnl": 15252.94306687622,
+      "capital_end": 78959.5442417786,
+      "win_rate": 1.0,
+      "return_pct": 23.94248442951814
+    },
+    {
+      "month": "2025-07",
+      "trades": 14,
+      "wins": 14,
+      "pnl": 10648.403448136625,
+      "capital_end": 89607.94768991522,
+      "win_rate": 1.0,
+      "return_pct": 13.48589781056817
+    },
+    {
+      "month": "2025-08",
+      "trades": 16,
+      "wins": 15,
+      "pnl": 3682.268478261254,
+      "capital_end": 93290.21616817647,
+      "win_rate": 0.9375,
+      "return_pct": 4.109310137314604
+    },
+    {
+      "month": "2025-09",
+      "trades": 16,
+      "wins": 15,
+      "pnl": 11263.783331547698,
+      "capital_end": 104553.99949972417,
+      "win_rate": 0.9375,
+      "return_pct": 12.07391706676101
+    },
+    {
+      "month": "2025-10",
+      "trades": 12,
+      "wins": 12,
+      "pnl": 4917.496517543143,
+      "capital_end": 109471.49601726732,
+      "win_rate": 1.0,
+      "return_pct": 4.703307899336855
+    },
+    {
+      "month": "2025-11",
+      "trades": 10,
+      "wins": 10,
+      "pnl": 5222.876705355407,
+      "capital_end": 114694.37272262272,
+      "win_rate": 1.0,
+      "return_pct": 4.770992354513529
+    },
+    {
+      "month": "2025-12",
+      "trades": 11,
+      "wins": 11,
+      "pnl": 8460.06785347953,
+      "capital_end": 123154.44057610225,
+      "win_rate": 1.0,
+      "return_pct": 7.376183898698664
+    }
+  ],
+  "risk_metrics": {
+    "max_drawdown": 551.2764805646002,
+    "max_drawdown_pct": 110.25529611292004,
+    "sharpe_ratio": 12.177272438424659,
+    "win_rate": 98.4126984126984,
+    "profit_factor": 187.42568026846814
+  }
+}

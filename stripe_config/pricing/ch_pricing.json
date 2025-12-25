@@ -1,0 +1,21 @@
+{
+  "country": "Switzerland",
+  "country_code": "CH",
+  "currency": "CHF",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 28,
+      "currency": "CHF",
+      "interval": "month",
+      "description": "Premium subscription - Switzerland"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 95,
+      "currency": "CHF",
+      "interval": "month",
+      "description": "Vip subscription - Switzerland"
+    }
+  }
+}

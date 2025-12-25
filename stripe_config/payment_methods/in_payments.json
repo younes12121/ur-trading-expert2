@@ -1,0 +1,22 @@
+{
+  "country": "India",
+  "country_code": "IN",
+  "currency": "INR",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "upi": {
+      "name": "UPI",
+      "supported_currencies": [
+        "INR"
+      ],
+      "processing_fee": "₹1.5"
+    }
+  },
+  "primary_method": "card"
+}

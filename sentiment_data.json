@@ -1,0 +1,291 @@
+{
+  "assets": {
+    "EURUSD": {
+      "twitter": {
+        "source": "twitter",
+        "asset": "EURUSD",
+        "total_mentions": 1250,
+        "sentiment_score": 0.65,
+        "bullish_ratio": 0.68,
+        "bearish_ratio": 0.32,
+        "volume_trend": "increasing",
+        "top_keywords": [
+          "breakout",
+          "bullish",
+          "support"
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "reddit": {
+        "source": "reddit",
+        "asset": "EURUSD",
+        "total_posts": 85,
+        "total_comments": 420,
+        "sentiment_score": 0.55,
+        "upvote_ratio": 0.78,
+        "top_posts": [
+          {
+            "title": "BTC looking strong at support",
+            "score": 125,
+            "sentiment": "bullish"
+          },
+          {
+            "title": "Analysis: Bullish continuation pattern",
+            "score": 98,
+            "sentiment": "bullish"
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "news": {
+        "source": "news",
+        "asset": "EURUSD",
+        "article_count": 15,
+        "sentiment_score": 0.45,
+        "headline_sentiment": "neutral to bullish",
+        "top_headlines": [
+          {
+            "title": "Bitcoin shows resilience amid market volatility",
+            "sentiment": 0.6
+          },
+          {
+            "title": "Analysts predict continued strength",
+            "sentiment": 0.7
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      }
+    },
+    "BTC": {
+      "twitter": {
+        "source": "twitter",
+        "asset": "BTC",
+        "total_mentions": 1250,
+        "sentiment_score": 0.65,
+        "bullish_ratio": 0.68,
+        "bearish_ratio": 0.32,
+        "volume_trend": "increasing",
+        "top_keywords": [
+          "breakout",
+          "bullish",
+          "support"
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "reddit": {
+        "source": "reddit",
+        "asset": "BTC",
+        "total_posts": 85,
+        "total_comments": 420,
+        "sentiment_score": 0.55,
+        "upvote_ratio": 0.78,
+        "top_posts": [
+          {
+            "title": "BTC looking strong at support",
+            "score": 125,
+            "sentiment": "bullish"
+          },
+          {
+            "title": "Analysis: Bullish continuation pattern",
+            "score": 98,
+            "sentiment": "bullish"
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "news": {
+        "source": "news",
+        "asset": "BTC",
+        "article_count": 15,
+        "sentiment_score": 0.45,
+        "headline_sentiment": "neutral to bullish",
+        "top_headlines": [
+          {
+            "title": "Bitcoin shows resilience amid market volatility",
+            "sentiment": 0.6
+          },
+          {
+            "title": "Analysts predict continued strength",
+            "sentiment": 0.7
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      }
+    },
+    "GOLD": {
+      "twitter": {
+        "source": "twitter",
+        "asset": "GOLD",
+        "total_mentions": 1250,
+        "sentiment_score": 0.65,
+        "bullish_ratio": 0.68,
+        "bearish_ratio": 0.32,
+        "volume_trend": "increasing",
+        "top_keywords": [
+          "breakout",
+          "bullish",
+          "support"
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "reddit": {
+        "source": "reddit",
+        "asset": "GOLD",
+        "total_posts": 85,
+        "total_comments": 420,
+        "sentiment_score": 0.55,
+        "upvote_ratio": 0.78,
+        "top_posts": [
+          {
+            "title": "BTC looking strong at support",
+            "score": 125,
+            "sentiment": "bullish"
+          },
+          {
+            "title": "Analysis: Bullish continuation pattern",
+            "score": 98,
+            "sentiment": "bullish"
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "news": {
+        "source": "news",
+        "asset": "GOLD",
+        "article_count": 15,
+        "sentiment_score": 0.45,
+        "headline_sentiment": "neutral to bullish",
+        "top_headlines": [
+          {
+            "title": "Bitcoin shows resilience amid market volatility",
+            "sentiment": 0.6
+          },
+          {
+            "title": "Analysts predict continued strength",
+            "sentiment": 0.7
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      }
+    },
+    "GBPUSD": {
+      "twitter": {
+        "source": "twitter",
+        "asset": "GBPUSD",
+        "total_mentions": 1250,
+        "sentiment_score": 0.65,
+        "bullish_ratio": 0.68,
+        "bearish_ratio": 0.32,
+        "volume_trend": "increasing",
+        "top_keywords": [
+          "breakout",
+          "bullish",
+          "support"
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "reddit": {
+        "source": "reddit",
+        "asset": "GBPUSD",
+        "total_posts": 85,
+        "total_comments": 420,
+        "sentiment_score": 0.55,
+        "upvote_ratio": 0.78,
+        "top_posts": [
+          {
+            "title": "BTC looking strong at support",
+            "score": 125,
+            "sentiment": "bullish"
+          },
+          {
+            "title": "Analysis: Bullish continuation pattern",
+            "score": 98,
+            "sentiment": "bullish"
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      },
+      "news": {
+        "source": "news",
+        "asset": "GBPUSD",
+        "article_count": 15,
+        "sentiment_score": 0.45,
+        "headline_sentiment": "neutral to bullish",
+        "top_headlines": [
+          {
+            "title": "Bitcoin shows resilience amid market volatility",
+            "sentiment": 0.6
+          },
+          {
+            "title": "Analysts predict continued strength",
+            "sentiment": 0.7
+          }
+        ],
+        "timestamp": "2025-12-19 11:36:59"
+      }
+    },
+    "USDJPY": {
+      "twitter": {
+        "source": "twitter",
+        "asset": "USDJPY",
+        "total_mentions": 1250,
+        "sentiment_score": 0.65,
+        "bullish_ratio": 0.68,
+        "bearish_ratio": 0.32,
+        "volume_trend": "increasing",
+        "top_keywords": [
+          "breakout",
+          "bullish",
+          "support"
+        ],
+        "timestamp": "2025-12-05 23:53:17"
+      },
+      "reddit": {
+        "source": "reddit",
+        "asset": "USDJPY",
+        "total_posts": 85,
+        "total_comments": 420,
+        "sentiment_score": 0.55,
+        "upvote_ratio": 0.78,
+        "top_posts": [
+          {
+            "title": "BTC looking strong at support",
+            "score": 125,
+            "sentiment": "bullish"
+          },
+          {
+            "title": "Analysis: Bullish continuation pattern",
+            "score": 98,
+            "sentiment": "bullish"
+          }
+        ],
+        "timestamp": "2025-12-05 23:53:17"
+      },
+      "news": {
+        "source": "news",
+        "asset": "USDJPY",
+        "article_count": 15,
+        "sentiment_score": 0.45,
+        "headline_sentiment": "neutral to bullish",
+        "top_headlines": [
+          {
+            "title": "Bitcoin shows resilience amid market volatility",
+            "sentiment": 0.6
+          },
+          {
+            "title": "Analysts predict continued strength",
+            "sentiment": 0.7
+          }
+        ],
+        "timestamp": "2025-12-05 23:53:17"
+      }
+    }
+  },
+  "last_updated": {
+    "EURUSD": "2025-12-19T11:36:59.165163",
+    "BTC": "2025-12-19T11:36:59.160025",
+    "GOLD": "2025-12-19T11:36:59.162681",
+    "GBPUSD": "2025-12-19T11:36:59.167645",
+    "USDJPY": "2025-12-05T23:53:17.260064"
+  }
+}

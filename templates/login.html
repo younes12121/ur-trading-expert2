@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Dashboard - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Professional Color Palette - Teal Blue & Charcoal Gray */
+        :root {
+            /* Comfortable Teal-Blue Background - softened for eye comfort */
+            --primary-bg: linear-gradient(140deg, #0f172a 0%, #122438 45%, #0c1b2b 100%);
+            --secondary-bg: linear-gradient(140deg, #17364a 0%, #1f4a63 100%);
+            /* Muted Charcoal for text and elements */
+            --charcoal-dark: #1f2937;
+            --charcoal-medium: #334155;
+            --charcoal-light: #475569;
+            /* Softer Teal/Cyan Accents */
+            --accent-teal: #22c5b7;
+            --accent-teal-dark: #199f93;
+            --accent-teal-light: #6ee7d1;
+            --accent-cyan: #38bdf8;
+            /* Status Colors */
+            --accent-green: #34d399;
+            --accent-red: #f87171;
+            --accent-yellow: #fbbf24;
+            --accent-purple: #a78bfa;
+            /* Glass Effects - softer and less glowy */
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(34, 197, 183, 0.18);
+            /* Text Colors */
+            --text-primary: #f7fafc;
+            --text-secondary: #e2e8f0;
+            --text-muted: #9ca3af;
+            /* Shadows with gentle teal glow */
+            --shadow-primary: 0 6px 26px rgba(0, 0, 0, 0.22);
+            --shadow-glow: 0 0 18px rgba(34, 197, 183, 0.24);
+        }
+
+        .gradient-bg {
+            background: var(--primary-bg);
+            background-attachment: fixed;
+        }
+
+        .secondary-gradient {
+            background: var(--secondary-bg);
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary), var(--shadow-glow);
+            border-color: rgba(20, 184, 166, 0.4);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="w-full max-w-md">
+        <!-- Login Card -->
+        <div class="glass-card rounded-2xl p-8 w-full max-w-md animate-fade-in">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-4">
+                    <div class="w-16 h-16 bg-accent-teal/20 rounded-full flex items-center justify-center">
+                        <svg class="w-8 h-8 text-accent-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-bold text-white mb-2">Trading Dashboard</h1>
+                <p class="text-text-muted">Enter your credentials to access your trading analytics</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" action="/auth/login" method="POST" class="space-y-6">
+                <!-- Username Field -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-text-secondary mb-2">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        required=""
+                        class="w-full glass-card border-0 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:ring-2 focus:ring-accent-teal focus:outline-none"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                    />
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-text-secondary mb-2">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required=""
+                        class="w-full glass-card border-0 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:ring-2 focus:ring-accent-teal focus:outline-none"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                    />
+                </div>
+
+                <!-- Remember Me -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input
+                            id="remember-me"
+                            name="remember-me"
+                            type="checkbox"
+                            class="h-4 w-4 text-accent-teal focus:ring-accent-teal border-gray-300 rounded"
+                        />
+                        <label for="remember-me" class="ml-2 block text-sm text-text-muted">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="text-sm">
+                        <a href="#" class="text-accent-teal hover:text-accent-teal-light">
+                            Forgot your password?
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="w-full bg-accent-teal hover:bg-accent-teal-dark text-white font-medium py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-transparent"
+                >
+                    Sign In
+                </button>
+
+                <!-- Alternative Login -->
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-transparent text-text-muted">Or continue with</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <button
+                            type="button"
+                            onclick="loginWithTelegram()"
+                            class="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-teal"
+                        >
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                            Login with Telegram
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Footer -->
+            <div class="mt-8 text-center">
+                <p class="text-text-muted text-sm">
+                    Don't have an account?
+                    <a href="#" class="text-accent-teal hover:text-accent-teal-light font-medium">
+                        Contact support
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loginWithTelegram() {
+            // Simulate Telegram login or redirect to bot
+            alert('Telegram login integration would go here. For now, use the dashboard URL: http://localhost:5001/dashboard/YOUR_TELEGRAM_ID');
+            window.location.href = 'https://t.me/your_bot_username'; // Replace with actual bot
+        }
+
+        // Form submission handler
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // For demo purposes, accept any username/password and redirect to dashboard
+            if (username && password) {
+                // In a real app, this would authenticate with your backend
+                alert(`Login successful! Redirecting to dashboard...\n\nUsername: ${username}\n\nFor demo: http://localhost:5001/dashboard/123456789`);
+                window.location.href = `http://localhost:5001/dashboard/123456789`;
+            } else {
+                alert('Please enter both username and password');
+            }
+        });
+
+        // Add some visual feedback
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('ring-2', 'ring-accent-teal');
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('ring-2', 'ring-accent-teal');
+            });
+        });
+    </script>
+</body>
+</html>

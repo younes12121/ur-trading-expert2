@@ -1,0 +1,21 @@
+{
+  "country": "United States",
+  "country_code": "US",
+  "currency": "USD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 29,
+      "currency": "USD",
+      "interval": "month",
+      "description": "Premium subscription - United States"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 99,
+      "currency": "USD",
+      "interval": "month",
+      "description": "Vip subscription - United States"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+# Trading Bot Environment Configuration
+# Copy this file to .env and fill in your values
+# NEVER commit .env to version control!
+
+# ============================================
+# TELEGRAM BOT CONFIGURATION
+# ============================================
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+
+# ============================================
+# STRIPE PAYMENT CONFIGURATION
+# ============================================
+# Get these from: https://dashboard.stripe.com/test/apikeys
+STRIPE_SECRET_KEY=sk_test_your_test_secret_key_here
+STRIPE_PUBLISHABLE_KEY=pk_test_your_test_publishable_key_here
+
+# Get this from: https://dashboard.stripe.com/test/webhooks (after creating webhook)
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
+
+# Price IDs (already created in Stripe)
+STRIPE_PRICE_PREMIUM=price_1SbBRDCoLBi6DM3OWh4JR3Lt
+STRIPE_PRICE_VIP=price_1SbBd5CoLBi6DM3OF8H2HKY8
+
+# Optional: Test keys (fallback if STRIPE_SECRET_KEY not set)
+STRIPE_TEST_SECRET_KEY=sk_test_your_test_key_here
+
+# Live mode keys (for production - switch after bank account is ready)
+# STRIPE_SECRET_KEY=sk_live_your_live_key_here
+# STRIPE_PUBLISHABLE_KEY=pk_live_your_live_publishable_key_here
+# STRIPE_WEBHOOK_SECRET=whsec_your_live_webhook_secret_here
+
+# ============================================
+# DATABASE CONFIGURATION
+# ============================================
+# PostgreSQL connection string
+# Format: postgresql://user:password@host:port/database
+DATABASE_URL=postgresql://trading_user:password@localhost:5432/trading_bot
+
+# If not using PostgreSQL, leave empty to use JSON files
+# DATABASE_URL=
+
+# ============================================
+# MONITORING & LOGGING
+# ============================================
+LOG_LEVEL=INFO
+LOG_DIR=logs
+HEALTH_CHECK_PORT=8080
+HEALTH_CHECK_ENABLED=true
+
+# ============================================
+# BACKUP CONFIGURATION
+# ============================================
+BACKUP_ENABLED=true
+BACKUP_RETENTION_DAYS=30
+BACKUP_DIR=backups
+
+# ============================================
+# SECURITY
+# ============================================
+# Admin user IDs (comma-separated)
+ADMIN_USER_IDS=
+
+# API keys for external services
+ALPHA_VANTAGE_API_KEY=
+NEWS_API_KEY=
+
+# ============================================
+# OPTIONAL: CLOUD STORAGE (for backups)
+# ============================================
+AWS_S3_BUCKET=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+
+# ============================================
+# OPTIONAL: ALERTING
+# ============================================
+ALERT_EMAIL=
+ALERT_WEBHOOK_URL=
+UPTIME_ROBOT_API_KEY=
+
+# ============================================
+# DEVELOPMENT MODE
+# ============================================
+DEBUG_MODE=false
+TEST_MODE=false

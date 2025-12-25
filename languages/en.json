@@ -1,0 +1,105 @@
+{
+  "welcome": {
+    "title": "🌟 Welcome to UR Trading Expert Bot!",
+    "description": "Your AI-powered trading companion with professional signals",
+    "get_started": "Get Started",
+    "features": "Features",
+    "pricing": "Pricing"
+  },
+  "commands": {
+    "help": "Help & Commands",
+    "signals": "Trading Signals",
+    "analytics": "Analytics",
+    "education": "Education",
+    "notifications": "Notifications",
+    "account": "My Account",
+    "settings": "Settings"
+  },
+  "signals": {
+    "direction_buy": "📈 BUY",
+    "direction_sell": "📉 SELL",
+    "direction_hold": "⏸️ HOLD",
+    "confidence": "Confidence",
+    "entry_price": "Entry Price",
+    "stop_loss": "Stop Loss",
+    "take_profit": "Take Profit",
+    "risk_reward": "Risk-Reward Ratio",
+    "analysis": "Analysis",
+    "generated_at": "Generated",
+    "signal_quality": "Signal Quality",
+    "trading_hours": "Trading Hours"
+  },
+  "markets": {
+    "forex": "Forex",
+    "crypto": "Cryptocurrency",
+    "commodities": "Commodities",
+    "futures": "Futures",
+    "international": "International Markets"
+  },
+  "subscription": {
+    "free_tier": "Free",
+    "premium_tier": "Premium",
+    "vip_tier": "VIP",
+    "upgrade_required": "Upgrade Required",
+    "upgrade_now": "Upgrade Now",
+    "billing": "Billing & Subscription",
+    "upgrade_options": "Upgrade Options",
+    "full_international": "Full international access",
+    "limited_international": "Limited international",
+    "use_subscribe": "Use `/subscribe` to upgrade!"
+  },
+  "errors": {
+    "general_error": "An error occurred. Please try again.",
+    "permission_denied": "You don't have permission to use this feature.",
+    "rate_limit": "Too many requests. Please wait and try again.",
+    "service_unavailable": "Service temporarily unavailable.",
+    "invalid_command": "Invalid command. Use /help for available commands."
+  },
+  "time": {
+    "just_now": "Just now",
+    "minutes_ago": "{} minutes ago",
+    "hours_ago": "{} hours ago",
+    "days_ago": "{} days ago",
+    "yesterday": "Yesterday",
+    "today": "Today",
+    "tomorrow": "Tomorrow"
+  },
+  "numbers": {
+    "decimal_separator": ".",
+    "thousands_separator": ",",
+    "currency_format": "${:,.2f}",
+    "percentage_format": "{:.1f}%"
+  },
+  "trading": {
+    "long_position": "Long Position",
+    "short_position": "Short Position",
+    "leverage": "Leverage",
+    "margin": "Margin",
+    "pnl": "P&L",
+    "profit": "Profit",
+    "loss": "Loss",
+    "break_even": "Break Even",
+    "trend": "Trend",
+    "support": "Support",
+    "resistance": "Resistance",
+    "spread": "Spread"
+  },
+  "international": {
+    "cny_title": "🇨🇳 Chinese Market (CNY)",
+    "brl_title": "🇧🇷 Brazilian Real (BRL)",
+    "eth_title": "₿ Ethereum Futures (ETH)",
+    "asian_session": "Asian Session",
+    "americas_session": "Americas Session",
+    "crypto_247": "Crypto 24/7",
+    "emerging_market": "Emerging Market",
+    "high_volatility": "High Volatility",
+    "low_volatility": "Low Volatility",
+    "extreme_volatility": "Extreme Volatility",
+    "processing_asian": "Processing Asian market data...",
+    "analyzing_cny": "Analyzing USD/CNY signals",
+    "market_info": "Market Info",
+    "cny_unavailable": "CNY SIGNAL UNAVAILABLE",
+    "try_again": "Try again in a few minutes",
+    "cny_error": "CNY signal error"
+  }
+}

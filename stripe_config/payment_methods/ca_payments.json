@@ -1,0 +1,22 @@
+{
+  "country": "Canada",
+  "country_code": "CA",
+  "currency": "CAD",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "interac": {
+      "name": "Interac",
+      "supported_currencies": [
+        "CAD"
+      ],
+      "processing_fee": "1.5%"
+    }
+  },
+  "primary_method": "card"
+}

@@ -1,0 +1,49 @@
+{
+  "stats": {
+    "total_trades": 156,
+    "winning_trades": 138,
+    "losing_trades": 18,
+    "win_rate": 88.46153846153845,
+    "total_pnl": 12001.177255149929,
+    "avg_win": 91.70378417666798,
+    "avg_loss": 36.3302756239029,
+    "profit_factor": 19.351968386716187,
+    "starting_capital": 500,
+    "ending_capital": 12501.177255149929,
+    "roi": 2400.2354510299856,
+    "max_drawdown": 95.98928495798881
+  },
+  "asset_configs": {
+    "BTC": {
+      "win_rate": 0.91,
+      "avg_rr": 2.5,
+      "signals_per_month": 2,
+      "avg_risk_pips": 500
+    },
+    "GOLD": {
+      "win_rate": 0.94,
+      "avg_rr": 2.5,
+      "signals_per_month": 2,
+      "avg_risk_pips": 15
+    },
+    "EURUSD": {
+      "win_rate": 0.92,
+      "avg_rr": 2.5,
+      "signals_per_month": 3,
+      "avg_risk_pips": 50
+    },
+    "GBPUSD": {
+      "win_rate": 0.91,
+      "avg_rr": 2.5,
+      "signals_per_month": 3,
+      "avg_risk_pips": 50
+    },
+    "USDJPY": {
+      "win_rate": 0.93,
+      "avg_rr": 2.5,
+      "signals_per_month": 3,
+      "avg_risk_pips": 50
+    }
+  },
+  "timestamp": "2025-12-10T18:19:35.881955"
+}

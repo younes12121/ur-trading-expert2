@@ -1,0 +1,39 @@
+# Correlation Warning Integration Script
+# Add this snippet after "msg += f\"Criteria: {criteria_passed}/{criteria_total}\\n\\n\""
+# in each Forex signal command (eurusd, gbpusd, usdjpy, audusd, usdcad, eurjpy)
+
+# For EUR/USD command (around line 427):
+        # Check for correlation conflicts
+        has_conflict, conflict_warning = check_correlation_conflict('EURUSD')
+        if has_conflict:
+            msg += conflict_warning
+
+# For GBP/USD command (around line 485):
+        # Check for correlation conflicts
+        has_conflict, conflict_warning = check_correlation_conflict('GBPUSD')
+        if has_conflict:
+            msg += conflict_warning
+
+# For USD/JPY command (around line 528):
+        # Check for correlation conflicts
+        has_conflict, conflict_warning = check_correlation_conflict('USDJPY')
+        if has_conflict:
+            msg += conflict_warning
+
+# For AUD/USD command (around line 571):
+        # Check for correlation conflicts
+        has_conflict, conflict_warning = check_correlation_conflict('AUDUSD')
+        if has_conflict:
+            msg += conflict_warning
+
+# For USD/CAD command (around line 614):
+        # Check for correlation conflicts
+        has_conflict, conflict_warning = check_correlation_conflict('USDCAD')
+        if has_conflict:
+            msg += conflict_warning
+
+# For EUR/JPY command (around line 657):
+        # Check for correlation conflicts
+        has_conflict, conflict_warning = check_correlation_conflict('EURJPY')
+        if has_conflict:
+            msg += conflict_warning

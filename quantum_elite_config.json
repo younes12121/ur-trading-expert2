@@ -1,0 +1,59 @@
+{
+  "system": {
+    "max_workers": 4,
+    "enable_async": true,
+    "cache_ttl_seconds": 300,
+    "log_level": "INFO"
+  },
+  "ai_modules": {
+    "neural_predictor": {
+      "enabled": true,
+      "timeout_seconds": 45,
+      "confidence_threshold": 0.5
+    },
+    "reinforcement_learning": {
+      "enabled": true,
+      "timeout_seconds": 40,
+      "risk_threshold": 0.7
+    },
+    "nlp_sentiment": {
+      "enabled": true,
+      "timeout_seconds": 25,
+      "min_confidence": 0.3
+    },
+    "federated_learning": {
+      "enabled": true,
+      "timeout_seconds": 60,
+      "consensus_threshold": 0.6
+    },
+    "predictive_analytics": {
+      "enabled": true,
+      "timeout_seconds": 30,
+      "horizon_hours": 24
+    }
+  },
+  "circuit_breakers": {
+    "failure_threshold": 3,
+    "recovery_timeout_seconds": 120,
+    "global_timeout": 60
+  },
+  "monitoring": {
+    "metrics_retention_hours": 24,
+    "alert_check_interval_seconds": 60,
+    "health_check_enabled": true
+  },
+  "validation": {
+    "strict_mode": false,
+    "sanitize_invalid_data": true,
+    "quality_threshold": 0.5
+  },
+  "caching": {
+    "redis_enabled": false,
+    "redis_url": "redis://localhost:6379",
+    "memory_cache_size_mb": 100,
+    "cache_invalidation_patterns": [
+      "market_data_*",
+      "signal_*"
+    ]
+  }
+}

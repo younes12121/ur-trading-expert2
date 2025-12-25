@@ -1,0 +1,59 @@
+
+
+async def audusd_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """AUD/USD signal with professional analysis"""
+    await update.message.reply_text("🔍 Analyzing AUD/USD...")
+    
+    try:
+        # Capture output
+        old_stdout = sys.stdout
+        sys.stdout = io.StringIO()
+        
+        spec = importlib.util.spec_from_file_location("audusd_gen", os.path.join(os.path.dirname(__file__), 'Forex expert', 'AUDUSD', 'elite_signal_generator.py'))
+        audusd_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audusd_module)
+        
+        generator = audusd_module.AUDUSDEliteSignalGenerator()
+        signal = generator.generate_signal()
+        
+        # Restore stdout
+        output = sys.stdout.getvalue()
+        sys.stdout = old_stdout
+        
+        if not signal:
+            await update.message.reply_text("Error getting AUD/USD signal")
+            return
+            
+        # Count criteria
+        criteria_passed = output.count('[OK]')
+        criteria_total = 20  # Forex uses 20-criteria ULTRA A+ filter
+        progress_pct = round((criteria_passed / criteria_total) * 100, 1)
+        
+        msg = f"💱 *AUD/USD SIGNAL*\n\n"
+        msg += f"Price: {signal['price']:.5f}\n"
+        msg += f"Confidence: {signal['confidence']}%\n"
+        msg += f"Progress: {progress_pct}%\n"
+        msg += f"Criteria: {criteria_passed}/{criteria_total}\n\n"
+        
+        if signal['has_signal']:
+            msg += f"✅ *ELITE A+ SIGNAL!*\n"
+            msg += f"Direction: {signal['direction']}\n"
+            msg += f"Entry: {signal['entry']:.5f}\n"
+            msg += f"Stop Loss: {signal['stop_loss']:.5f}\n"
+            msg += f"TP1: {signal['tp1']:.5f}\n"
+            msg += f"TP2: {signal['tp2']:.5f}\n"
+            msg += f"\n⏰ Best time: Sydney/Tokyo (22:00-08:00 UTC)"
+        else:
+            msg += f"❌ No signal yet\n"
+            if 'analysis' in signal and 'failures' in signal['analysis']:
+                msg += f"\n*Key Failures:*\n"
+                for failure in signal['analysis']['failures'][:3]:
+                    msg += f"• {failure}\n"
+            msg += f"\n💡 Best during Sydney/Tokyo session"
+        
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        sys.stdout = sys.__stdout__
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+

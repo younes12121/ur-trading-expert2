@@ -1,0 +1,87 @@
+{
+  "7713994326": {
+    "mt5": {
+      "broker_type": "mt5",
+      "credentials": {
+        "login": "99756590",
+        "password": "E-T8ShKw",
+        "server": "MeteQuots"
+      },
+      "status": "connected",
+      "connected_at": "2025-12-05 23:38:41",
+      "last_used": "2025-12-11 11:58:24",
+      "trades_executed": 1
+    },
+    "oanda": {
+      "broker_type": "oanda",
+      "credentials": {
+        "api_key": "demo_api_key_12345",
+        "account_id": "001-004-demo-001"
+      },
+      "status": "connected",
+      "connected_at": "2025-12-11 11:58:21",
+      "last_used": "2025-12-11 11:58:21",
+      "trades_executed": 1
+    },
+    "ic_markets": {
+      "broker_type": "ic_markets",
+      "credentials": {
+        "api_key": "demo_ic_markets_key",
+        "account_id": "ICM123456"
+      },
+      "status": "connected",
+      "connected_at": "2025-12-11 12:00:00",
+      "last_used": null,
+      "trades_executed": 0
+    },
+    "interactive_brokers": {
+      "broker_type": "interactive_brokers",
+      "credentials": {
+        "api_key": "demo_ib_key",
+        "account_id": "IB123456",
+        "host": "127.0.0.1",
+        "port": 7497
+      },
+      "status": "connected",
+      "connected_at": "2025-12-11 12:00:00",
+      "last_used": null,
+      "trades_executed": 0
+    },
+    "binance": {
+      "broker_type": "binance",
+      "credentials": {
+        "api_key": "demo_binance_key",
+        "secret_key": "demo_binance_secret"
+      },
+      "status": "connected",
+      "connected_at": "2025-12-11 12:00:00",
+      "last_used": null,
+      "trades_executed": 0
+    }
+  },
+  "999999": {
+    "mt4": {
+      "broker_type": "mt4",
+      "credentials": {
+        "login": "123456",
+        "password": "demo_password",
+        "server": "DemoServer"
+      },
+      "status": "connected",
+      "connected_at": "2025-12-11 12:00:00",
+      "last_used": null,
+      "trades_executed": 0
+    },
+    "pepperstone": {
+      "broker_type": "pepperstone",
+      "credentials": {
+        "api_key": "demo_pepperstone_key",
+        "account_id": "PS789012"
+      },
+      "status": "connected",
+      "connected_at": "2025-12-11 12:00:00",
+      "last_used": null,
+      "trades_executed": 0
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "deployment": {
+    "platform": "railway",
+    "region": "us-east-1",
+    "backup_regions": [
+      "eu-west-1",
+      "ap-southeast-1"
+    ],
+    "auto_scaling": true,
+    "cdn_enabled": true
+  },
+  "database": {
+    "type": "postgresql",
+    "multi_region": true,
+    "backup_retention_days": 30,
+    "connection_pooling": true
+  },
+  "payments": {
+    "provider": "stripe",
+    "supported_currencies": [
+      "USD",
+      "EUR",
+      "GBP",
+      "JPY",
+      "AUD",
+      "CAD"
+    ],
+    "regional_pricing": true,
+    "tax_compliance": true
+  },
+  "monitoring": {
+    "uptime_monitoring": true,
+    "performance_tracking": true,
+    "error_alerts": true,
+    "international_alerts": true
+  },
+  "security": {
+    "gdpr_compliance": true,
+    "data_encryption": true,
+    "regional_data_residency": true,
+    "audit_logging": true
+  },
+  "international": {
+    "supported_languages": [
+      "en",
+      "es",
+      "ar",
+      "zh",
+      "ru",
+      "pt"
+    ],
+    "timezone_awareness": true,
+    "regional_features": true,
+    "local_regulations": true
+  }
+}

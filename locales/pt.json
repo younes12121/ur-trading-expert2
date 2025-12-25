@@ -1,0 +1,25 @@
+{
+  "welcome": "🚀 Bem-vindo ao Bot UR Trading Expert!\n\nSeu companheiro de trading com IA e sinais profissionais.",
+  "help_menu": "📋 **MENU DE COMANDOS**\n\n🎯 **Sinais de Trading**\n• /btc - Análise de Bitcoin\n• /gold - Sinais de Ouro\n• /international - Mercados globais\n\n📊 **Análises**\n• /analytics - Estatísticas de desempenho\n• /correlation - Correlação de ativos\n\n💰 **Conta**\n• /subscribe - Planos e preços\n• /billing - Gerenciamento de assinatura\n\n📚 **Educação**\n• /learn - Dicas de trading\n• /glossary - Dicionário de termos\n\n🔔 **Notificações**\n• /notifications - Preferências de alertas",
+  "signal_buy": "📈 **SINAL DE COMPRA**",
+  "signal_sell": "📉 **SINAL DE VENDA**",
+  "signal_hold": "⏸️ **MANTER**",
+  "confidence": "🎯 Confiança",
+  "entry_price": "💰 Preço de Entrada",
+  "stop_loss": "🛡️ Stop Loss",
+  "take_profit": "💎 Take Profit",
+  "risk_reward": "⚖️ Relação Risco-Recompensa",
+  "cny_description": "🇨🇳 **Yuan Chinês (CNY)**\n\nMoeda da maior economia da Ásia com baixa volatilidade e fundamentos sólidos.",
+  "brl_description": "🇧🇷 **Real Brasileiro (BRL)**\n\nMoeda de mercado emergente com alta volatilidade e exposição a commodities.",
+  "eth_description": "₿ **Futuros Ethereum (ETH)**\n\nPlataforma de contratos inteligentes com volatilidade extrema e trading 24/7.",
+  "premium_required": "⭐ **RECURSO PREMIUM**\n\nEste recurso requer uma assinatura Premium.",
+  "vip_required": "💎 **RECURSO VIP**\n\nEste recurso requer uma assinatura VIP.",
+  "upgrade_prompt": "💳 Use /subscribe para atualizar seu plano!",
+  "trading_tips": "💡 **Dicas de Trading**\n\n• Sempre use stop losses\n• Nunca arrisque mais de 2% por operação\n• Siga seu plano de trading\n• Mantenha as emoções sob controle",
+  "free_plan": "🆓 **PLANO GRATUITO**\n• 2 pares de Forex\n• Sinais básicos\n• Análises limitadas",
+  "premium_plan": "⭐ **PLANO PREMIUM - $39/mês**\n• Todos os 15 ativos + Internacionais\n• Alertas ilimitados\n• Análises completas\n• Predições de IA",
+  "vip_plan": "💎 **PLANO VIP - $129/mês**\n• Tudo do Premium\n• Futuros de Crypto\n• Integração de Corretoras\n• Comunidade privada"
+}
+
+
+

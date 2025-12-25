@@ -1,0 +1,21 @@
+{
+  "country": "Egypt",
+  "country_code": "EG",
+  "currency": "EGP",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 550,
+      "currency": "EGP",
+      "interval": "month",
+      "description": "Premium subscription - Egypt"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 1880,
+      "currency": "EGP",
+      "interval": "month",
+      "description": "Vip subscription - Egypt"
+    }
+  }
+}

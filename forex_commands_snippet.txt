@@ -1,0 +1,169 @@
+"""
+Forex Commands for Telegram Bot
+EUR/USD, GBP/USD, USD/JPY signal commands
+"""
+
+async def eurusd_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """EUR/USD signal"""
+    await update.message.reply_text("🔍 Analyzing EUR/USD...")
+    
+    try:
+        # Import dynamically
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Forex expert', 'EURUSD'))
+        from elite_signal_generator import EURUSDEliteSignalGenerator
+        
+        generator = EURUSDEliteSignalGenerator()
+        signal = generator.generate_signal()
+        
+        if not signal:
+            await update.message.reply_text("❌ Error getting EUR/USD signal")
+            return
+        
+        msg = f"💱 *EUR/USD SIGNAL*\n\n"
+        msg += f"Price: {signal['price']:.5f}\n"
+        msg += f"Confidence: {signal['confidence']}%\n\n"
+        
+        if signal['has_signal']:
+            msg += f"✅ *SIGNAL ACTIVE!*\n"
+            msg += f"Direction: {signal['direction']}\n"
+            msg += f"Entry: {signal['entry']:.5f}\n"
+            msg += f"Stop Loss: {signal['stop_loss']:.5f}\n"
+            msg += f"TP1: {signal['tp1']:.5f}\n"
+            msg += f"TP2: {signal['tp2']:.5f}\n\n"
+            
+            # Add pip info
+            from pip_calculator import get_pip_info
+            pip_info = get_pip_info('EURUSD', signal['entry'], signal['stop_loss'], signal['tp1'], signal['tp2'])
+            msg += f"📏 *PIP ANALYSIS:*\n"
+            msg += f"SL: {pip_info['sl_pips']} pips\n"
+            msg += f"TP1: {pip_info['tp1_pips']} pips (R:R 1:{pip_info['rr_tp1']})\n"
+            msg += f"TP2: {pip_info['tp2_pips']} pips (R:R 1:{pip_info['rr_tp2']})\n"
+        else:
+            msg += f"❌ No signal yet\n"
+            msg += f"Wait for all 17 criteria to align\n"
+        
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def gbpusd_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """GBP/USD signal"""
+    await update.message.reply_text("🔍 Analyzing GBP/USD...")
+    
+    try:
+        # Import dynamically
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Forex expert', 'GBPUSD'))
+        from elite_signal_generator import GBPUSDEliteSignalGenerator
+        
+        generator = GBPUSDEliteSignalGenerator()
+        signal = generator.generate_signal()
+        
+        if not signal:
+            await update.message.reply_text("❌ Error getting GBP/USD signal")
+            return
+        
+        msg = f"💱 *GBP/USD SIGNAL*\n\n"
+        msg += f"Price: {signal['price']:.5f}\n"
+        msg += f"Confidence: {signal['confidence']}%\n\n"
+        
+        if signal['has_signal']:
+            msg += f"✅ *SIGNAL ACTIVE!*\n"
+            msg += f"Direction: {signal['direction']}\n"
+            msg += f"Entry: {signal['entry']:.5f}\n"
+            msg += f"Stop Loss: {signal['stop_loss']:.5f}\n"
+            msg += f"TP1: {signal['tp1']:.5f}\n"
+            msg += f"TP2: {signal['tp2']:.5f}\n\n"
+            
+            # Add pip info
+            from pip_calculator import get_pip_info
+            pip_info = get_pip_info('GBPUSD', signal['entry'], signal['stop_loss'], signal['tp1'], signal['tp2'])
+            msg += f"📏 *PIP ANALYSIS:*\n"
+            msg += f"SL: {pip_info['sl_pips']} pips\n"
+            msg += f"TP1: {pip_info['tp1_pips']} pips (R:R 1:{pip_info['rr_tp1']})\n"
+            msg += f"TP2: {pip_info['tp2_pips']} pips (R:R 1:{pip_info['rr_tp2']})\n"
+        else:
+            msg += f"❌ No signal yet\n"
+            msg += f"Wait for all 17 criteria to align\n"
+        
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def usdjpy_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """USD/JPY signal"""
+    await update.message.reply_text("🔍 Analyzing USD/JPY...")
+    
+    try:
+        # Import dynamically
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Forex expert', 'USDJPY'))
+        from elite_signal_generator import USDJPYEliteSignalGenerator
+        
+        generator = USDJPYEliteSignalGenerator()
+        signal = generator.generate_signal()
+        
+        if not signal:
+            await update.message.reply_text("❌ Error getting USD/JPY signal")
+            return
+        
+        msg = f"💱 *USD/JPY SIGNAL*\n\n"
+        msg += f"Price: {signal['price']:.3f}\n"
+        msg += f"Confidence: {signal['confidence']}%\n\n"
+        
+        if signal['has_signal']:
+            msg += f"✅ *SIGNAL ACTIVE!*\n"
+            msg += f"Direction: {signal['direction']}\n"
+            msg += f"Entry: {signal['entry']:.3f}\n"
+            msg += f"Stop Loss: {signal['stop_loss']:.3f}\n"
+            msg += f"TP1: {signal['tp1']:.3f}\n"
+            msg += f"TP2: {signal['tp2']:.3f}\n\n"
+            
+            # Add pip info
+            from pip_calculator import get_pip_info
+            pip_info = get_pip_info('USDJPY', signal['entry'], signal['stop_loss'], signal['tp1'], signal['tp2'])
+            msg += f"📏 *PIP ANALYSIS:*\n"
+            msg += f"SL: {pip_info['sl_pips']} pips\n"
+            msg += f"TP1: {pip_info['tp1_pips']} pips (R:R 1:{pip_info['rr_tp1']})\n"
+            msg += f"TP2: {pip_info['tp2_pips']} pips (R:R 1:{pip_info['rr_tp2']})\n"
+        else:
+            msg += f"❌ No signal yet\n"
+            msg += f"Wait for all 17 criteria to align\n"
+        
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def forex_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """All Forex pairs summary"""
+    await update.message.reply_text("🔍 Analyzing all Forex pairs...")
+    
+    try:
+        # Get all 3 pairs
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Forex expert', 'shared'))
+        from forex_data_client import RealTimeForexClient
+        
+        client = RealTimeForexClient()
+        pairs = ['EURUSD', 'GBPUSD', 'USDJPY']
+        prices = client.get_multiple_pairs(pairs)
+        
+        msg = f"💱 *FOREX SIGNALS SUMMARY*\n\n"
+        
+        for pair, price_data in prices.items():
+            msg += f"*{pair[:3]}/{pair[3:]}*\n"
+            msg += f"Price: {price_data['mid']:.5f if 'JPY' not in pair else price_data['mid']:.3f}\n"
+            msg += f"Source: {price_data['source']}\n\n"
+        
+        msg += f"Use individual commands for full analysis:\n"
+        msg += f"/eurusd - EUR/USD signal\n"
+        msg += f"/gbpusd - GBP/USD signal\n"
+        msg += f"/usdjpy - USD/JPY signal\n"
+        
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)}")

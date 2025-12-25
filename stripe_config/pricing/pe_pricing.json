@@ -1,0 +1,21 @@
+{
+  "country": "Peru",
+  "country_code": "PE",
+  "currency": "PEN",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 105,
+      "currency": "PEN",
+      "interval": "month",
+      "description": "Premium subscription - Peru"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 360,
+      "currency": "PEN",
+      "interval": "month",
+      "description": "Vip subscription - Peru"
+    }
+  }
+}

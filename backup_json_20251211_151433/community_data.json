@@ -1,0 +1,39 @@
+{
+  "signal_ratings": {
+    "42": [
+      {
+        "user_id": 7713994326,
+        "rating": 5,
+        "comment": "Great entry point!",
+        "timestamp": "2025-12-05 21:55:47"
+      }
+    ],
+    "1": [
+      {
+        "user_id": 7713994326,
+        "rating": 5,
+        "comment": "Great signal!",
+        "timestamp": "2025-12-05 23:56:06"
+      },
+      {
+        "user_id": 999999,
+        "rating": 5,
+        "comment": null,
+        "timestamp": "2025-12-11 11:16:45"
+      }
+    ]
+  },
+  "polls": [],
+  "success_stories": [],
+  "copy_trading": {
+    "999999": [
+      {
+        "leader_id": 999998,
+        "enabled": true,
+        "lot_multiplier": 1.0,
+        "max_risk_per_trade": 2.0,
+        "started_at": "2025-12-07 20:59:03"
+      }
+    ]
+  }
+}

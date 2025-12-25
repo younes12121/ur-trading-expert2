@@ -1,0 +1,89 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Quantum Elite Auto Scaling Configuration'
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: quantum-elite
+
+  InstanceType:
+    Type: String
+    Default: c6g.xlarge
+
+  MinInstances:
+    Type: String
+    Default: '3'
+
+  MaxInstances:
+    Type: String
+    Default: '20'
+
+Resources:
+  # Launch Template
+  LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: !Sub '${EnvironmentName}-launch-template'
+      LaunchTemplateData:
+        ImageId: ami-12345678  # Replace with actual AMI ID
+        InstanceType: !Ref InstanceType
+        SecurityGroupIds:
+          - !ImportValue 'quantum-elite-security-group-id'
+        UserData:
+          Fn::Base64: |
+            #!/bin/bash
+            yum update -y
+            yum install -y httpd
+            systemctl start httpd
+            systemctl enable httpd
+
+  # Auto Scaling Group
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: !Sub '${EnvironmentName}-asg'
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: '1'
+      MinSize: !Ref MinInstances
+      MaxSize: !Ref MaxInstances
+      DesiredCapacity: !Ref MinInstances
+      AvailabilityZones: !GetAZs ''
+      HealthCheckType: EC2
+      HealthCheckGracePeriod: 300
+
+  # Scale Out Policy
+  ScaleOutPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties:
+      AutoScalingGroupName: !Ref AutoScalingGroup
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 70.0
+
+  # Scale In Policy
+  ScaleInPolicy:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties:
+      AutoScalingGroupName: !Ref AutoScalingGroup
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 30.0
+
+Outputs:
+  AutoScalingGroupName:
+    Description: Auto Scaling Group Name
+    Value: !Ref AutoScalingGroup
+    Export:
+      Name: !Sub '${EnvironmentName}-asg-name'
+
+  LaunchTemplateId:
+    Description: Launch Template ID
+    Value: !Ref LaunchTemplate
+    Export:
+      Name: !Sub '${EnvironmentName}-launch-template-id'

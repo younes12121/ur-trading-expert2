@@ -1,0 +1,21 @@
+{
+  "country": "India",
+  "country_code": "IN",
+  "currency": "INR",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 2200,
+      "currency": "INR",
+      "interval": "month",
+      "description": "Premium subscription - India"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 7500,
+      "currency": "INR",
+      "interval": "month",
+      "description": "Vip subscription - India"
+    }
+  }
+}

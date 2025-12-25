@@ -1,0 +1,21 @@
+{
+  "country": "Poland",
+  "country_code": "PL",
+  "currency": "PLN",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 110,
+      "currency": "PLN",
+      "interval": "month",
+      "description": "Premium subscription - Poland"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 375,
+      "currency": "PLN",
+      "interval": "month",
+      "description": "Vip subscription - Poland"
+    }
+  }
+}

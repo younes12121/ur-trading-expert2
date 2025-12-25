@@ -1,0 +1,21 @@
+{
+  "country": "United Kingdom",
+  "country_code": "GB",
+  "currency": "GBP",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 22,
+      "currency": "GBP",
+      "interval": "month",
+      "description": "Premium subscription - United Kingdom"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 75,
+      "currency": "GBP",
+      "interval": "month",
+      "description": "Vip subscription - United Kingdom"
+    }
+  }
+}

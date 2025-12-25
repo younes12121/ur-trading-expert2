@@ -1,0 +1,21 @@
+{
+  "country": "Denmark",
+  "country_code": "DK",
+  "currency": "DKK",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 190,
+      "currency": "DKK",
+      "interval": "month",
+      "description": "Premium subscription - Denmark"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 650,
+      "currency": "DKK",
+      "interval": "month",
+      "description": "Vip subscription - Denmark"
+    }
+  }
+}

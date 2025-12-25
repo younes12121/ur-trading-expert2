@@ -1,0 +1,105 @@
+{
+  "welcome": {
+    "title": "🌟 欢迎使用 UR 交易专家机器人！",
+    "description": "您的人工智能交易助手，提供专业信号",
+    "get_started": "开始使用",
+    "features": "功能特性",
+    "pricing": "价格方案"
+  },
+  "commands": {
+    "help": "帮助和命令",
+    "signals": "交易信号",
+    "analytics": "数据分析",
+    "education": "教育内容",
+    "notifications": "通知设置",
+    "account": "我的账户",
+    "settings": "设置"
+  },
+  "signals": {
+    "direction_buy": "📈 买入",
+    "direction_sell": "📉 卖出",
+    "direction_hold": "⏸️ 观望",
+    "confidence": "置信度",
+    "entry_price": "入场价格",
+    "stop_loss": "止损",
+    "take_profit": "止盈",
+    "risk_reward": "风险回报比",
+    "analysis": "分析",
+    "generated_at": "生成时间",
+    "signal_quality": "信号质量",
+    "trading_hours": "交易时间"
+  },
+  "markets": {
+    "forex": "外汇",
+    "crypto": "加密货币",
+    "commodities": "大宗商品",
+    "futures": "期货",
+    "international": "国际市场"
+  },
+  "subscription": {
+    "free_tier": "免费版",
+    "premium_tier": "高级版",
+    "vip_tier": "VIP版",
+    "upgrade_required": "需要升级",
+    "upgrade_now": "立即升级",
+    "billing": "账单和订阅",
+    "upgrade_options": "",
+    "full_international": "",
+    "limited_international": "",
+    "use_subscribe": ""
+  },
+  "errors": {
+    "general_error": "发生错误。请重试。",
+    "permission_denied": "您没有使用此功能的权限。",
+    "rate_limit": "请求过于频繁。请稍后再试。",
+    "service_unavailable": "服务暂时不可用。",
+    "invalid_command": "无效命令。使用 /help 查看可用命令。"
+  },
+  "time": {
+    "just_now": "刚刚",
+    "minutes_ago": "{} 分钟前",
+    "hours_ago": "{} 小时前",
+    "days_ago": "{} 天前",
+    "yesterday": "昨天",
+    "today": "今天",
+    "tomorrow": "明天"
+  },
+  "numbers": {
+    "decimal_separator": ".",
+    "thousands_separator": ",",
+    "currency_format": "¥{:,.2f}",
+    "percentage_format": "{:.1f}%"
+  },
+  "trading": {
+    "long_position": "多头仓位",
+    "short_position": "空头仓位",
+    "leverage": "杠杆",
+    "margin": "保证金",
+    "pnl": "盈亏",
+    "profit": "盈利",
+    "loss": "亏损",
+    "break_even": "盈亏平衡点",
+    "trend": "",
+    "support": "",
+    "resistance": "",
+    "spread": ""
+  },
+  "international": {
+    "cny_title": "🇨🇳 中国市场 (CNY)",
+    "brl_title": "🇧🇷 巴西雷亚尔 (BRL)",
+    "eth_title": "₿ 以太坊期货 (ETH)",
+    "asian_session": "亚洲时段",
+    "americas_session": "美洲时段",
+    "crypto_247": "加密货币 24/7",
+    "emerging_market": "新兴市场",
+    "high_volatility": "高波动性",
+    "low_volatility": "低波动性",
+    "extreme_volatility": "极端波动性",
+    "processing_asian": "正在处理亚洲市场数据...",
+    "analyzing_cny": "正在分析USD/CNY信号",
+    "market_info": "市场信息",
+    "cny_unavailable": "CNY信号不可用",
+    "try_again": "请在几分钟后重试",
+    "cny_error": "CNY信号错误"
+  }
+}

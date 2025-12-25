@@ -1,0 +1,22 @@
+{
+  "country": "China",
+  "country_code": "CN",
+  "currency": "CNY",
+  "supported_methods": {
+    "alipay": {
+      "name": "Alipay",
+      "supported_currencies": [
+        "CNY"
+      ],
+      "processing_fee": "3.4% + ¥0.16"
+    },
+    "wechat_pay": {
+      "name": "WeChat Pay",
+      "supported_currencies": [
+        "CNY"
+      ],
+      "processing_fee": "3.4% + ¥0.16"
+    }
+  },
+  "primary_method": "card"
+}

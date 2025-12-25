@@ -1,0 +1,21 @@
+{
+  "country": "Norway",
+  "country_code": "NO",
+  "currency": "NOK",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 270,
+      "currency": "NOK",
+      "interval": "month",
+      "description": "Premium subscription - Norway"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 920,
+      "currency": "NOK",
+      "interval": "month",
+      "description": "Vip subscription - Norway"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "country": "Australia",
+  "country_code": "AU",
+  "currency": "AUD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 39,
+      "currency": "AUD",
+      "interval": "month",
+      "description": "Premium subscription - Australia"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 135,
+      "currency": "AUD",
+      "interval": "month",
+      "description": "Vip subscription - Australia"
+    }
+  }
+}

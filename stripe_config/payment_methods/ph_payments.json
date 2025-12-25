@@ -1,0 +1,22 @@
+{
+  "country": "Philippines",
+  "country_code": "PH",
+  "currency": "PHP",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "gcash": {
+      "name": "GCash",
+      "supported_currencies": [
+        "PHP"
+      ],
+      "processing_fee": "2.5%"
+    }
+  },
+  "primary_method": "card"
+}

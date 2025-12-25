@@ -1,0 +1,21 @@
+{
+  "country": "Chile",
+  "country_code": "CL",
+  "currency": "CLP",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 22000,
+      "currency": "CLP",
+      "interval": "month",
+      "description": "Premium subscription - Chile"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 75000,
+      "currency": "CLP",
+      "interval": "month",
+      "description": "Vip subscription - Chile"
+    }
+  }
+}

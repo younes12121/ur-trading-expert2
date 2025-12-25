@@ -1,0 +1,21 @@
+{
+  "country": "Canada",
+  "country_code": "CA",
+  "currency": "CAD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 35,
+      "currency": "CAD",
+      "interval": "month",
+      "description": "Premium subscription - Canada"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 120,
+      "currency": "CAD",
+      "interval": "month",
+      "description": "Vip subscription - Canada"
+    }
+  }
+}

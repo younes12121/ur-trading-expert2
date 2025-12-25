@@ -1,0 +1,21 @@
+{
+  "country": "New Zealand",
+  "country_code": "NZ",
+  "currency": "NZD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 29,
+      "currency": "NZD",
+      "interval": "month",
+      "description": "Premium subscription - New Zealand"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 99,
+      "currency": "NZD",
+      "interval": "month",
+      "description": "Vip subscription - New Zealand"
+    }
+  }
+}

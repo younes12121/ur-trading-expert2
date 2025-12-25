@@ -1,0 +1,21 @@
+{
+  "country": "Austria",
+  "country_code": "AT",
+  "currency": "EUR",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 25,
+      "currency": "EUR",
+      "interval": "month",
+      "description": "Premium subscription - Austria"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 85,
+      "currency": "EUR",
+      "interval": "month",
+      "description": "Vip subscription - Austria"
+    }
+  }
+}

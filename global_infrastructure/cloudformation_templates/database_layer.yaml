@@ -1,0 +1,110 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Quantum Elite Database Layer'
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: quantum-elite
+
+  DBInstanceClass:
+    Type: String
+    Default: db.r6g.2xlarge
+
+  DBName:
+    Type: String
+    Default: quantumelite
+
+Resources:
+  # RDS Subnet Group
+  RDSSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: !Sub 'Subnet group for ${EnvironmentName} RDS'
+      SubnetIds:
+        - !ImportValue 'quantum-elite-private-subnet-ids'  # Split by comma and use
+      DBSubnetGroupName: !Sub '${EnvironmentName}-rds-subnet-group'
+
+  # RDS Database Instance
+  RDSDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceClass: !Ref DBInstanceClass
+      DBName: !Ref DBName
+      Engine: postgres
+      EngineVersion: '15.0'
+      MasterUsername: !Sub '{{resolve:ssm:/${EnvironmentName}/db/username:1}}'
+      MasterUserPassword: !Sub '{{resolve:ssm:/${EnvironmentName}/db/password:1}}'
+      AllocatedStorage: '100'
+      StorageType: gp3
+      MultiAZ: true
+      DBSubnetGroupName: !Ref RDSSubnetGroup
+      VPCSecurityGroups:
+        - !Ref RDSSecurityGroup
+      BackupRetentionPeriod: 30
+      PreferredBackupWindow: '03:00-04:00'
+      PreferredMaintenanceWindow: 'sun:04:00-sun:05:00'
+      AutoMinorVersionUpgrade: true
+      EnablePerformanceInsights: true
+      PerformanceInsightsRetentionPeriod: 7
+
+  # RDS Security Group
+  RDSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub 'Security group for ${EnvironmentName} RDS'
+      VpcId: !ImportValue 'quantum-elite-vpc-id'
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          CidrIp: 10.0.0.0/16  # VPC CIDR
+
+  # Redis Cluster
+  RedisCluster:
+    Type: AWS::ElastiCache::ReplicationGroup
+    Properties:
+      ReplicationGroupDescription: !Sub 'Redis cluster for ${EnvironmentName}'
+      NumCacheClusters: 3
+      CacheNodeType: cache.r6g.large
+      Engine: redis
+      EngineVersion: '7.0'
+      Port: 6379
+      AutomaticFailoverEnabled: true
+      MultiAZEnabled: true
+      CacheSubnetGroupName: !Ref RedisSubnetGroup
+      SecurityGroupIds:
+        - !Ref RedisSecurityGroup
+
+  # Redis Subnet Group
+  RedisSubnetGroup:
+    Type: AWS::ElastiCache::SubnetGroup
+    Properties:
+      Description: !Sub 'Subnet group for ${EnvironmentName} Redis'
+      SubnetIds:
+        - !ImportValue 'quantum-elite-private-subnet-ids'
+
+  # Redis Security Group
+  RedisSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub 'Security group for ${EnvironmentName} Redis'
+      VpcId: !ImportValue 'quantum-elite-vpc-id'
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 6379
+          ToPort: 6379
+          CidrIp: 10.0.0.0/16
+
+Outputs:
+  RDSEndpoint:
+    Description: RDS Database Endpoint
+    Value: !GetAtt RDSDatabase.Endpoint.Address
+    Export:
+      Name: !Sub '${EnvironmentName}-rds-endpoint'
+
+  RedisEndpoint:
+    Description: Redis Cluster Endpoint
+    Value: !GetAtt RedisCluster.ConfigurationEndpoint.Address
+    Export:
+      Name: !Sub '${EnvironmentName}-redis-endpoint'

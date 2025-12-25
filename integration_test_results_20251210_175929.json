@@ -1,0 +1,94 @@
+{
+  "timestamp": "2025-12-10T17:59:29.070269",
+  "success_rate": 88.23529411764706,
+  "total_tests": 17,
+  "passed": 15,
+  "failed": 2,
+  "test_details": [
+    {
+      "name": "Portfolio Optimizer",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Market Structure Analyzer",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Bot Integration",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Enhanced Test Runner",
+      "passed": false,
+      "error": "No module named 'psutil'"
+    },
+    {
+      "name": "Integration Test Suite",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Portfolio Correlation Analysis",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Portfolio Optimization",
+      "passed": false,
+      "error": "Optimization failed: Positive directional derivative for linesearch"
+    },
+    {
+      "name": "Market Structure Analysis",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Session Analysis",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Integration Status",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Portfolio Optimize Command",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Market Structure Command",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Session Analysis Command",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Portfolio Risk Command",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Correlation Matrix Command",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "Portfolio Optimization Performance",
+      "passed": true,
+      "error": "0.016s"
+    },
+    {
+      "name": "Market Structure Analysis Performance",
+      "passed": true,
+      "error": "0.007s"
+    }
+  ]
+}

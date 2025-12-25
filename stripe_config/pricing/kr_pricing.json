@@ -1,0 +1,21 @@
+{
+  "country": "South Korea",
+  "country_code": "KR",
+  "currency": "KRW",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 35000,
+      "currency": "KRW",
+      "interval": "month",
+      "description": "Premium subscription - South Korea"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 120000,
+      "currency": "KRW",
+      "interval": "month",
+      "description": "Vip subscription - South Korea"
+    }
+  }
+}

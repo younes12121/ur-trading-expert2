@@ -1,0 +1,22 @@
+{
+  "country": "United States",
+  "country_code": "US",
+  "currency": "USD",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "us_bank_account": {
+      "name": "ACH Bank Transfer",
+      "supported_currencies": [
+        "USD"
+      ],
+      "processing_fee": "$0"
+    }
+  },
+  "primary_method": "card"
+}

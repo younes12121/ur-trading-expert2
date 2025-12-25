@@ -1,0 +1,21 @@
+{
+  "country": "Romania",
+  "country_code": "RO",
+  "currency": "RON",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 120,
+      "currency": "RON",
+      "interval": "month",
+      "description": "Premium subscription - Romania"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 410,
+      "currency": "RON",
+      "interval": "month",
+      "description": "Vip subscription - Romania"
+    }
+  }
+}

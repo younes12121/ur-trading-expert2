@@ -1,0 +1,21 @@
+{
+  "country": "Turkey",
+  "country_code": "TR",
+  "currency": "TRY",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 500,
+      "currency": "TRY",
+      "interval": "month",
+      "description": "Premium subscription - Turkey"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 1700,
+      "currency": "TRY",
+      "interval": "month",
+      "description": "Vip subscription - Turkey"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "7713994326": {
+    "telegram_id": 7713994326,
+    "tier": "premium",
+    "subscription_date": "2025-12-06 16:54:55",
+    "subscription_expiry": "2026-01-05",
+    "trial_used": false,
+    "capital": 500.0,
+    "risk_per_trade": 1.0,
+    "created_at": "2025-12-05 19:49:56",
+    "last_active": "2025-12-11 14:59:32",
+    "signals_used_today": 0,
+    "last_signal_date": null
+  },
+  "5245082009": {
+    "telegram_id": 5245082009,
+    "tier": "free",
+    "subscription_date": null,
+    "subscription_expiry": null,
+    "trial_used": false,
+    "capital": 500.0,
+    "risk_per_trade": 1.0,
+    "created_at": "2025-12-06 16:02:51",
+    "last_active": "2025-12-06 16:02:51",
+    "signals_used_today": 0,
+    "last_signal_date": null
+  },
+  "999999": {
+    "telegram_id": 999999,
+    "tier": "free",
+    "subscription_date": "2025-12-09 11:53:02",
+    "subscription_expiry": "2026-01-08",
+    "trial_used": false,
+    "capital": 500.0,
+    "risk_per_trade": 1.0,
+    "created_at": "2025-12-07 20:59:03",
+    "last_active": "2025-12-11 12:21:35",
+    "signals_used_today": 0,
+    "last_signal_date": null
+  },
+  "999999999": {
+    "telegram_id": 999999999,
+    "tier": "free",
+    "subscription_date": null,
+    "subscription_expiry": null,
+    "trial_used": false,
+    "capital": 500.0,
+    "risk_per_trade": 1.0,
+    "created_at": "2025-12-09 13:47:19",
+    "last_active": "2025-12-09 13:47:19",
+    "signals_used_today": 0,
+    "last_signal_date": null
+  }
+}

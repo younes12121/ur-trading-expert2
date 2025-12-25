@@ -1,0 +1,23 @@
+{
+  "domain": "urtradingexpert.com",
+  "email": "admin@urtradingexpert.com",
+  "ssl_auto": true,
+  "dashboard_port": 5001,
+  "mobile_port": 5002,
+  "environment": "production",
+  "nginx_config": true,
+  "ssl_certbot": true,
+  "monitoring": true,
+  "backup_enabled": true,
+  "log_level": "INFO",
+  "rate_limiting": {
+    "dashboard": "10r/s",
+    "mobile": "20r/s"
+  },
+  "cors_origins": [
+    "https://urtradingexpert.com",
+    "https://www.urtradingexpert.com",
+    "https://web.telegram.org",
+    "https://t.me"
+  ]
+}

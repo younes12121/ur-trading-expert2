@@ -1,0 +1,105 @@
+{
+  "welcome": {
+    "title": "🌟 UR Trading Expert Botへようこそ!",
+    "description": "プロフェッショナルなシグナルを提供するAI搭載のトレーディングコンパニオン",
+    "get_started": "始める",
+    "features": "機能",
+    "pricing": "料金"
+  },
+  "commands": {
+    "help": "ヘルプとコマンド",
+    "signals": "トレーディングシグナル",
+    "analytics": "分析",
+    "education": "教育",
+    "notifications": "通知",
+    "account": "マイアカウント",
+    "settings": "設定"
+  },
+  "signals": {
+    "direction_buy": "📈 買い",
+    "direction_sell": "📉 売り",
+    "direction_hold": "⏸️ ホールド",
+    "confidence": "信頼度",
+    "entry_price": "エントリー価格",
+    "stop_loss": "ストップロス",
+    "take_profit": "テイクプロフィット",
+    "risk_reward": "リスク/リワード比率",
+    "analysis": "分析",
+    "generated_at": "生成日時",
+    "signal_quality": "シグナル品質",
+    "trading_hours": "取引時間"
+  },
+  "markets": {
+    "forex": "外国為替",
+    "crypto": "暗号通貨",
+    "commodities": "商品",
+    "futures": "先物",
+    "international": "国際市場"
+  },
+  "subscription": {
+    "free_tier": "無料",
+    "premium_tier": "プレミアム",
+    "vip_tier": "VIP",
+    "upgrade_required": "アップグレードが必要です",
+    "upgrade_now": "今すぐアップグレード",
+    "billing": "請求とサブスクリプション",
+    "upgrade_options": "アップグレードオプション",
+    "full_international": "完全な国際アクセス",
+    "limited_international": "制限された国際アクセス",
+    "use_subscribe": "/subscribeを使用してアップグレードしてください！"
+  },
+  "errors": {
+    "general_error": "エラーが発生しました。もう一度お試しください。",
+    "permission_denied": "この機能を使用する権限がありません。",
+    "rate_limit": "リクエストが多すぎます。待ってからもう一度お試しください。",
+    "service_unavailable": "サービスが一時的に利用できません。",
+    "invalid_command": "無効なコマンドです。/helpを使用して利用可能なコマンドを確認してください。"
+  },
+  "time": {
+    "just_now": "たった今",
+    "minutes_ago": "{}分前",
+    "hours_ago": "{}時間前",
+    "days_ago": "{}日前",
+    "yesterday": "昨日",
+    "today": "今日",
+    "tomorrow": "明日"
+  },
+  "numbers": {
+    "decimal_separator": ".",
+    "thousands_separator": ",",
+    "currency_format": "${:,.2f}",
+    "percentage_format": "{:.1f}%"
+  },
+  "trading": {
+    "long_position": "ロングポジション",
+    "short_position": "ショートポジション",
+    "leverage": "レバレッジ",
+    "margin": "マージン",
+    "pnl": "損益",
+    "profit": "利益",
+    "loss": "損失",
+    "break_even": "損益分岐点",
+    "trend": "トレンド",
+    "support": "サポート",
+    "resistance": "レジスタンス",
+    "spread": "スプレッド"
+  },
+  "international": {
+    "cny_title": "🇨🇳 中国市場 (CNY)",
+    "brl_title": "🇧🇷 ブラジルレアル (BRL)",
+    "eth_title": "₿ Ethereum先物 (ETH)",
+    "asian_session": "アジアセッション",
+    "americas_session": "アメリカセッション",
+    "crypto_247": "暗号通貨24/7",
+    "emerging_market": "新興市場",
+    "high_volatility": "高ボラティリティ",
+    "low_volatility": "低ボラティリティ",
+    "extreme_volatility": "極端なボラティリティ",
+    "processing_asian": "アジア市場データの処理中...",
+    "analyzing_cny": "USD/CNYシグナルの分析",
+    "market_info": "市場情報",
+    "cny_unavailable": "CNYシグナルが利用できません",
+    "try_again": "数分後にもう一度お試しください",
+    "cny_error": "CNYシグナルエラー"
+  }
+}

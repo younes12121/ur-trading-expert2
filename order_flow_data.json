@@ -1,0 +1,32 @@
+{
+  "large_orders": [
+    {
+      "type": "buy",
+      "price": 50000,
+      "size": 2.5,
+      "value": 125000.0,
+      "pair": "EURUSD",
+      "timestamp": "2025-12-11 14:35:26"
+    },
+    {
+      "type": "sell",
+      "price": 50002,
+      "size": 2.0,
+      "value": 100004.0,
+      "pair": "EURUSD",
+      "timestamp": "2025-12-11 14:35:26"
+    }
+  ],
+  "unusual_volume": [
+    {
+      "pair": "EURUSD",
+      "current_volume": 5000000,
+      "avg_volume": 2000000,
+      "ratio": 2.5,
+      "timestamp": "2025-12-11 14:35:26",
+      "severity": "medium"
+    }
+  ],
+  "institutional_activity": [],
+  "last_updated": "2025-12-11 14:35:26"
+}

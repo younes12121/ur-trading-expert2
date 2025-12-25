@@ -1,0 +1,15 @@
+{
+  "country": "Poland",
+  "country_code": "PL",
+  "currency": "PLN",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    }
+  },
+  "primary_method": "card"
+}

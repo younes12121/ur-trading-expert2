@@ -1,0 +1,22 @@
+{
+  "country": "United Kingdom",
+  "country_code": "GB",
+  "currency": "GBP",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "bacs_debit": {
+      "name": "Bacs Direct Debit",
+      "supported_currencies": [
+        "GBP"
+      ],
+      "processing_fee": "£0.35"
+    }
+  },
+  "primary_method": "card"
+}

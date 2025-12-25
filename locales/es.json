@@ -1,0 +1,22 @@
+{
+  "welcome": "🚀 ¡Bienvenido al Bot UR Trading Expert!\n\nTu compañero de trading impulsado por IA con señales profesionales.",
+  "help_menu": "📋 **MENÚ DE COMANDOS**\n\n🎯 **Señales de Trading**\n• /btc - Análisis de Bitcoin\n• /gold - Señales de Oro\n• /international - Mercados globales\n\n📊 **Análisis**\n• /analytics - Estadísticas de rendimiento\n• /correlation - Correlación de activos\n\n💰 **Cuenta**\n• /subscribe - Planes y precios\n• /billing - Gestión de suscripción\n\n📚 **Educación**\n• /learn - Consejos de trading\n• /glossary - Diccionario de términos\n\n🔔 **Notificaciones**\n• /notifications - Preferencias de alertas",
+  "signal_buy": "📈 **SEÑAL DE COMPRA**",
+  "signal_sell": "📉 **SEÑAL DE VENTA**",
+  "signal_hold": "⏸️ **MANTENER**",
+  "confidence": "🎯 Confianza",
+  "entry_price": "💰 Precio de Entrada",
+  "stop_loss": "🛡️ Stop Loss",
+  "take_profit": "💎 Take Profit",
+  "risk_reward": "⚖️ Ratio Riesgo-Recompensa",
+  "cny_description": "🇨🇳 **Yuan Chino (CNY)**\n\nMoneda de la economía más grande de Asia con baja volatilidad y fundamentos sólidos.",
+  "brl_description": "🇧🇷 **Real Brasileño (BRL)**\n\nMoneda de mercado emergente con alta volatilidad y exposición a commodities.",
+  "eth_description": "₿ **Futuros Ethereum (ETH)**\n\nPlataforma de contratos inteligentes con volatilidad extrema y trading 24/7.",
+  "premium_required": "⭐ **FUNCIÓN PREMIUM**\n\nEsta función requiere una suscripción Premium.",
+  "vip_required": "💎 **FUNCIÓN VIP**\n\nEsta función requiere una suscripción VIP.",
+  "upgrade_prompt": "💳 ¡Usa /subscribe para actualizar tu plan!",
+  "trading_tips": "💡 **Consejos de Trading**\n\n• Siempre usa stop losses\n• Nunca arriesgues más del 2% por operación\n• Sigue tu plan de trading\n• Mantén las emociones bajo control",
+  "free_plan": "🆓 **PLAN GRATUITO**\n• 2 pares de Forex\n• Señales básicas\n• Análisis limitado",
+  "premium_plan": "⭐ **PLAN PREMIUM - $29/mes**\n• Todos los 16 activos + Internacionales\n• Alertas ilimitadas\n• Análisis completo\n• Predicciones IA",
+  "vip_plan": "💎 **PLAN VIP - $99/mes**\n• Todo en Premium\n• Futuros de Crypto\n• Integración de Brokers\n• Comunidad privada"
+}

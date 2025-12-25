@@ -1,0 +1,21 @@
+{
+  "country": "Indonesia",
+  "country_code": "ID",
+  "currency": "IDR",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 425000,
+      "currency": "IDR",
+      "interval": "month",
+      "description": "Premium subscription - Indonesia"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 1450000,
+      "currency": "IDR",
+      "interval": "month",
+      "description": "Vip subscription - Indonesia"
+    }
+  }
+}

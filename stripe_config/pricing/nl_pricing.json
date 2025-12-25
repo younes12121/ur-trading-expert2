@@ -1,0 +1,21 @@
+{
+  "country": "Netherlands",
+  "country_code": "NL",
+  "currency": "EUR",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 25,
+      "currency": "EUR",
+      "interval": "month",
+      "description": "Premium subscription - Netherlands"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 85,
+      "currency": "EUR",
+      "interval": "month",
+      "description": "Vip subscription - Netherlands"
+    }
+  }
+}

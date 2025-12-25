@@ -1,0 +1,21 @@
+{
+  "country": "Brazil",
+  "country_code": "BR",
+  "currency": "BRL",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 135,
+      "currency": "BRL",
+      "interval": "month",
+      "description": "Premium subscription - Brazil"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 460,
+      "currency": "BRL",
+      "interval": "month",
+      "description": "Vip subscription - Brazil"
+    }
+  }
+}

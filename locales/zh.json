@@ -1,0 +1,22 @@
+{
+  "welcome": "🚀 欢迎使用 UR 交易专家机器人！\n\n您的人工智能驱动交易伙伴，提供专业信号。",
+  "help_menu": "📋 **命令菜单**\n\n🎯 **交易信号**\n• /btc - 比特币分析\n• /gold - 黄金信号\n• /international - 全球市场\n\n📊 **分析**\n• /analytics - 绩效统计\n• /correlation - 资产相关性\n\n💰 **账户**\n• /subscribe - 计划和定价\n• /billing - 订阅管理\n\n📚 **教育**\n• /learn - 交易技巧\n• /glossary - 术语词典\n\n🔔 **通知**\n• /notifications - 警报偏好",
+  "signal_buy": "📈 **买入信号**",
+  "signal_sell": "📉 **卖出信号**",
+  "signal_hold": "⏸️ **持有**",
+  "confidence": "🎯 置信度",
+  "entry_price": "💰 入场价格",
+  "stop_loss": "🛡️ 止损",
+  "take_profit": "💎 止盈",
+  "risk_reward": "⚖️ 风险回报率",
+  "cny_description": "🇨🇳 **人民币 (CNY)**\n\n亚洲最大经济体的货币，波动性低，基本面稳健。",
+  "brl_description": "🇧🇷 **巴西雷亚尔 (BRL)**\n\n新兴市场货币，波动性高，对商品敏感。",
+  "eth_description": "₿ **以太坊期货 (ETH)**\n\n智能合约平台，波动性极高，24/7 交易。",
+  "premium_required": "⭐ **高级功能**\n\n此功能需要高级订阅。",
+  "vip_required": "💎 **VIP 功能**\n\n此功能需要 VIP 订阅。",
+  "upgrade_prompt": "💳 使用 /subscribe 升级您的计划！",
+  "trading_tips": "💡 **交易技巧**\n\n• 始终使用止损\n• 每笔交易风险不超过 2%\n• 遵循您的交易计划\n• 控制情绪",
+  "free_plan": "🆓 **免费计划**\n• 2 个外汇对\n• 基本信号\n• 有限分析",
+  "premium_plan": "⭐ **高级计划 - $29/月**\n• 所有 16 个资产 + 国际市场\n• 无限警报\n• 完整分析\n• AI 预测",
+  "vip_plan": "💎 **VIP 计划 - $99/月**\n• 高级计划的所有功能\n• 加密期货\n• 经纪商集成\n• 私人社区"
+}

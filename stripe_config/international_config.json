@@ -1,0 +1,779 @@
+{
+  "supported_countries": [
+    {
+      "code": "US",
+      "name": "United States",
+      "currency": "USD",
+      "methods": [
+        "card",
+        "us_bank_account"
+      ]
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "currency": "CAD",
+      "methods": [
+        "card",
+        "interac"
+      ]
+    },
+    {
+      "code": "MX",
+      "name": "Mexico",
+      "currency": "MXN",
+      "methods": [
+        "card",
+        "oxxo"
+      ]
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "currency": "GBP",
+      "methods": [
+        "card",
+        "bacs_debit"
+      ]
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit",
+        "sofort"
+      ]
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "IT",
+      "name": "Italy",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "ES",
+      "name": "Spain",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit",
+        "ideal"
+      ]
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit",
+        "sofort"
+      ]
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland",
+      "currency": "CHF",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "currency": "SEK",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "NO",
+      "name": "Norway",
+      "currency": "NOK",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "currency": "DKK",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "FI",
+      "name": "Finland",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "GR",
+      "name": "Greece",
+      "currency": "EUR",
+      "methods": [
+        "card",
+        "sepa_debit"
+      ]
+    },
+    {
+      "code": "PL",
+      "name": "Poland",
+      "currency": "PLN",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "CZ",
+      "name": "Czech Republic",
+      "currency": "CZK",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "HU",
+      "name": "Hungary",
+      "currency": "HUF",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "currency": "RON",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "currency": "JPY",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "currency": "AUD",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "NZ",
+      "name": "New Zealand",
+      "currency": "NZD",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "currency": "SGD",
+      "methods": [
+        "card",
+        "paynow"
+      ]
+    },
+    {
+      "code": "HK",
+      "name": "Hong Kong",
+      "currency": "HKD",
+      "methods": [
+        "card",
+        "fps"
+      ]
+    },
+    {
+      "code": "KR",
+      "name": "South Korea",
+      "currency": "KRW",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "CN",
+      "name": "China",
+      "currency": "CNY",
+      "methods": [
+        "alipay",
+        "wechat_pay"
+      ]
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "currency": "INR",
+      "methods": [
+        "card",
+        "upi"
+      ]
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "currency": "THB",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "currency": "MYR",
+      "methods": [
+        "card",
+        "fpx"
+      ]
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "currency": "IDR",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "PH",
+      "name": "Philippines",
+      "currency": "PHP",
+      "methods": [
+        "card",
+        "gcash"
+      ]
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam",
+      "currency": "VND",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "TW",
+      "name": "Taiwan",
+      "currency": "TWD",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "currency": "BRL",
+      "methods": [
+        "card",
+        "boleto"
+      ]
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "currency": "ARS",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "CL",
+      "name": "Chile",
+      "currency": "CLP",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "CO",
+      "name": "Colombia",
+      "currency": "COP",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "PE",
+      "name": "Peru",
+      "currency": "PEN",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "AE",
+      "name": "United Arab Emirates",
+      "currency": "AED",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "currency": "SAR",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "IL",
+      "name": "Israel",
+      "currency": "ILS",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "ZA",
+      "name": "South Africa",
+      "currency": "ZAR",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "EG",
+      "name": "Egypt",
+      "currency": "EGP",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "Turkey",
+      "currency": "TRY",
+      "methods": [
+        "card"
+      ]
+    },
+    {
+      "code": "RU",
+      "name": "Russia",
+      "currency": "RUB",
+      "methods": [
+        "card"
+      ]
+    }
+  ],
+  "pricing_tiers": {
+    "premium": {
+      "base_price_usd": 29,
+      "local_prices": {
+        "EUR": 25,
+        "GBP": 22,
+        "JPY": 3500,
+        "AUD": 39,
+        "CAD": 35,
+        "CHF": 28,
+        "SEK": 280,
+        "NOK": 270,
+        "DKK": 190,
+        "PLN": 110,
+        "CZK": 650,
+        "HUF": 8500,
+        "RON": 120,
+        "SGD": 38,
+        "HKD": 225,
+        "KRW": 35000,
+        "CNY": 190,
+        "INR": 2200,
+        "THB": 950,
+        "MYR": 120,
+        "IDR": 425000,
+        "PHP": 1500,
+        "VND": 675000,
+        "TWD": 850,
+        "BRL": 135,
+        "ARS": 8500,
+        "CLP": 22000,
+        "COP": 110000,
+        "PEN": 105,
+        "AED": 105,
+        "SAR": 110,
+        "ILS": 100,
+        "ZAR": 450,
+        "EGP": 550,
+        "TRY": 500,
+        "RUB": 2200
+      }
+    },
+    "vip": {
+      "base_price_usd": 99,
+      "local_prices": {
+        "EUR": 85,
+        "GBP": 75,
+        "JPY": 12000,
+        "AUD": 135,
+        "CAD": 120,
+        "CHF": 95,
+        "SEK": 950,
+        "NOK": 920,
+        "DKK": 650,
+        "PLN": 375,
+        "CZK": 2200,
+        "HUF": 29000,
+        "RON": 410,
+        "SGD": 130,
+        "HKD": 765,
+        "KRW": 120000,
+        "CNY": 650,
+        "INR": 7500,
+        "THB": 3250,
+        "MYR": 410,
+        "IDR": 1450000,
+        "PHP": 5150,
+        "VND": 2300000,
+        "TWD": 2900,
+        "BRL": 460,
+        "ARS": 29000,
+        "CLP": 75000,
+        "COP": 375000,
+        "PEN": 360,
+        "AED": 360,
+        "SAR": 375,
+        "ILS": 340,
+        "ZAR": 1550,
+        "EGP": 1880,
+        "TRY": 1700,
+        "RUB": 7500
+      }
+    }
+  },
+  "payment_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "sepa_debit": {
+      "name": "SEPA Direct Debit",
+      "supported_currencies": [
+        "EUR"
+      ],
+      "processing_fee": "€0.35"
+    },
+    "bacs_debit": {
+      "name": "Bacs Direct Debit",
+      "supported_currencies": [
+        "GBP"
+      ],
+      "processing_fee": "£0.35"
+    },
+    "ideal": {
+      "name": "iDEAL",
+      "supported_currencies": [
+        "EUR"
+      ],
+      "processing_fee": "€0.35"
+    },
+    "sofort": {
+      "name": "SOFORT",
+      "supported_currencies": [
+        "EUR"
+      ],
+      "processing_fee": "€0.35"
+    },
+    "interac": {
+      "name": "Interac",
+      "supported_currencies": [
+        "CAD"
+      ],
+      "processing_fee": "1.5%"
+    },
+    "us_bank_account": {
+      "name": "ACH Bank Transfer",
+      "supported_currencies": [
+        "USD"
+      ],
+      "processing_fee": "$0"
+    },
+    "oxxo": {
+      "name": "OXXO",
+      "supported_currencies": [
+        "MXN"
+      ],
+      "processing_fee": "3.5%"
+    },
+    "boleto": {
+      "name": "Boleto",
+      "supported_currencies": [
+        "BRL"
+      ],
+      "processing_fee": "3.5%"
+    },
+    "alipay": {
+      "name": "Alipay",
+      "supported_currencies": [
+        "CNY"
+      ],
+      "processing_fee": "3.4% + ¥0.16"
+    },
+    "wechat_pay": {
+      "name": "WeChat Pay",
+      "supported_currencies": [
+        "CNY"
+      ],
+      "processing_fee": "3.4% + ¥0.16"
+    },
+    "paynow": {
+      "name": "PayNow",
+      "supported_currencies": [
+        "SGD"
+      ],
+      "processing_fee": "0.6%"
+    },
+    "fps": {
+      "name": "FPS",
+      "supported_currencies": [
+        "HKD"
+      ],
+      "processing_fee": "0.4%"
+    },
+    "upi": {
+      "name": "UPI",
+      "supported_currencies": [
+        "INR"
+      ],
+      "processing_fee": "₹1.5"
+    },
+    "fpx": {
+      "name": "FPX",
+      "supported_currencies": [
+        "MYR"
+      ],
+      "processing_fee": "0.6%"
+    },
+    "gcash": {
+      "name": "GCash",
+      "supported_currencies": [
+        "PHP"
+      ],
+      "processing_fee": "2.5%"
+    }
+  },
+  "currency_settings": {
+    "auto_conversion": true,
+    "supported_currencies": [
+      "USD",
+      "EUR",
+      "GBP",
+      "JPY",
+      "AUD",
+      "CAD",
+      "CHF",
+      "SEK",
+      "NOK",
+      "DKK",
+      "PLN",
+      "CZK",
+      "HUF",
+      "RON",
+      "SGD",
+      "HKD",
+      "KRW",
+      "CNY",
+      "INR",
+      "THB",
+      "MYR",
+      "IDR",
+      "PHP",
+      "VND",
+      "TWD",
+      "BRL",
+      "ARS",
+      "CLP",
+      "COP",
+      "PEN",
+      "AED",
+      "SAR",
+      "ILS",
+      "ZAR",
+      "EGP",
+      "TRY",
+      "RUB",
+      "MXN",
+      "NZD"
+    ],
+    "default_currency": "USD",
+    "fx_fees": {
+      "major_pairs": "1%",
+      "other_pairs": "2%"
+    }
+  },
+  "tax_settings": {
+    "automatic_tax": true,
+    "supported_regions": [
+      "US",
+      "CA",
+      "GB",
+      "DE",
+      "FR",
+      "IT",
+      "ES",
+      "NL",
+      "BE",
+      "AT",
+      "CH",
+      "AU",
+      "NZ",
+      "SG",
+      "HK",
+      "JP",
+      "KR",
+      "IN",
+      "BR",
+      "MX",
+      "ZA"
+    ],
+    "tax_rates": {
+      "US": {
+        "standard": 0,
+        "digital": 0
+      },
+      "EU": {
+        "standard": 0.21,
+        "digital": 0.21
+      },
+      "GB": {
+        "standard": 0.2,
+        "digital": 0.2
+      },
+      "CA": {
+        "standard": 0.05,
+        "digital": 0.05
+      },
+      "AU": {
+        "standard": 0.1,
+        "digital": 0.1
+      },
+      "JP": {
+        "standard": 0.1,
+        "digital": 0.1
+      },
+      "SG": {
+        "standard": 0.08,
+        "digital": 0.08
+      },
+      "IN": {
+        "standard": 0.18,
+        "digital": 0.18
+      },
+      "BR": {
+        "standard": 0,
+        "digital": 0
+      },
+      "MX": {
+        "standard": 0.16,
+        "digital": 0.16
+      }
+    }
+  },
+  "compliance": {
+    "gdpr_countries": [
+      "AT",
+      "BE",
+      "BG",
+      "HR",
+      "CY",
+      "CZ",
+      "DK",
+      "EE",
+      "FI",
+      "FR",
+      "DE",
+      "GR",
+      "HU",
+      "IE",
+      "IT",
+      "LV",
+      "LT",
+      "LU",
+      "MT",
+      "NL",
+      "PL",
+      "PT",
+      "RO",
+      "SK",
+      "SI",
+      "ES",
+      "SE",
+      "GB"
+    ],
+    "data_residency": {
+      "EU": "EU-West-1 (Ireland)",
+      "US": "US-East-1 (Virginia)",
+      "ASIA": "Asia-Pacific (Singapore)"
+    },
+    "required_disclosures": {
+      "business_registration": true,
+      "tax_id": true,
+      "banking_licenses": true,
+      "data_processing_agreement": true
+    }
+  }
+}

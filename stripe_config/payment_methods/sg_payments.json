@@ -1,0 +1,22 @@
+{
+  "country": "Singapore",
+  "country_code": "SG",
+  "currency": "SGD",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "paynow": {
+      "name": "PayNow",
+      "supported_currencies": [
+        "SGD"
+      ],
+      "processing_fee": "0.6%"
+    }
+  },
+  "primary_method": "card"
+}

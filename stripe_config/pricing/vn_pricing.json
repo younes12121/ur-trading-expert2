@@ -1,0 +1,21 @@
+{
+  "country": "Vietnam",
+  "country_code": "VN",
+  "currency": "VND",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 675000,
+      "currency": "VND",
+      "interval": "month",
+      "description": "Premium subscription - Vietnam"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 2300000,
+      "currency": "VND",
+      "interval": "month",
+      "description": "Vip subscription - Vietnam"
+    }
+  }
+}

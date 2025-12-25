@@ -1,0 +1,21 @@
+{
+  "country": "Philippines",
+  "country_code": "PH",
+  "currency": "PHP",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 1500,
+      "currency": "PHP",
+      "interval": "month",
+      "description": "Premium subscription - Philippines"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 5150,
+      "currency": "PHP",
+      "interval": "month",
+      "description": "Vip subscription - Philippines"
+    }
+  }
+}

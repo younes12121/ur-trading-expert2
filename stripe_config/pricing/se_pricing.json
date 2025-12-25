@@ -1,0 +1,21 @@
+{
+  "country": "Sweden",
+  "country_code": "SE",
+  "currency": "SEK",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 280,
+      "currency": "SEK",
+      "interval": "month",
+      "description": "Premium subscription - Sweden"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 950,
+      "currency": "SEK",
+      "interval": "month",
+      "description": "Vip subscription - Sweden"
+    }
+  }
+}

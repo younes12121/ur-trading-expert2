@@ -1,0 +1,21 @@
+{
+  "country": "Mexico",
+  "country_code": "MX",
+  "currency": "MXN",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 29,
+      "currency": "MXN",
+      "interval": "month",
+      "description": "Premium subscription - Mexico"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 99,
+      "currency": "MXN",
+      "interval": "month",
+      "description": "Vip subscription - Mexico"
+    }
+  }
+}

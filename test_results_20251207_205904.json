@@ -1,0 +1,246 @@
+{
+  "timestamp": "2025-12-07T20:59:04.092466",
+  "total_tests": 34,
+  "passed": 29,
+  "failed": 5,
+  "results": [
+    {
+      "test_name": "Educational Assistant Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Daily Tip",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Glossary Term",
+      "passed": false,
+      "message": "Test failed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Explain Signal",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Notification Manager Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Set Price Alert",
+      "passed": false,
+      "message": "Test failed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get User Preferences",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "User Manager Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get User Tier",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Check Feature Access",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Set User Tier",
+      "passed": false,
+      "message": "Test failed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "User Profiles Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Profile",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Follow User",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Community Manager Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Enable Copy Trading",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Copy Trading Followers",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Referral Manager Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Referral Code",
+      "passed": false,
+      "message": "Test failed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Broker Connector Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Paper Trading Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Enable Paper Trading",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Paper Trading Account",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "ML Predictor Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Sentiment Analyzer Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Order Flow Analyzer Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Market Maker Zones Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Smart Money Tracker Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Volume Profile Analyzer Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Signal Tracker Init",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Log Signal",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:03"
+    },
+    {
+      "test_name": "Get Signal By ID",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:04"
+    },
+    {
+      "test_name": "Tier Feature Access",
+      "passed": false,
+      "message": "Test failed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:04"
+    },
+    {
+      "test_name": "Copy Trading Flow",
+      "passed": true,
+      "message": "Test passed",
+      "error": "",
+      "timestamp": "2025-12-07 20:59:04"
+    }
+  ]
+}

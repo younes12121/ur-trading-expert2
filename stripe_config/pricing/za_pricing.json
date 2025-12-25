@@ -1,0 +1,21 @@
+{
+  "country": "South Africa",
+  "country_code": "ZA",
+  "currency": "ZAR",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 450,
+      "currency": "ZAR",
+      "interval": "month",
+      "description": "Premium subscription - South Africa"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 1550,
+      "currency": "ZAR",
+      "interval": "month",
+      "description": "Vip subscription - South Africa"
+    }
+  }
+}

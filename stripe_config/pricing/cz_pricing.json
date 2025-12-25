@@ -1,0 +1,21 @@
+{
+  "country": "Czech Republic",
+  "country_code": "CZ",
+  "currency": "CZK",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 650,
+      "currency": "CZK",
+      "interval": "month",
+      "description": "Premium subscription - Czech Republic"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 2200,
+      "currency": "CZK",
+      "interval": "month",
+      "description": "Vip subscription - Czech Republic"
+    }
+  }
+}

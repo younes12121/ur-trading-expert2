@@ -1,0 +1,21 @@
+{
+  "country": "United Arab Emirates",
+  "country_code": "AE",
+  "currency": "AED",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 105,
+      "currency": "AED",
+      "interval": "month",
+      "description": "Premium subscription - United Arab Emirates"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 360,
+      "currency": "AED",
+      "interval": "month",
+      "description": "Vip subscription - United Arab Emirates"
+    }
+  }
+}

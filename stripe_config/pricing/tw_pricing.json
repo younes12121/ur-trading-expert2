@@ -1,0 +1,21 @@
+{
+  "country": "Taiwan",
+  "country_code": "TW",
+  "currency": "TWD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 850,
+      "currency": "TWD",
+      "interval": "month",
+      "description": "Premium subscription - Taiwan"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 2900,
+      "currency": "TWD",
+      "interval": "month",
+      "description": "Vip subscription - Taiwan"
+    }
+  }
+}

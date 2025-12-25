@@ -1,0 +1,29 @@
+{
+  "country": "Netherlands",
+  "country_code": "NL",
+  "currency": "EUR",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "sepa_debit": {
+      "name": "SEPA Direct Debit",
+      "supported_currencies": [
+        "EUR"
+      ],
+      "processing_fee": "€0.35"
+    },
+    "ideal": {
+      "name": "iDEAL",
+      "supported_currencies": [
+        "EUR"
+      ],
+      "processing_fee": "€0.35"
+    }
+  },
+  "primary_method": "card"
+}

@@ -1,0 +1,21 @@
+{
+  "country": "Argentina",
+  "country_code": "AR",
+  "currency": "ARS",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 8500,
+      "currency": "ARS",
+      "interval": "month",
+      "description": "Premium subscription - Argentina"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 29000,
+      "currency": "ARS",
+      "interval": "month",
+      "description": "Vip subscription - Argentina"
+    }
+  }
+}

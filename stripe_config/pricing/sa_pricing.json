@@ -1,0 +1,21 @@
+{
+  "country": "Saudi Arabia",
+  "country_code": "SA",
+  "currency": "SAR",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 110,
+      "currency": "SAR",
+      "interval": "month",
+      "description": "Premium subscription - Saudi Arabia"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 375,
+      "currency": "SAR",
+      "interval": "month",
+      "description": "Vip subscription - Saudi Arabia"
+    }
+  }
+}

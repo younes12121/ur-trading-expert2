@@ -1,0 +1,110 @@
+# Environment variables - NEVER commit these!
+.env
+.env.local
+.env.production
+.env.development
+
+# Stripe configuration files with keys
+stripe_config.py
+stripe_keys.py
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+.cursor/
+debug.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Sensitive business documents
+*_private.md
+*_secret.*
+bank_accounts.txt
+tax_documents/
+
+# Production & Deployment Files
+*.pem
+*.key
+*.crt
+*.csr
+ssl/
+certificates/
+letsencrypt/
+nginx.conf.local
+gunicorn.conf.py
+production.log
+access.log
+error.log
+
+# Telegram Bot Files
+bot_session/
+bot_logs/
+telegram_session/
+
+# Docker
+.dockerignore
+Dockerfile.local
+docker-compose.override.yml
+
+# Enhanced Security
+api_keys.json
+secrets.json
+credentials.json
+stripe_config.py
+stripe_keys.py
+
+# User Data Protection
+user_profiles.json
+trade_history.json
+signals_db.json
+user_data/
+sessions/
+data/
+backups/

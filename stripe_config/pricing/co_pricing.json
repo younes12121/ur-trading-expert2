@@ -1,0 +1,21 @@
+{
+  "country": "Colombia",
+  "country_code": "CO",
+  "currency": "COP",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 110000,
+      "currency": "COP",
+      "interval": "month",
+      "description": "Premium subscription - Colombia"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 375000,
+      "currency": "COP",
+      "interval": "month",
+      "description": "Vip subscription - Colombia"
+    }
+  }
+}

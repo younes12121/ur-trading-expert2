@@ -1,0 +1,25 @@
+{
+  "welcome": "🚀 Willkommen beim UR Trading Expert Bot!\n\nIhr KI-gestützter Trading-Begleiter mit professionellen Signalen.",
+  "help_menu": "📋 **BEFEHLSMENÜ**\n\n🎯 **Trading-Signale**\n• /btc - Bitcoin-Analyse\n• /gold - Gold-Signale\n• /international - Globale Märkte\n\n📊 **Analysen**\n• /analytics - Leistungsstatistiken\n• /correlation - Asset-Korrelation\n\n💰 **Konto**\n• /subscribe - Pläne & Preise\n• /billing - Abonnementverwaltung\n\n📚 **Bildung**\n• /learn - Trading-Tipps\n• /glossary - Begriffslexikon\n\n🔔 **Benachrichtigungen**\n• /notifications - Alert-Einstellungen",
+  "signal_buy": "📈 **KAUFSIGNAL**",
+  "signal_sell": "📉 **VERKAUFSSIGNAL**",
+  "signal_hold": "⏸️ **HALTEN**",
+  "confidence": "🎯 Vertrauen",
+  "entry_price": "💰 Einstiegspreis",
+  "stop_loss": "🛡️ Stop Loss",
+  "take_profit": "💎 Take Profit",
+  "risk_reward": "⚖️ Risiko-Rendite-Verhältnis",
+  "cny_description": "🇨🇳 **Chinesischer Yuan (CNY)**\n\nWährung der größten Volkswirtschaft Asiens mit niedriger Volatilität und soliden Fundamentaldaten.",
+  "brl_description": "🇧🇷 **Brasilianischer Real (BRL)**\n\nSchwellenländische Währung mit hoher Volatilität und Rohstoffexposition.",
+  "eth_description": "₿ **Ethereum-Futures (ETH)**\n\nSmart-Contract-Plattform mit extremer Volatilität und 24/7-Handel.",
+  "premium_required": "⭐ **PREMIUM-FUNKTION**\n\nDiese Funktion erfordert ein Premium-Abonnement.",
+  "vip_required": "💎 **VIP-FUNKTION**\n\nDiese Funktion erfordert ein VIP-Abonnement.",
+  "upgrade_prompt": "💳 Verwenden Sie /subscribe, um Ihren Plan zu aktualisieren!",
+  "trading_tips": "💡 **Trading-Tipps**\n\n• Verwenden Sie immer Stop-Losses\n• Riskieren Sie nie mehr als 2% pro Trade\n• Befolgen Sie Ihren Trading-Plan\n• Behalten Sie die Emotionen im Griff",
+  "free_plan": "🆓 **KOSTENLOSER PLAN**\n• 2 Forex-Paare\n• Grundsignale\n• Begrenzte Analysen",
+  "premium_plan": "⭐ **PREMIUM-PLAN - $39/Monat**\n• Alle 15 Assets + International\n• Unbegrenzte Alerts\n• Vollständige Analysen\n• KI-Vorhersagen",
+  "vip_plan": "💎 **VIP-PLAN - $129/Monat**\n• Alles aus Premium\n• Krypto-Futures\n• Broker-Integration\n• Private Community"
+}
+
+
+

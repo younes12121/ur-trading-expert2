@@ -1,0 +1,22 @@
+{
+  "country": "Hong Kong",
+  "country_code": "HK",
+  "currency": "HKD",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "fps": {
+      "name": "FPS",
+      "supported_currencies": [
+        "HKD"
+      ],
+      "processing_fee": "0.4%"
+    }
+  },
+  "primary_method": "card"
+}

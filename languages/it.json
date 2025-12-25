@@ -1,0 +1,105 @@
+{
+  "welcome": {
+    "title": "🌟 Benvenuto in UR Trading Expert Bot!",
+    "description": "Il tuo compagno di trading basato sull'IA con segnali professionali",
+    "get_started": "Inizia",
+    "features": "Caratteristiche",
+    "pricing": "Prezzi"
+  },
+  "commands": {
+    "help": "Aiuto e Comandi",
+    "signals": "Segnali di Trading",
+    "analytics": "Analisi",
+    "education": "Educazione",
+    "notifications": "Notifiche",
+    "account": "Il Mio Account",
+    "settings": "Impostazioni"
+  },
+  "signals": {
+    "direction_buy": "📈 ACQUISTA",
+    "direction_sell": "📉 VENDI",
+    "direction_hold": "⏸️ Tieni",
+    "confidence": "Fiducia",
+    "entry_price": "Prezzo di Entrata",
+    "stop_loss": "Stop Loss",
+    "take_profit": "Take Profit",
+    "risk_reward": "Rapporto Rischio/Rendimento",
+    "analysis": "Analisi",
+    "generated_at": "Generato",
+    "signal_quality": "Qualità del Segnale",
+    "trading_hours": "Ore di Trading"
+  },
+  "markets": {
+    "forex": "Forex",
+    "crypto": "Criptovalute",
+    "commodities": "Materie Prime",
+    "futures": "Futures",
+    "international": "Mercati Internazionali"
+  },
+  "subscription": {
+    "free_tier": "Gratuito",
+    "premium_tier": "Premium",
+    "vip_tier": "VIP",
+    "upgrade_required": "Aggiornamento Richiesto",
+    "upgrade_now": "Aggiorna Ora",
+    "billing": "Fatturazione e Abbonamento",
+    "upgrade_options": "Opzioni di Aggiornamento",
+    "full_international": "Accesso internazionale completo",
+    "limited_international": "Accesso internazionale limitato",
+    "use_subscribe": "Usa /subscribe per aggiornare!"
+  },
+  "errors": {
+    "general_error": "Si è verificato un errore. Riprova.",
+    "permission_denied": "Non hai i permessi per utilizzare questa funzione.",
+    "rate_limit": "Troppe richieste. Attendi e riprova.",
+    "service_unavailable": "Servizio temporaneamente non disponibile.",
+    "invalid_command": "Comando non valido. Usa /help per vedere i comandi disponibili."
+  },
+  "time": {
+    "just_now": "Ora",
+    "minutes_ago": "{} minuti fa",
+    "hours_ago": "{} ore fa",
+    "days_ago": "{} giorni fa",
+    "yesterday": "Ieri",
+    "today": "Oggi",
+    "tomorrow": "Domani"
+  },
+  "numbers": {
+    "decimal_separator": ",",
+    "thousands_separator": ".",
+    "currency_format": "${:,.2f}",
+    "percentage_format": "{:.1f}%"
+  },
+  "trading": {
+    "long_position": "Posizione Lunga",
+    "short_position": "Posizione Corta",
+    "leverage": "Leva",
+    "margin": "Margine",
+    "pnl": "Profitto/Perdita",
+    "profit": "Profitto",
+    "loss": "Perdita",
+    "break_even": "Pareggio",
+    "trend": "Tendenza",
+    "support": "Supporto",
+    "resistance": "Resistenza",
+    "spread": "Spread"
+  },
+  "international": {
+    "cny_title": "🇨🇳 Mercato Cinese (CNY)",
+    "brl_title": "🇧🇷 Real Brasiliano (BRL)",
+    "eth_title": "₿ Futures Ethereum (ETH)",
+    "asian_session": "Sessione Asiatica",
+    "americas_session": "Sessione Americana",
+    "crypto_247": "Cripto 24/7",
+    "emerging_market": "Mercato Emergente",
+    "high_volatility": "Alta Volatilità",
+    "low_volatility": "Bassa Volatilità",
+    "extreme_volatility": "Volatilità Estrema",
+    "processing_asian": "Elaborazione dati mercato asiatico...",
+    "analyzing_cny": "Analisi segnali USD/CNY",
+    "market_info": "Informazioni di Mercato",
+    "cny_unavailable": "SEGNALE CNY NON DISPONIBILE",
+    "try_again": "Riprova tra qualche minuto",
+    "cny_error": "Errore segnale CNY"
+  }
+}

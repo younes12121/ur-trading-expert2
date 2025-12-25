@@ -1,0 +1,61 @@
+{
+  "demand_zones": [
+    {
+      "pair": "BTC",
+      "type": "demand",
+      "price_range": [
+        49900,
+        49900
+      ],
+      "center_price": 49900.0,
+      "strength": 1000000,
+      "volume": 1000000,
+      "identified_at": "2025-12-19 11:39:49",
+      "status": "active"
+    },
+    {
+      "pair": "BTC",
+      "type": "demand",
+      "price_range": [
+        49900,
+        49900
+      ],
+      "center_price": 49900.0,
+      "strength": 1000000,
+      "volume": 1000000,
+      "identified_at": "2025-12-19 11:40:03",
+      "status": "active"
+    }
+  ],
+  "supply_zones": [
+    {
+      "pair": "BTC",
+      "type": "supply",
+      "price_range": [
+        50100,
+        50100
+      ],
+      "center_price": 50100.0,
+      "strength": 800000,
+      "volume": 800000,
+      "identified_at": "2025-12-19 11:39:49",
+      "status": "active"
+    },
+    {
+      "pair": "BTC",
+      "type": "supply",
+      "price_range": [
+        50100,
+        50100
+      ],
+      "center_price": 50100.0,
+      "strength": 800000,
+      "volume": 800000,
+      "identified_at": "2025-12-19 11:40:03",
+      "status": "active"
+    }
+  ],
+  "stop_clusters": [],
+  "liquidity_zones": [],
+  "last_updated": "2025-12-19 11:40:03"
+}

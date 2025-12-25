@@ -1,0 +1,22 @@
+{
+  "country": "Brazil",
+  "country_code": "BR",
+  "currency": "BRL",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "boleto": {
+      "name": "Boleto",
+      "supported_currencies": [
+        "BRL"
+      ],
+      "processing_fee": "3.5%"
+    }
+  },
+  "primary_method": "card"
+}

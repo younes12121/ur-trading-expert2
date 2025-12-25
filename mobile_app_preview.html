@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UR Trading Expert Mobile App Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* Mobile App Styles */
+        .mobile-frame {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .status-bar {
+            height: 44px;
+            background: rgba(0,0,0,0.8);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .app-content {
+            height: calc(100% - 44px - 83px); /* Subtract status bar and tab bar */
+            overflow-y: auto;
+        }
+
+        .tab-bar {
+            height: 83px;
+            background: rgba(30, 41, 59, 0.95);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .tab-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .tab-item.active .tab-icon,
+        .tab-item.active .tab-label {
+            color: #00D9FF;
+        }
+
+        .tab-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .tab-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
+
+        /* Dashboard Styles */
+        .metric-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 16px;
+            margin: 8px 0;
+        }
+
+        .signal-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+
+        .signal-buy {
+            border-left: 4px solid #34D399;
+        }
+
+        .signal-sell {
+            border-left: 4px solid #F87171;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00D9FF, #00B8D9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Screen Transitions */
+        .screen {
+            display: none;
+            height: 100%;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Chart Placeholder */
+        .chart-placeholder {
+            height: 150px;
+            background: rgba(0,217,255,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+        }
+
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-block;
+        }
+
+        .loading-dots::after {
+            content: '';
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 min-h-screen p-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-4">
+                📱 UR Trading Expert <span class="gradient-text">Mobile App</span>
+            </h1>
+            <p class="text-gray-400 text-lg">
+                Professional trading signals on your mobile device
+            </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 items-start justify-center">
+            <!-- Mobile Frame -->
+            <div class="mobile-frame">
+                <div class="mobile-screen">
+                    <!-- Status Bar -->
+                    <div class="status-bar">
+                        <span>9:41</span>
+                        <div class="flex items-center space-x-1">
+                            <span>📶</span>
+                            <span>📶</span>
+                            <span>🔋</span>
+                        </div>
+                    </div>
+
+                    <!-- App Content -->
+                    <div class="app-content">
+                        <!-- Dashboard Screen -->
+                        <div id="dashboard" class="screen active">
+                            <div class="p-4">
+                                <h2 class="text-white text-xl font-bold mb-4">Dashboard</h2>
+
+                                <!-- Portfolio Metrics -->
+                                <div class="grid grid-cols-2 gap-3 mb-4">
+                                    <div class="metric-card">
+                                        <div class="text-xs text-gray-400 mb-1">Portfolio Balance</div>
+                                        <div class="text-lg font-bold text-green-400">$25,430.75</div>
+                                        <div class="text-xs text-green-400">+2.4% (+$620.50)</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="text-xs text-gray-400 mb-1">Today's P&L</div>
+                                        <div class="text-lg font-bold text-white">+$145.20</div>
+                                        <div class="text-xs text-green-400">+1.8% from yesterday</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="text-xs text-gray-400 mb-1">Active Positions</div>
+                                        <div class="text-lg font-bold text-purple-400">3</div>
+                                        <div class="text-xs text-gray-400">2 profitable, 1 breakeven</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="text-xs text-gray-400 mb-1">Win Rate</div>
+                                        <div class="text-lg font-bold text-yellow-400">73.2%</div>
+                                        <div class="text-xs text-gray-400">127 wins / 47 losses</div>
+                                    </div>
+                                </div>
+
+                                <!-- Performance Chart -->
+                                <div class="chart-placeholder">
+                                    <span class="text-cyan-400">📈 Portfolio Performance Chart</span>
+                                </div>
+
+                                <!-- Live Signals -->
+                                <h3 class="text-white text-lg font-semibold mb-3">⚡ Live Signals</h3>
+                                <div class="signal-card signal-buy">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <span class="text-white font-semibold">USD/JPY BUY</span>
+                                        <span class="text-green-400 text-sm">89% Confidence</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mb-2">Entry: 147.85 | Stop: 147.35 | TP: 148.85</div>
+                                    <div class="text-xs text-gray-300">Strong bullish momentum detected</div>
+                                </div>
+
+                                <div class="signal-card signal-sell">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <span class="text-white font-semibold">ETH/USD SELL</span>
+                                        <span class="text-red-400 text-sm">76% Confidence</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mb-2">Entry: 3456.78 | Stop: 3520.78 | TP: 3356.78</div>
+                                    <div class="text-xs text-gray-300">Bearish divergence forming</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Signals Screen -->
+                        <div id="signals" class="screen">
+                            <div class="p-4">
+                                <h2 class="text-white text-xl font-bold mb-4">Trading Signals</h2>
+
+                                <!-- Search Bar -->
+                                <div class="mb-4">
+                                    <div class="bg-gray-800 rounded-lg px-3 py-2 flex items-center">
+                                        <span class="text-gray-400 mr-2">🔍</span>
+                                        <input type="text" placeholder="Search signals..." class="bg-transparent text-white flex-1 outline-none" />
+                                    </div>
+                                </div>
+
+                                <!-- Filter Buttons -->
+                                <div class="flex space-x-2 mb-4">
+                                    <button class="bg-cyan-600 text-white px-3 py-1 rounded text-xs">All</button>
+                                    <button class="bg-gray-700 text-gray-300 px-3 py-1 rounded text-xs">Buy</button>
+                                    <button class="bg-gray-700 text-gray-300 px-3 py-1 rounded text-xs">Sell</button>
+                                    <button class="bg-gray-700 text-gray-300 px-3 py-1 rounded text-xs">High Conf</button>
+                                </div>
+
+                                <!-- Signals List -->
+                                <div class="signal-card signal-buy">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <span class="text-white font-semibold">USD/JPY</span>
+                                            <span class="text-green-400 text-sm ml-2">BUY</span>
+                                        </div>
+                                        <span class="text-cyan-400 text-sm">89%</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 text-xs mb-2">
+                                        <div><span class="text-gray-400">Entry:</span> 147.85</div>
+                                        <div><span class="text-red-400">Stop:</span> 147.35</div>
+                                        <div><span class="text-green-400">TP:</span> 148.85</div>
+                                    </div>
+                                    <div class="text-xs text-gray-300">Strong bullish momentum detected</div>
+                                </div>
+
+                                <div class="signal-card signal-sell">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div>
+                                            <span class="text-white font-semibold">BTC/USD</span>
+                                            <span class="text-red-400 text-sm ml-2">SELL</span>
+                                        </div>
+                                        <span class="text-cyan-400 text-sm">82%</span>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 text-xs mb-2">
+                                        <div><span class="text-gray-400">Entry:</span> 45230</div>
+                                        <div><span class="text-red-400">Stop:</span> 45800</div>
+                                        <div><span class="text-green-400">TP:</span> 43500</div>
+                                    </div>
+                                    <div class="text-xs text-gray-300">Resistance level broken, bearish momentum</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Screen -->
+                        <div id="portfolio" class="screen">
+                            <div class="p-4">
+                                <h2 class="text-white text-xl font-bold mb-4">Portfolio</h2>
+
+                                <!-- Portfolio Summary -->
+                                <div class="metric-card mb-4">
+                                    <div class="text-xs text-gray-400 mb-2">Portfolio Overview</div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <div class="text-lg font-bold text-green-400">$25,430.75</div>
+                                            <div class="text-xs text-gray-400">Total Balance</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg font-bold text-white">+$145.20</div>
+                                            <div class="text-xs text-gray-400">Today's P&L</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Active Positions -->
+                                <h3 class="text-white text-lg font-semibold mb-3">Active Positions</h3>
+                                <div class="signal-card">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <span class="text-white font-semibold">EUR/USD BUY</span>
+                                        <span class="text-green-400">+$85.50</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400">Entry: 1.0845 | Current: 1.0872</div>
+                                    <div class="text-xs text-green-400">+1.2% P&L</div>
+                                </div>
+
+                                <div class="signal-card">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <span class="text-white font-semibold">BTC/USD SELL</span>
+                                        <span class="text-red-400">-$190.00</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400">Entry: 45230 | Current: 44850</div>
+                                    <div class="text-xs text-red-400">-0.8% P&L</div>
+                                </div>
+
+                                <!-- Recent Trades -->
+                                <h3 class="text-white text-lg font-semibold mb-3 mt-6">Recent Trades</h3>
+                                <div class="space-y-2">
+                                    <div class="signal-card">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <span class="text-white font-semibold">EUR/USD BUY</span>
+                                                <div class="text-xs text-gray-400">Trend Following • 2h 15m</div>
+                                            </div>
+                                            <span class="text-green-400">+$42.50</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="signal-card">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <span class="text-white font-semibold">BTC/USD SELL</span>
+                                                <div class="text-xs text-gray-400">Breakout • 4h 30m</div>
+                                            </div>
+                                            <span class="text-green-400">+$140.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Bar -->
+                    <div class="tab-bar">
+                        <div class="tab-item active" onclick="showScreen('dashboard')">
+                            <div class="tab-icon">📊</div>
+                            <div class="tab-label">Dashboard</div>
+                        </div>
+                        <div class="tab-item" onclick="showScreen('signals')">
+                            <div class="tab-icon">⚡</div>
+                            <div class="tab-label">Signals</div>
+                        </div>
+                        <div class="tab-item" onclick="showScreen('portfolio')">
+                            <div class="tab-icon">💼</div>
+                            <div class="tab-label">Portfolio</div>
+                        </div>
+                        <div class="tab-item">
+                            <div class="tab-icon">🌍</div>
+                            <div class="tab-label">Markets</div>
+                        </div>
+                        <div class="tab-item">
+                            <div class="tab-icon">👤</div>
+                            <div class="tab-label">Profile</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Description -->
+            <div class="lg:w-96 bg-gray-800 rounded-xl p-6">
+                <h3 class="text-white text-xl font-bold mb-4">🎯 Key Features</h3>
+
+                <div class="space-y-4">
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h4 class="text-cyan-400 font-semibold mb-2">📊 Real-time Dashboard</h4>
+                        <p class="text-gray-300 text-sm">Live portfolio metrics, performance charts, and market overview with instant updates.</p>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h4 class="text-cyan-400 font-semibold mb-2">⚡ Live Trading Signals</h4>
+                        <p class="text-gray-300 text-sm">Advanced filtering, confidence scores, and detailed analysis for all 15 trading assets.</p>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h4 class="text-cyan-400 font-semibold mb-2">💼 Portfolio Management</h4>
+                        <p class="text-gray-300 text-sm">Track active positions, view trade history, and monitor risk metrics in real-time.</p>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h4 class="text-cyan-400 font-semibold mb-2">🌍 Global Markets</h4>
+                        <p class="text-gray-300 text-sm">Monitor market sentiment across Asia, Europe, Americas, and crypto markets.</p>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h4 class="text-cyan-400 font-semibold mb-2">🔔 Push Notifications</h4>
+                        <p class="text-gray-300 text-sm">Instant alerts for new signals, price movements, and market events.</p>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <h4 class="text-cyan-400 font-semibold mb-2">🔐 Secure Authentication</h4>
+                        <p class="text-gray-300 text-sm">Biometric login, encrypted data storage, and secure API communication.</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-cyan-900/30 rounded-lg border border-cyan-500/30">
+                    <h4 class="text-cyan-400 font-semibold mb-2">🚀 Ready to Launch</h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Complete React Native app with professional UI, real-time data integration, and production-ready architecture.
+                    </p>
+                    <div class="space-y-2 text-xs text-gray-400">
+                        <div>• TypeScript for type safety</div>
+                        <div>• Offline data caching</div>
+                        <div>• WebSocket real-time updates</div>
+                        <div>• Cross-platform (iOS/Android)</div>
+                        <div>• Firebase push notifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+            // Remove active class from all tab items
+            document.querySelectorAll('.tab-item').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected screen
+            document.getElementById(screenId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.currentTarget.classList.add('active');
+        }
+
+        // Auto-rotate screens for demo
+        let currentScreen = 0;
+        const screens = ['dashboard', 'signals', 'portfolio'];
+        const tabs = document.querySelectorAll('.tab-item');
+
+        setInterval(() => {
+            currentScreen = (currentScreen + 1) % screens.length;
+            showScreen(screens[currentScreen]);
+
+            // Update tab active state
+            tabs.forEach((tab, index) => {
+                if (index === currentScreen) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }, 4000);
+    </script>
+</body>
+</html>

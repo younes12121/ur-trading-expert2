@@ -1,0 +1,21 @@
+{
+  "country": "Singapore",
+  "country_code": "SG",
+  "currency": "SGD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 38,
+      "currency": "SGD",
+      "interval": "month",
+      "description": "Premium subscription - Singapore"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 130,
+      "currency": "SGD",
+      "interval": "month",
+      "description": "Vip subscription - Singapore"
+    }
+  }
+}

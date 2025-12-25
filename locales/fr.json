@@ -1,0 +1,25 @@
+{
+  "welcome": "🚀 Bienvenue sur le Bot UR Trading Expert !\n\nVotre compagnon de trading alimenté par l'IA avec des signaux professionnels.",
+  "help_menu": "📋 **MENU DES COMMANDES**\n\n🎯 **Signaux de Trading**\n• /btc - Analyse Bitcoin\n• /gold - Signaux Or\n• /international - Marchés mondiaux\n\n📊 **Analyses**\n• /analytics - Statistiques de performance\n• /correlation - Corrélation des actifs\n\n💰 **Compte**\n• /subscribe - Plans et tarifs\n• /billing - Gestion de l'abonnement\n\n📚 **Éducation**\n• /learn - Conseils de trading\n• /glossary - Dictionnaire des termes\n\n🔔 **Notifications**\n• /notifications - Préférences d'alertes",
+  "signal_buy": "📈 **SIGNAL D'ACHAT**",
+  "signal_sell": "📉 **SIGNAL DE VENTE**",
+  "signal_hold": "⏸️ **MAINTENIR**",
+  "confidence": "🎯 Confiance",
+  "entry_price": "💰 Prix d'Entrée",
+  "stop_loss": "🛡️ Stop Loss",
+  "take_profit": "💎 Take Profit",
+  "risk_reward": "⚖️ Ratio Risque-Rendement",
+  "cny_description": "🇨🇳 **Yuan Chinois (CNY)**\n\nMonnaie de la plus grande économie d'Asie avec une faible volatilité et des fondamentaux solides.",
+  "brl_description": "🇧🇷 **Real Brésilien (BRL)**\n\nMonnaie de marché émergent avec une volatilité élevée et une exposition aux matières premières.",
+  "eth_description": "₿ **Futures Ethereum (ETH)**\n\nPlateforme de contrats intelligents avec une volatilité extrême et un trading 24/7.",
+  "premium_required": "⭐ **FONCTION PREMIUM**\n\nCette fonction nécessite un abonnement Premium.",
+  "vip_required": "💎 **FONCTION VIP**\n\nCette fonction nécessite un abonnement VIP.",
+  "upgrade_prompt": "💳 Utilisez /subscribe pour mettre à jour votre plan !",
+  "trading_tips": "💡 **Conseils de Trading**\n\n• Utilisez toujours des stop losses\n• Ne risquez jamais plus de 2% par trade\n• Suivez votre plan de trading\n• Gardez vos émotions sous contrôle",
+  "free_plan": "🆓 **PLAN GRATUIT**\n• 2 paires Forex\n• Signaux de base\n• Analyses limitées",
+  "premium_plan": "⭐ **PLAN PREMIUM - $39/mois**\n• Tous les 15 actifs + Internationaux\n• Alertes illimitées\n• Analyses complètes\n• Prédictions IA",
+  "vip_plan": "💎 **PLAN VIP - $129/mois**\n• Tout du Premium\n• Futures Crypto\n• Intégration de Courtiers\n• Communauté privée"
+}
+
+
+

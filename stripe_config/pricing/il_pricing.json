@@ -1,0 +1,21 @@
+{
+  "country": "Israel",
+  "country_code": "IL",
+  "currency": "ILS",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 100,
+      "currency": "ILS",
+      "interval": "month",
+      "description": "Premium subscription - Israel"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 340,
+      "currency": "ILS",
+      "interval": "month",
+      "description": "Vip subscription - Israel"
+    }
+  }
+}

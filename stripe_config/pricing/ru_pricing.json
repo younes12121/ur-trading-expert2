@@ -1,0 +1,21 @@
+{
+  "country": "Russia",
+  "country_code": "RU",
+  "currency": "RUB",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 2200,
+      "currency": "RUB",
+      "interval": "month",
+      "description": "Premium subscription - Russia"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 7500,
+      "currency": "RUB",
+      "interval": "month",
+      "description": "Vip subscription - Russia"
+    }
+  }
+}

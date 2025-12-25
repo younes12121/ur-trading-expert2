@@ -1,0 +1,199 @@
+# Trade Management Commands - Add these before main() function
+
+async def capital_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Set or view trading capital"""
+    chat_id = update.effective_chat.id
+    
+    if not context.args:
+        # Show current capital
+        current = user_capital.get(chat_id, tracker.current_capital)
+        msg = f"""
+💰 *TRADING CAPITAL*
+
+Current Capital: ${current:,.2f}
+Initial Capital: ${tracker.initial_capital:,.2f}
+
+*To set capital:*
+/capital [amount]
+
+Example: /capital 1000
+"""
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        return
+    
+    try:
+        amount = float(context.args[0])
+        user_capital[chat_id] = amount
+        tracker.set_initial_capital(amount)
+        
+        msg = f"✅ Capital set to ${amount:,.2f}"
+        await update.message.reply_text(msg)
+    except:
+        await update.message.reply_text("❌ Invalid amount. Example: /capital 1000")
+
+
+async def opentrade_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Open a trade (for tracking)"""
+    if len(context.args) < 7:
+        msg = """
+📝 *OPEN TRADE*
+
+Usage:
+/opentrade [asset] [direction] [entry] [sl] [tp1] [tp2] [size]
+
+Example:
+/opentrade BTC BUY 95000 94500 96000 97000 0.01
+/opentrade GOLD SELL 2650 2660 2630 2610 0.5
+"""
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        return
+    
+    try:
+        asset = context.args[0].upper()
+        direction = context.args[1].upper()
+        entry = float(context.args[2])
+        sl = float(context.args[3])
+        tp1 = float(context.args[4])
+        tp2 = float(context.args[5])
+        size = float(context.args[6])
+        
+        # Add trade
+        trade_id = tracker.add_trade(asset, direction, entry, sl, tp1, tp2, size)
+        
+        # Get pip info
+        pip_info = tracker.get_pip_info(asset, entry, sl, tp1, tp2)
+        
+        msg = f"""
+✅ *TRADE #{trade_id} OPENED!*
+
+Asset: {asset}
+Direction: {direction}
+Entry: ${entry:,.2f}
+Stop Loss: ${sl:,.2f}
+TP1: ${tp1:,.2f}
+TP2: ${tp2:,.2f}
+Position Size: {size}
+
+📏 *PIP ANALYSIS:*
+SL: {pip_info['sl_pips']} pips
+TP1: {pip_info['tp1_pips']} pips (R:R 1:{pip_info['rr_tp1']})
+TP2: {pip_info['tp2_pips']} pips (R:R 1:{pip_info['rr_tp2']})
+
+Use /closetrade {trade_id} [exit_price] to close
+"""
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def closetrade_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Close a trade"""
+    if len(context.args) < 2:
+        msg = """
+🔒 *CLOSE TRADE*
+
+Usage:
+/closetrade [trade_id] [exit_price] [type]
+
+Example:
+/closetrade 1 96000 TP1
+/closetrade 2 94500 SL
+
+Type: TP1, TP2, or SL
+"""
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        return
+    
+    try:
+        trade_id = int(context.args[0])
+        exit_price = float(context.args[1])
+        exit_type = context.args[2].upper() if len(context.args) > 2 else "MANUAL"
+        
+        # Close trade
+        result = tracker.close_trade(trade_id, exit_price, exit_type)
+        
+        if not result:
+            await update.message.reply_text("❌ Trade not found or already closed")
+            return
+        
+        # Determine win/loss
+        is_win = result['pnl'] > 0
+        emoji = "✅" if is_win else "❌"
+        
+        msg = f"""
+{emoji} *TRADE #{trade_id} CLOSED!*
+
+Asset: {result['asset']}
+Direction: {result['direction']}
+Entry: ${result['entry']:,.2f}
+Exit: ${result['exit_price']:,.2f}
+Exit Type: {exit_type}
+
+📏 *RESULTS:*
+Pips: {result['pips']} pips
+P&L: ${result['pnl']:+,.2f}
+Return: {result['return_pct']:+.2f}%
+
+💰 *CAPITAL:*
+Before: ${result['capital_before']:,.2f}
+After: ${result['capital_after']:,.2f}
+Change: ${result['pnl']:+,.2f} ({result['return_pct']:+.2f}%)
+
+Use /performance to see overall stats
+"""
+        await update.message.reply_text(msg, parse_mode='Markdown')
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def trades_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """View open trades"""
+    open_trades = tracker.get_open_trades()
+    
+    if not open_trades:
+        await update.message.reply_text("📭 No open trades")
+        return
+    
+    msg = f"📊 *OPEN TRADES ({len(open_trades)})*\n\n"
+    
+    for trade in open_trades:
+        msg += f"*Trade #{trade['id']}*\n"
+        msg += f"{trade['asset']} {trade['direction']}\n"
+        msg += f"Entry: ${trade['entry']:,.2f}\n"
+        msg += f"SL: ${trade['stop_loss']:,.2f} | TP1: ${trade['tp1']:,.2f} | TP2: ${trade['tp2']:,.2f}\n"
+        msg += f"Opened: {trade['opened_at']}\n\n"
+    
+    msg += f"Use /closetrade [id] [price] to close"
+    
+    await update.message.reply_text(msg, parse_mode='Markdown')
+
+
+async def performance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """View trading performance"""
+    stats = tracker.get_statistics()
+    
+    msg = f"""
+📊 *TRADING PERFORMANCE*
+
+💰 *CAPITAL:*
+Initial: ${stats['initial_capital']:,.2f}
+Current: ${stats['current_capital']:,.2f}
+Total Return: ${stats['total_return']:+,.2f} ({stats['total_return_pct']:+.2f}%)
+
+📈 *STATISTICS:*
+Total Trades: {stats['total_trades']}
+Wins: {stats['wins']} | Losses: {stats['losses']}
+Win Rate: {stats['win_rate']}%
+
+📏 *PIPS & P&L:*
+Total Pips: {stats['total_pips']:+.2f}
+Total P&L: ${stats['total_pnl']:+,.2f}
+Avg Win: ${stats['avg_win']:,.2f}
+Avg Loss: ${stats['avg_loss']:,.2f}
+Profit Factor: {stats['profit_factor']}
+
+Use /trades to see open positions
+"""
+    await update.message.reply_text(msg, parse_mode='Markdown')

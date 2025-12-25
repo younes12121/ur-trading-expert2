@@ -1,0 +1,21 @@
+{
+  "country": "Hong Kong",
+  "country_code": "HK",
+  "currency": "HKD",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 225,
+      "currency": "HKD",
+      "interval": "month",
+      "description": "Premium subscription - Hong Kong"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 765,
+      "currency": "HKD",
+      "interval": "month",
+      "description": "Vip subscription - Hong Kong"
+    }
+  }
+}

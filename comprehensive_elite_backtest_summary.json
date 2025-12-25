@@ -1,0 +1,139 @@
+{
+  "backtest_info": {
+    "start_capital": 500,
+    "end_capital": 25230.573396898268,
+    "total_return_pct": 4946.114679379653,
+    "total_trades": 153,
+    "total_wins": 147,
+    "win_rate": 96.07843137254902,
+    "date_run": "2025-12-10T18:21:16.670765"
+  },
+  "system_performance": {
+    "ELITE_A_PLUS": {
+      "trades": 30,
+      "wins": 26,
+      "pnl": 432.53908594075233
+    },
+    "ULTRA_ELITE": {
+      "trades": 18,
+      "wins": 18,
+      "pnl": 624.7520520168246
+    },
+    "QUANTUM_ELITE": {
+      "trades": 9,
+      "wins": 9,
+      "pnl": 493.03054729373446
+    },
+    "QUANTUM_INTRADAY": {
+      "trades": 96,
+      "wins": 94,
+      "pnl": 23180.251711646953
+    }
+  },
+  "monthly_stats": [
+    {
+      "month": "2024-12",
+      "trades": 6,
+      "wins": 6,
+      "pnl": 2138.873825176536,
+      "capital_end": 2638.873825176536,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-01",
+      "trades": 16,
+      "wins": 15,
+      "pnl": 2636.6898532712044,
+      "capital_end": 5275.56367844774,
+      "win_rate": 0.9375
+    },
+    {
+      "month": "2025-02",
+      "trades": 11,
+      "wins": 11,
+      "pnl": 2108.138969480943,
+      "capital_end": 7383.702647928683,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-03",
+      "trades": 9,
+      "wins": 9,
+      "pnl": 1372.49867690132,
+      "capital_end": 8756.201324830003,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-04",
+      "trades": 10,
+      "wins": 10,
+      "pnl": 1401.8825768698825,
+      "capital_end": 10158.083901699885,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-05",
+      "trades": 15,
+      "wins": 15,
+      "pnl": 2435.729429935304,
+      "capital_end": 12593.813331635189,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-06",
+      "trades": 16,
+      "wins": 14,
+      "pnl": 2324.884261784609,
+      "capital_end": 14918.697593419798,
+      "win_rate": 0.875
+    },
+    {
+      "month": "2025-07",
+      "trades": 14,
+      "wins": 13,
+      "pnl": 1908.2057909682633,
+      "capital_end": 16826.90338438806,
+      "win_rate": 0.9285714285714286
+    },
+    {
+      "month": "2025-08",
+      "trades": 15,
+      "wins": 14,
+      "pnl": 3343.1652482240015,
+      "capital_end": 20170.068632612063,
+      "win_rate": 0.9333333333333333
+    },
+    {
+      "month": "2025-09",
+      "trades": 10,
+      "wins": 9,
+      "pnl": 954.628917596593,
+      "capital_end": 21124.697550208657,
+      "win_rate": 0.9
+    },
+    {
+      "month": "2025-10",
+      "trades": 18,
+      "wins": 18,
+      "pnl": 1999.7370381890225,
+      "capital_end": 23124.43458839768,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-11",
+      "trades": 8,
+      "wins": 8,
+      "pnl": 1030.6471972537154,
+      "capital_end": 24155.081785651393,
+      "win_rate": 1.0
+    },
+    {
+      "month": "2025-12",
+      "trades": 5,
+      "wins": 5,
+      "pnl": 1075.4916112468793,
+      "capital_end": 25230.57339689827,
+      "win_rate": 1.0
+    }
+  ]
+}

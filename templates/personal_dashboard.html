@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Trading Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .signal-buy {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+        }
+        .signal-sell {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+        }
+        .signal-hold {
+            background: linear-gradient(135deg, #ca8a04, #eab308);
+        }
+        .asian-market {
+            border-left: 4px solid #f59e0b;
+        }
+        .european-market {
+            border-left: 4px solid #3b82f6;
+        }
+        .american-market {
+            border-left: 4px solid #10b981;
+        }
+        .crypto-market {
+            border-left: 4px solid #8b5cf6;
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Navigation -->
+    <nav class="bg-black/20 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-green-400 mr-3"></i>
+                        <h1 class="text-xl font-bold">My Trading Dashboard</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-blue-400"></i>
+                        <span class="text-sm" id="current-time">Loading...</span>
+                    </div>
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <i data-lucide="user" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <a href="/logout" class="text-sm text-white/70 hover:text-white">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-2">📊 My Trading Intelligence</h2>
+            <p class="text-white/70">Real-time signals, performance tracking, and market analysis</p>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="glass-card rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Win Rate</p>
+                        <p class="text-2xl font-bold text-green-400" id="win-rate">0%</p>
+                    </div>
+                    <i data-lucide="trending-up" class="w-8 h-8 text-green-400"></i>
+                </div>
+            </div>
+            <div class="glass-card rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Active Signals</p>
+                        <p class="text-2xl font-bold text-blue-400" id="active-signals">0</p>
+                    </div>
+                    <i data-lucide="activity" class="w-8 h-8 text-blue-400"></i>
+                </div>
+            </div>
+            <div class="glass-card rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Today's P&L</p>
+                        <p class="text-2xl font-bold text-purple-400" id="today-pnl">$0.00</p>
+                    </div>
+                    <i data-lucide="dollar-sign" class="w-8 h-8 text-purple-400"></i>
+                </div>
+            </div>
+            <div class="glass-card rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/70 text-sm">Avg Confidence</p>
+                        <p class="text-2xl font-bold text-yellow-400" id="avg-confidence">0%</p>
+                    </div>
+                    <i data-lucide="target" class="w-8 h-8 text-yellow-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <!-- Live Signals -->
+            <div class="lg:col-span-2">
+                <div class="glass-card rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold flex items-center">
+                            <i data-lucide="zap" class="w-5 h-5 mr-2 text-yellow-400"></i>
+                            Live Trading Signals
+                        </h3>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors" onclick="refreshSignals()">
+                                <i data-lucide="refresh-cw" class="w-4 h-4 inline mr-2"></i>
+                                Refresh
+                            </button>
+                            <select id="signal-filter" class="bg-black/20 border border-white/20 rounded-lg px-3 py-2 text-sm">
+                                <option value="all">All Signals</option>
+                                <option value="buy">Buy Only</option>
+                                <option value="sell">Sell Only</option>
+                                <option value="strong">Strong Only (80%+)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-4" id="signals-container">
+                        <div class="text-center py-8">
+                            <div class="inline-flex items-center">
+                                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-400 mr-2"></div>
+                                <span class="text-white/70">Loading live signals...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Analysis Sidebar -->
+            <div class="space-y-6">
+                <!-- Market Regime -->
+                <div class="glass-card rounded-lg p-6">
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <i data-lucide="radar" class="w-5 h-5 mr-2 text-purple-400"></i>
+                        Market Regime
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Current</span>
+                            <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs" id="current-regime">Bull Market</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Confidence</span>
+                            <span class="text-white" id="regime-confidence">87%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Duration</span>
+                            <span class="text-white" id="regime-duration">12 days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session Activity -->
+                <div class="glass-card rounded-lg p-6">
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <i data-lucide="clock" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        Active Sessions
+                    </h4>
+                    <div class="space-y-3" id="sessions-container">
+                        <!-- Sessions will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Performance Summary -->
+                <div class="glass-card rounded-lg p-6">
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 mr-2 text-green-400"></i>
+                        Performance
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Total Trades</span>
+                            <span class="text-white" id="total-trades">247</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Winning Trades</span>
+                            <span class="text-green-400" id="winning-trades">211</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Avg Return</span>
+                            <span class="text-green-400" id="avg-return">+2.8%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Global Market Scanner -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Market Correlation -->
+            <div class="glass-card rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-6">🔍 Market Correlation Matrix</h3>
+                <canvas id="correlation-chart" width="400" height="300"></canvas>
+            </div>
+
+            <!-- Regional Performance -->
+            <div class="glass-card rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-6">🌍 Regional Performance</h3>
+                <div class="space-y-4" id="regional-performance">
+                    <!-- Regional data will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Alerts -->
+        <div class="glass-card rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-6">🚨 Market Alerts</h3>
+            <div class="space-y-3" id="alerts-container">
+                <!-- Alerts will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Global data
+        let dashboardData = {
+            signals: [],
+            performance: {},
+            marketRegime: {},
+            sessions: [],
+            alerts: [],
+            correlation: {},
+            regionalPerformance: []
+        };
+
+        // API base URL
+        const API_BASE = window.location.origin;
+
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour12: false,
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            });
+            document.getElementById('current-time').textContent = timeString;
+        }
+
+        // Format price based on asset type
+        function formatPrice(price, symbol) {
+            if (typeof price !== 'number') return price;
+
+            if (symbol.includes('JPY')) {
+                return price.toFixed(3);
+            } else if (symbol.includes('BTC') || symbol.includes('ETH')) {
+                return price.toLocaleString('en-US', {
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                });
+            } else {
+                return price.toFixed(5);
+            }
+        }
+
+        // Get signal border color based on category
+        function getSignalBorderClass(category) {
+            switch (category?.toLowerCase()) {
+                case 'asian': return 'asian-market';
+                case 'european': return 'european-market';
+                case 'american': return 'american-market';
+                case 'crypto': return 'crypto-market';
+                default: return '';
+            }
+        }
+
+        // Get direction class
+        function getDirectionClass(direction) {
+            switch (direction?.toUpperCase()) {
+                case 'BUY': return 'signal-buy';
+                case 'SELL': return 'signal-sell';
+                case 'HOLD': return 'signal-hold';
+                default: return 'signal-hold';
+            }
+        }
+
+        // Render signals
+        function renderSignals(signals, filter = 'all') {
+            const container = document.getElementById('signals-container');
+            if (!signals || signals.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <span class="text-white/50">No active signals at this time</span>
+                    </div>
+                `;
+                return;
+            }
+
+            const filteredSignals = signals.filter(signal => {
+                if (filter === 'all') return true;
+                if (filter === 'buy') return signal.direction === 'BUY';
+                if (filter === 'sell') return signal.direction === 'SELL';
+                if (filter === 'strong') return signal.confidence >= 80;
+                return true;
+            });
+
+            const signalsHtml = filteredSignals.map(signal => {
+                const borderClass = getSignalBorderClass(signal.category);
+                const directionClass = getDirectionClass(signal.direction);
+
+                return `
+                    <div class="glass-card rounded-lg p-4 ${borderClass}">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="font-semibold text-lg">${signal.symbol}</span>
+                                <span class="text-sm text-white/60 ml-2">${signal.time_ago}</span>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold ${directionClass}">
+                                ${signal.direction}
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-3 text-sm">
+                            <div>
+                                <span class="text-white/70">Entry:</span>
+                                <span class="font-mono ml-2">${formatPrice(signal.entry, signal.symbol)}</span>
+                            </div>
+                            <div>
+                                <span class="text-white/70">Target:</span>
+                                <span class="font-mono ml-2 text-green-400">${formatPrice(signal.target, signal.symbol)}</span>
+                            </div>
+                            <div>
+                                <span class="text-white/70">Stop Loss:</span>
+                                <span class="font-mono ml-2 text-red-400">${formatPrice(signal.stop_loss, signal.symbol)}</span>
+                            </div>
+                            <div>
+                                <span class="text-white/70">Confidence:</span>
+                                <span class="font-mono ml-2 text-yellow-400">${signal.confidence}%</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-xs text-white/60">
+                            <span>Category: ${signal.category || 'General'}</span>
+                            <span>Session: ${signal.session || 'N/A'}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = signalsHtml;
+
+            // Update metrics
+            updateMetrics(filteredSignals);
+        }
+
+        // Update key metrics
+        function updateMetrics(signals) {
+            const activeSignals = signals.length;
+            const avgConfidence = signals.length > 0 ?
+                Math.round(signals.reduce((sum, s) => sum + (s.confidence || 0), 0) / signals.length) : 0;
+
+            document.getElementById('active-signals').textContent = activeSignals;
+            document.getElementById('avg-confidence').textContent = `${avgConfidence}%`;
+        }
+
+        // Render sessions
+        function renderSessions(sessions) {
+            const container = document.getElementById('sessions-container');
+            if (!sessions || sessions.length === 0) return;
+
+            const sessionsHtml = sessions.map(session => {
+                const statusColor = getSessionStatusColor(session.status);
+                const isActive = session.status === 'active' || session.status === 'always_active';
+
+                return `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full ${isActive ? 'bg-green-400 pulse-dot' : 'bg-gray-400'} mr-3"></div>
+                            <div>
+                                <p class="font-medium text-sm">${session.name}</p>
+                                <p class="text-xs text-white/60">${session.active_pairs.join(', ')}</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 rounded text-xs ${statusColor}">${formatSessionStatus(session.status)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = sessionsHtml;
+        }
+
+        function getSessionStatusColor(status) {
+            switch (status) {
+                case 'active':
+                case 'always_active':
+                    return 'bg-green-500/20 text-green-400';
+                case 'opening_soon':
+                    return 'bg-yellow-500/20 text-yellow-400';
+                default:
+                    return 'bg-gray-500/20 text-gray-400';
+            }
+        }
+
+        function formatSessionStatus(status) {
+            switch (status) {
+                case 'active': return 'Active';
+                case 'always_active': return '24/7';
+                case 'opening_soon': return 'Opening Soon';
+                default: return status;
+            }
+        }
+
+        // Render alerts
+        function renderAlerts(alerts) {
+            const container = document.getElementById('alerts-container');
+            if (!alerts || alerts.length === 0) {
+                container.innerHTML = '<p class="text-white/50 text-center">No active alerts</p>';
+                return;
+            }
+
+            const alertsHtml = alerts.map(alert => {
+                const alertClass = getAlertClass(alert.type);
+                const icon = getAlertIcon(alert.type);
+                const timeAgo = formatTimeAgo(alert.timestamp);
+
+                return `
+                    <div class="p-4 ${alertClass} border ${getAlertBorderClass(alert.type)} rounded-lg">
+                        <div class="flex items-start">
+                            <i data-lucide="${icon}" class="w-5 h-5 mr-3 mt-0.5 ${getAlertIconColor(alert.type)}"></i>
+                            <div class="flex-1">
+                                <p class="font-medium ${getAlertTextColor(alert.type)}">${alert.title}</p>
+                                <p class="text-sm text-white/80 mt-1">${alert.message}</p>
+                                <p class="text-xs text-white/60 mt-2">${timeAgo}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = alertsHtml;
+        }
+
+        function getAlertClass(type) {
+            switch (type) {
+                case 'warning': return 'bg-yellow-500/10';
+                case 'success': return 'bg-green-500/10';
+                case 'info': return 'bg-blue-500/10';
+                default: return 'bg-gray-500/10';
+            }
+        }
+
+        function getAlertBorderClass(type) {
+            switch (type) {
+                case 'warning': return 'border-yellow-500/30';
+                case 'success': return 'border-green-500/30';
+                case 'info': return 'border-blue-500/30';
+                default: return 'border-gray-500/30';
+            }
+        }
+
+        function getAlertIcon(type) {
+            switch (type) {
+                case 'warning': return 'alert-triangle';
+                case 'success': return 'check-circle';
+                case 'info': return 'info';
+                default: return 'bell';
+            }
+        }
+
+        function getAlertIconColor(type) {
+            switch (type) {
+                case 'warning': return 'text-yellow-400';
+                case 'success': return 'text-green-400';
+                case 'info': return 'text-blue-400';
+                default: return 'text-gray-400';
+            }
+        }
+
+        function getAlertTextColor(type) {
+            switch (type) {
+                case 'warning': return 'text-yellow-400';
+                case 'success': return 'text-green-400';
+                case 'info': return 'text-blue-400';
+                default: return 'text-gray-400';
+            }
+        }
+
+        function formatTimeAgo(timestamp) {
+            const now = new Date();
+            const alertTime = new Date(timestamp);
+            const diffMinutes = Math.floor((now - alertTime) / (1000 * 60));
+
+            if (diffMinutes < 1) return 'Just now';
+            if (diffMinutes < 60) return `${diffMinutes} minutes ago`;
+            const diffHours = Math.floor(diffMinutes / 60);
+            if (diffHours < 24) return `${diffHours} hours ago`;
+            const diffDays = Math.floor(diffHours / 24);
+            return `${diffDays} days ago`;
+        }
+
+        // Render regional performance
+        function renderRegionalPerformance(regions) {
+            const container = document.getElementById('regional-performance');
+            if (!regions || regions.length === 0) return;
+
+            const regionsHtml = regions.map(region => {
+                const changeColor = region.change_24h >= 0 ? 'text-green-400' : 'text-red-400';
+                const changeSymbol = region.change_24h >= 0 ? '+' : '';
+
+                return `
+                    <div class="flex items-center justify-between p-3 bg-black/20 rounded-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-5 h-5 ${getRegionIconColor(region.name)} mr-3"></i>
+                            <div>
+                                <p class="font-medium">${region.name}</p>
+                                <p class="text-sm text-white/60">${region.pairs.join(', ')}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="${changeColor} font-semibold">${changeSymbol}${region.change_24h}%</p>
+                            <p class="text-xs text-white/60">24h change</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = regionsHtml;
+        }
+
+        function getRegionIconColor(regionName) {
+            switch (regionName.toLowerCase()) {
+                case 'asia pacific': return 'text-yellow-400';
+                case 'europe': return 'text-blue-400';
+                case 'americas': return 'text-green-400';
+                case 'crypto': return 'text-purple-400';
+                default: return 'text-gray-400';
+            }
+        }
+
+        // Initialize correlation chart
+        function initCorrelationChart(data) {
+            const ctx = document.getElementById('correlation-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: data.labels || ['EUR/USD', 'GBP/USD', 'USD/JPY', 'AUD/USD', 'USD/CAD', 'BTC/USD'],
+                    datasets: [{
+                        label: 'Market Correlation',
+                        data: data.data || [0.85, 0.78, -0.65, 0.72, -0.45, 0.25],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: {
+                                stepSize: 0.2
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update performance display
+        function updatePerformanceDisplay(performance) {
+            if (!performance) return;
+
+            document.getElementById('win-rate').textContent = `${performance.win_rate_30d.toFixed(1)}%`;
+            document.getElementById('total-trades').textContent = performance.total_trades;
+            document.getElementById('winning-trades').textContent = performance.winning_trades;
+            document.getElementById('avg-return').textContent = `+${performance.average_return.toFixed(1)}%`;
+            document.getElementById('today-pnl').textContent = `$${performance.total_pnl.toFixed(2)}`;
+        }
+
+        // Update market regime display
+        function updateMarketRegimeDisplay(regime) {
+            if (!regime) return;
+
+            document.getElementById('current-regime').textContent = regime.current_regime;
+            document.getElementById('regime-confidence').textContent = `${regime.confidence}%`;
+            document.getElementById('regime-duration').textContent = `${regime.duration_days} days`;
+        }
+
+        // API functions
+        async function fetchSignals() {
+            try {
+                const response = await fetch(`${API_BASE}/api/signals`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.signals = data.signals;
+                    renderSignals(data.signals, document.getElementById('signal-filter').value);
+                }
+            } catch (error) {
+                console.error('Failed to fetch signals:', error);
+            }
+        }
+
+        async function fetchPerformance() {
+            try {
+                const response = await fetch(`${API_BASE}/api/performance`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.performance = data;
+                    updatePerformanceDisplay(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch performance:', error);
+            }
+        }
+
+        async function fetchMarketRegime() {
+            try {
+                const response = await fetch(`${API_BASE}/api/market-regime`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.marketRegime = data;
+                    updateMarketRegimeDisplay(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch market regime:', error);
+            }
+        }
+
+        async function fetchSessions() {
+            try {
+                const response = await fetch(`${API_BASE}/api/sessions`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.sessions = data.sessions;
+                    renderSessions(data.sessions);
+                }
+            } catch (error) {
+                console.error('Failed to fetch sessions:', error);
+            }
+        }
+
+        async function fetchAlerts() {
+            try {
+                const response = await fetch(`${API_BASE}/api/alerts`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.alerts = data.alerts;
+                    renderAlerts(data.alerts);
+                }
+            } catch (error) {
+                console.error('Failed to fetch alerts:', error);
+            }
+        }
+
+        async function fetchCorrelation() {
+            try {
+                const response = await fetch(`${API_BASE}/api/correlation`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.correlation = data;
+                    initCorrelationChart(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch correlation:', error);
+            }
+        }
+
+        async function fetchRegionalPerformance() {
+            try {
+                const response = await fetch(`${API_BASE}/api/regional-performance`);
+                if (response.ok) {
+                    const data = await response.json();
+                    dashboardData.regionalPerformance = data.regions;
+                    renderRegionalPerformance(data.regions);
+                }
+            } catch (error) {
+                console.error('Failed to fetch regional performance:', error);
+            }
+        }
+
+        function refreshSignals() {
+            fetchSignals();
+        }
+
+        // Initialize dashboard
+        async function initializeDashboard() {
+            console.log('Initializing Personal Trading Dashboard...');
+
+            // Fetch all data
+            await Promise.all([
+                fetchSignals(),
+                fetchPerformance(),
+                fetchMarketRegime(),
+                fetchSessions(),
+                fetchAlerts(),
+                fetchCorrelation(),
+                fetchRegionalPerformance()
+            ]);
+
+            console.log('Personal Dashboard initialized with live data');
+        }
+
+        // Auto-refresh functionality
+        function startAutoRefresh() {
+            // Update signals every 30 seconds
+            setInterval(fetchSignals, 30000);
+
+            // Update performance every 60 seconds
+            setInterval(fetchPerformance, 60000);
+
+            // Update market regime every 5 minutes
+            setInterval(fetchMarketRegime, 300000);
+
+            // Update sessions every 2 minutes
+            setInterval(fetchSessions, 120000);
+
+            // Update alerts every minute
+            setInterval(fetchAlerts, 60000);
+        }
+
+        // Event listeners
+        document.getElementById('signal-filter').addEventListener('change', (e) => {
+            renderSignals(dashboardData.signals, e.target.value);
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTime();
+            setInterval(updateTime, 1000);
+            initializeDashboard();
+            startAutoRefresh();
+        });
+    </script>
+</body>
+</html>

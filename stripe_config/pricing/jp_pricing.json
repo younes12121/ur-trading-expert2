@@ -1,0 +1,21 @@
+{
+  "country": "Japan",
+  "country_code": "JP",
+  "currency": "JPY",
+  "tiers": {
+    "premium": {
+      "usd_price": 29,
+      "local_price": 3500,
+      "currency": "JPY",
+      "interval": "month",
+      "description": "Premium subscription - Japan"
+    },
+    "vip": {
+      "usd_price": 99,
+      "local_price": 12000,
+      "currency": "JPY",
+      "interval": "month",
+      "description": "Vip subscription - Japan"
+    }
+  }
+}

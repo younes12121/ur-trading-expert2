@@ -1,0 +1,22 @@
+{
+  "country": "Mexico",
+  "country_code": "MX",
+  "currency": "MXN",
+  "supported_methods": {
+    "card": {
+      "name": "Credit/Debit Cards",
+      "supported_currencies": [
+        "ALL"
+      ],
+      "processing_fee": "2.9% + $0.30"
+    },
+    "oxxo": {
+      "name": "OXXO",
+      "supported_currencies": [
+        "MXN"
+      ],
+      "processing_fee": "3.5%"
+    }
+  },
+  "primary_method": "card"
+}

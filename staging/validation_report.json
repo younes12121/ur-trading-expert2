@@ -1,0 +1,14 @@
+{
+  "timestamp": 1765346973.221717,
+  "tests_passed": 6,
+  "tests_failed": 1,
+  "tests_total": 7,
+  "errors": [
+    "Failed to import ai_advanced_neural_predictor: No module named 'tensorflow'"
+  ],
+  "warnings": [
+    "Optional dependency missing: tensorflow",
+    "Optional dependency missing: transformers",
+    "Optional dependency missing: sklearn"
+  ]
+}
