@@ -11,13 +11,20 @@ import numpy as np
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
 import logging
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, precision_score, recall_score
-import joblib
 import hashlib
 import threading
+
+# Optional ML imports - bot will work without them
+try:
+    from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+    from sklearn.preprocessing import StandardScaler, LabelEncoder
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import accuracy_score, precision_score, recall_score
+    import joblib
+    SKLEARN_AVAILABLE = True
+except ImportError:
+    SKLEARN_AVAILABLE = False
+    logging.warning("scikit-learn not available. ML features will be disabled.")
 
 # Add current directory to path for imports
 sys.path.insert(0, os.path.dirname(__file__))
@@ -44,8 +51,12 @@ class GlobalErrorLearningManager:
         self._initialized = True
         self.model_path = os.path.join(os.path.dirname(__file__), "global_error_learning_model.pkl")
         self.error_history = []
-        self.scaler = StandardScaler()
-        self.label_encoder = LabelEncoder()
+        if SKLEARN_AVAILABLE:
+            self.scaler = StandardScaler()
+            self.label_encoder = LabelEncoder()
+        else:
+            self.scaler = None
+            self.label_encoder = None
         self.model = None
 
         # Component-specific feature columns
@@ -91,6 +102,10 @@ class GlobalErrorLearningManager:
 
     def _load_or_create_model(self):
         """Load existing model or create new one"""
+        if not SKLEARN_AVAILABLE:
+            logger.warning("[GLOBAL_ERROR_LEARNING] scikit-learn not available. ML features disabled.")
+            return
+            
         try:
             if os.path.exists(self.model_path):
                 model_data = joblib.load(self.model_path)
@@ -228,7 +243,7 @@ class GlobalErrorLearningManager:
 
     def predict_error_likelihood(self, component: str, operation_context: Dict) -> Dict:
         """Predict the likelihood of an error occurring in a specific component"""
-        if self.model is None or len(self.error_history) < 10:
+        if not SKLEARN_AVAILABLE or self.model is None or len(self.error_history) < 10:
             return {
                 'error_probability': 0.05,  # Conservative default for new components
                 'confidence': 0.2,
@@ -431,6 +446,9 @@ class GlobalErrorLearningManager:
 
     def _retrain_model(self):
         """Retrain the error prediction model"""
+        if not SKLEARN_AVAILABLE:
+            return
+            
         if len(self.error_history) < 30:
             logger.info("[GLOBAL_ERROR_LEARNING] Not enough data for retraining")
             return
@@ -479,6 +497,9 @@ class GlobalErrorLearningManager:
 
     def _save_model(self):
         """Save the model and learning data"""
+        if not SKLEARN_AVAILABLE:
+            return
+            
         try:
             model_data = {
                 'model': self.model,
