@@ -14,7 +14,7 @@ try:
     import stripe
     
     # HARDCODED SECRET KEY - Direct from Stripe
-    stripe.api_key = 'sk_test_51SbBAtCoLBi6DM3Oq7VPUcrrvKufgzCzgrSQnCA5gYpSUFsgJgydKh4IkGbZLIRv9f1nvQkhxZxGdPsxJIn1OJmz00IfeksIXB'
+    stripe.api_key = 'sk_test_YOUR_STRIPE_SECRET_KEY_HERE'
     
     # HARDCODED Price IDs
     price_ids = {
@@ -123,7 +123,7 @@ STRIPE_PREMIUM_PRICE_ID=price_your_premium_price_id_here
 STRIPE_VIP_PRICE_ID=price_your_vip_price_id_here
 
 # Optional: Keep test keys for development
-STRIPE_TEST_SECRET_KEY=sk_test_51SbBAtCoLBi6DM3Oq7VPUcrrvKufgzCzgrSQnCA5gYpSUFsgJgydKh4IkGbZLIRv9f1nvQkhxZxGdPsxJIn1OJmz00IfeksIXB
+STRIPE_TEST_SECRET_KEY=sk_test_YOUR_STRIPE_SECRET_KEY_HERE
 ```
 
 ### Security Notes
