@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UR Trading Expert</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: var(--tg-theme-bg-color, #ffffff);
+            --text-color: var(--tg-theme-text-color, #000000);
+            --hint-color: var(--tg-theme-hint-color, #999999);
+            --link-color: var(--tg-theme-link-color, #2481cc);
+            --button-color: var(--tg-theme-button-color, #2481cc);
+            --button-text-color: var(--tg-theme-button-text-color, #ffffff);
+            --secondary-bg-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
+            --accent-text-color: var(--tg-theme-accent-text-color, #2481cc);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 16px;
+            padding-bottom: 80px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .header p {
+            color: var(--hint-color);
+            font-size: 14px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--secondary-bg-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-text-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--hint-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 16px 0;
+        }
+
+        .signal-card {
+            background: var(--secondary-bg-color);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--button-color);
+        }
+
+        .signal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .signal-pair {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .signal-direction {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .signal-direction.buy {
+            background: #10b981;
+            color: white;
+        }
+
+        .signal-direction.sell {
+            background: #ef4444;
+            color: white;
+        }
+
+        .signal-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .signal-detail {
+            text-align: center;
+        }
+
+        .signal-detail-label {
+            font-size: 10px;
+            color: var(--hint-color);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .signal-detail-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .criteria-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .criteria-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .criteria-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .criteria-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-text-color);
+            white-space: nowrap;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--button-color);
+            color: var(--button-text-color);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--button-color);
+            color: var(--button-color);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--hint-color);
+        }
+
+        .spinner {
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--button-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--hint-color);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--secondary-bg-color);
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .tab.active {
+            background: var(--button-color);
+            color: var(--button-text-color);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            background: var(--button-color);
+            color: var(--button-text-color);
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📊 UR Trading Expert</h1>
+        <p id="user-greeting">Welcome back!</p>
+        <div style="font-size: 10px; color: var(--hint-color); margin-top: 4px;">
+            <span id="app-version">v2.1.0</span> • <span id="connection-status">🟢 Online</span> • <span id="last-update">Updated just now</span>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="stat-balance">$0.00</div>
+            <div class="stat-label">Portfolio Balance</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-winrate">0%</div>
+            <div class="stat-label">Win Rate</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-positions">0</div>
+            <div class="stat-label">Active Positions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="stat-pnl">$0.00</div>
+            <div class="stat-label">Today's P&L</div>
+        </div>
+    </div>
+
+    <div class="tabs" id="asset-tabs">
+        <div class="tab active" data-filter="all">All<span class="badge" id="badge-all">0</span></div>
+        <div class="tab" data-filter="crypto">Crypto</div>
+        <div class="tab" data-filter="forex">Forex</div>
+        <div class="tab" data-filter="futures">Futures</div>
+    </div>
+
+    <div class="section-title">Latest Signals</div>
+
+    <div id="signals-container">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading signals...</p>
+        </div>
+    </div>
+
+    <div class="section-title">💼 Current Positions</div>
+    <div id="positions-container">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading positions...</p>
+        </div>
+    </div>
+
+    <div class="section-title">🧠 AI Insights</div>
+    <div id="insights-container">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading AI insights...</p>
+        </div>
+    </div>
+
+    <div class="section-title">📈 Trading Records</div>
+    <div id="records-container">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading trading records...</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Telegram WebApp
+        let tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+
+        // Enhanced mobile app features
+        let lastSignalCount = 0;
+        let lastPositionCount = 0;
+        let isOnline = navigator.onLine;
+        let notificationPermission = false;
+        let appVersion = '2.1.0';
+        let lastUpdate = Date.now();
+
+        // Request notification permission
+        async function requestNotificationPermission() {
+            if ('Notification' in window) {
+                const permission = await Notification.requestPermission();
+                notificationPermission = permission === 'granted';
+                return notificationPermission;
+            }
+            return false;
+        }
+
+        // Show push notification
+        function showNotification(title, body, icon = '📊') {
+            if (notificationPermission && isOnline) {
+                new Notification(title, {
+                    body: body,
+                    icon: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">${icon}</text></svg>`,
+                    tag: 'trading-signal'
+                });
+            }
+        }
+
+        // Check for new signals and notify
+        function checkForNewSignals(signals) {
+            const currentCount = signals.length;
+            if (currentCount > lastSignalCount && lastSignalCount > 0) {
+                const newSignals = currentCount - lastSignalCount;
+                showNotification(
+                    '🚀 New Trading Signals!',
+                    `You have ${newSignals} new trading signal${newSignals > 1 ? 's' : ''} available.`,
+                    '🚀'
+                );
+                // Telegram haptic feedback
+                if (tg.HapticFeedback) {
+                    tg.HapticFeedback.notificationOccurred('success');
+                }
+            }
+            lastSignalCount = currentCount;
+        }
+
+        // Check for position changes and notify
+        function checkForPositionChanges(positions) {
+            const currentCount = positions.length;
+            if (currentCount !== lastPositionCount && lastPositionCount > 0) {
+                if (currentCount > lastPositionCount) {
+                    showNotification(
+                        '💼 Position Opened',
+                        `New position opened. You now have ${currentCount} active positions.`,
+                        '💼'
+                    );
+                } else if (currentCount < lastPositionCount) {
+                    showNotification(
+                        '✅ Position Closed',
+                        `Position closed. You have ${currentCount} active positions remaining.`,
+                        '✅'
+                    );
+                }
+            }
+            lastPositionCount = currentCount;
+        }
+
+        // Offline/online detection
+        window.addEventListener('online', () => {
+            isOnline = true;
+            console.log('🔄 Back online - refreshing data...');
+            fetchSignals();
+            fetchPositions();
+            fetchAIInsights();
+            fetchTradingRecords();
+        });
+
+        window.addEventListener('offline', () => {
+            isOnline = false;
+            console.log('📴 Gone offline - using cached data');
+            tg.showAlert('📴 You\'re offline. Some features may be limited.');
+        });
+
+        // Set theme colors
+        tg.setHeaderColor('secondary_bg_color');
+        tg.setBackgroundColor('bg_color');
+
+        // Get user data from Telegram
+        const user = tg.initDataUnsafe?.user;
+        const userId = user?.id || 0;
+
+        if (user) {
+            document.getElementById('user-greeting').textContent =
+                `Welcome back, ${user.first_name}! 👋`;
+        }
+
+        // API Configuration - Now using Personal Dashboard API for richer data
+        const API_BASE_URL = 'http://localhost:5001/api'; // Personal Dashboard API with richer data
+        let allSignals = [];
+
+        // Fetch real signals from Personal Dashboard API
+        async function fetchSignals() {
+            try {
+                const data = await apiCallWithRetry(`${API_BASE_URL}/signals`);
+                allSignals = data.signals || [];
+
+                // Convert personal dashboard signal format to mobile app format
+                allSignals = allSignals.map(signal => ({
+                    pair: signal.asset,
+                    direction: signal.direction.toLowerCase(),
+                    entry: signal.entry,
+                    tp: signal.take_profit1,
+                    sl: signal.stop_loss,
+                    criteria: Math.round(signal.confidence / 5), // Convert confidence to criteria score
+                    type: signal.category === 'crypto' ? 'crypto' : (signal.asset.includes('/') ? 'forex' : 'futures'),
+                    timeframe: 'H1',
+                    timestamp: new Date().toISOString(),
+                    confidence: signal.confidence,
+                    analysis: signal.analysis
+                }));
+
+                updateStats(allSignals);
+                renderSignals(allSignals);
+
+                // Check for new signals and notify
+                checkForNewSignals(allSignals);
+
+                // Also fetch and update user portfolio and stats
+                fetchUserPortfolio();
+                fetchPerformanceMetrics();
+                fetchUserTier();
+
+                lastUpdate = Date.now();
+
+            } catch (error) {
+                handleApiError(error, 'signals');
+            }
+        }
+
+        // Fetch user portfolio data from Personal Dashboard API
+        async function fetchUserPortfolio() {
+            try {
+                const data = await apiCallWithRetry(`${API_BASE_URL}/user/${userId}/portfolio`);
+
+                // Update portfolio display with real data
+                document.getElementById('stat-balance').textContent = `$${data.balance ? data.balance.toFixed(2) : '0.00'}`;
+                document.getElementById('stat-winrate').textContent = `${data.win_rate ? data.win_rate.toFixed(1) : 0}%`;
+                document.getElementById('stat-positions').textContent = data.active_positions || 0;
+                document.getElementById('stat-pnl').textContent = `$${data.today_pnl ? data.today_pnl.toFixed(2) : '0.00'}`;
+
+            } catch (error) {
+                handleApiError(error, 'portfolio');
+                // Keep existing values if fetch fails
+            }
+        }
+
+        // Fetch performance metrics from Personal Dashboard API
+        async function fetchPerformanceMetrics() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/performance`);
+                if (!response.ok) throw new Error('Failed to fetch performance');
+
+                const data = await response.json();
+
+                // Update performance metrics if needed
+                console.log('Performance data:', data);
+
+            } catch (error) {
+                console.error('Error fetching performance:', error);
+            }
+        }
+
+        // Fetch current positions from Personal Dashboard API
+        async function fetchPositions() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/user/${userId}/positions`);
+                if (!response.ok) throw new Error('Failed to fetch positions');
+
+                const data = await response.json();
+                const positions = data.positions || [];
+
+                // Check for position changes and notify
+                checkForPositionChanges(positions);
+
+                renderPositions(positions);
+
+            } catch (error) {
+                console.error('Error fetching positions:', error);
+                renderPositions([]);
+            }
+        }
+
+        // Fetch AI insights from Personal Dashboard API
+        async function fetchAIInsights() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/ai-insights`);
+                if (!response.ok) throw new Error('Failed to fetch AI insights');
+
+                const data = await response.json();
+                renderAIInsights(data.insights || []);
+
+            } catch (error) {
+                console.error('Error fetching AI insights:', error);
+                renderAIInsights([]);
+            }
+        }
+
+        // Fetch trading records from Personal Dashboard API
+        async function fetchTradingRecords() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/records?limit=10`);
+                if (!response.ok) throw new Error('Failed to fetch trading records');
+
+                const data = await response.json();
+                renderTradingRecords(data.records || []);
+
+            } catch (error) {
+                console.error('Error fetching trading records:', error);
+                renderTradingRecords([]);
+            }
+        }
+
+        // Enhanced API call with retry logic
+        async function apiCallWithRetry(url, options = {}, maxRetries = 3) {
+            let lastError;
+
+            for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                    if (!isOnline) {
+                        throw new Error('Offline - cannot make API calls');
+                    }
+
+                    const response = await fetch(url, {
+                        ...options,
+                        signal: AbortSignal.timeout(10000) // 10 second timeout
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+
+                    return await response.json();
+                } catch (error) {
+                    lastError = error;
+                    console.warn(`API call attempt ${attempt} failed:`, error.message);
+
+                    if (attempt < maxRetries && isOnline) {
+                        // Exponential backoff: 1s, 2s, 4s
+                        const delay = Math.pow(2, attempt - 1) * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+                }
+            }
+
+            throw lastError;
+        }
+
+        // Enhanced error handler with user feedback
+        function handleApiError(error, context) {
+            console.error(`Error in ${context}:`, error);
+
+            let message = 'Something went wrong. Please try again.';
+
+            if (error.message.includes('Offline')) {
+                message = '📴 You\'re offline. Please check your connection.';
+            } else if (error.message.includes('timeout')) {
+                message = '⏰ Request timed out. Please try again.';
+            } else if (error.message.includes('HTTP 5')) {
+                message = '🔧 Server error. Please try again later.';
+            } else if (error.message.includes('HTTP 4')) {
+                message = '📋 Data not found or access denied.';
+            }
+
+            tg.showAlert(message);
+
+            // Fallback to cached/demo data if available
+            if (context === 'signals') {
+                loadMockData();
+            }
+        }
+
+        // Fetch user tier information from portfolio data
+        async function fetchUserTier() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/user/${userId}/portfolio`);
+                if (!response.ok) throw new Error('Failed to fetch user data');
+
+                const data = await response.json();
+
+                // Determine tier based on portfolio balance (simple logic)
+                let tier = 'Free';
+                const balance = data.balance || 0;
+                if (balance > 10000) tier = 'Premium';
+                else if (balance > 1000) tier = 'Pro';
+
+                document.getElementById('stat-tier').textContent = tier;
+
+            } catch (error) {
+                console.error('Error fetching user tier:', error);
+                document.getElementById('stat-tier').textContent = 'Free';
+            }
+        }
+
+        // Fallback mock data if API is not available
+        function loadMockData() {
+            allSignals = [
+                {
+                    pair: 'BTC/USDT',
+                    direction: 'buy',
+                    entry: 43250.50,
+                    tp: 44500.00,
+                    sl: 42800.00,
+                    criteria: 18,
+                    type: 'crypto',
+                    timeframe: 'H1',
+                    timestamp: new Date().toISOString(),
+                    confidence: 85
+                },
+                {
+                    pair: 'EUR/USD',
+                    direction: 'sell',
+                    entry: 1.0875,
+                    tp: 1.0820,
+                    sl: 1.0910,
+                    criteria: 17,
+                    type: 'forex',
+                    timeframe: 'M15',
+                    timestamp: new Date(Date.now() - 3600000).toISOString(),
+                    confidence: 78
+                },
+                {
+                    pair: 'XAU/USD',
+                    direction: 'buy',
+                    entry: 2045.50,
+                    tp: 2068.00,
+                    sl: 2032.00,
+                    criteria: 19,
+                    type: 'crypto',
+                    timeframe: 'H4',
+                    timestamp: new Date(Date.now() - 7200000).toISOString(),
+                    confidence: 92
+                }
+            ];
+
+            updateStats(allSignals);
+            renderSignals(allSignals);
+
+            tg.showAlert('⚠️ Using demo data. Start mobile_api.py for real signals.');
+        }
+
+        // Update stats
+        function updateStats(signals) {
+            document.getElementById('badge-all').textContent = signals.length;
+        }
+
+        // Render signals
+        function renderSignals(signals, filter = 'all') {
+            const container = document.getElementById('signals-container');
+
+            let filtered = signals;
+            if (filter !== 'all') {
+                filtered = signals.filter(s => s.type === filter);
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>No signals available</p>
+                        <p style="font-size: 12px; margin-top: 8px;">Check back soon for new opportunities</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(signal => {
+                const criteriaPercent = (signal.criteria / 20) * 100;
+                const rr = Math.abs((signal.tp - signal.entry) / (signal.entry - signal.sl)).toFixed(2);
+                const timeAgo = getTimeAgo(signal.timestamp);
+
+                return `
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <span class="signal-pair">${signal.pair}</span>
+                            <span class="signal-direction ${signal.direction}">${signal.direction}</span>
+                        </div>
+
+                        <div class="signal-details">
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">Entry</div>
+                                <div class="signal-detail-value">${signal.entry.toFixed(signal.pair.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">TP</div>
+                                <div class="signal-detail-value" style="color: #10b981">${signal.tp.toFixed(signal.pair.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">SL</div>
+                                <div class="signal-detail-value" style="color: #ef4444">${signal.sl.toFixed(signal.pair.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                        </div>
+
+                        <div class="criteria-score">
+                            <div class="criteria-bar">
+                                <div class="criteria-fill" style="width: ${criteriaPercent}%"></div>
+                            </div>
+                            <div class="criteria-text">${signal.criteria}/20</div>
+                        </div>
+
+                        <div style="display: flex; gap: 8px; margin-top: 8px; font-size: 11px; color: var(--hint-color);">
+                            <span>⏰ ${timeAgo}</span>
+                            <span>📊 ${signal.timeframe}</span>
+                            <span>💎 R:R ${rr}</span>
+                            ${signal.confidence ? `<span>🎯 ${signal.confidence}%</span>` : ''}
+                        </div>
+
+                        ${signal.analysis ? `<div style="font-size: 11px; color: var(--hint-color); margin-top: 8px;">${signal.analysis}</div>` : ''}
+
+                        <button class="btn btn-primary" onclick="openSignal('${signal.pair}')">
+                            View Details
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render current positions
+        function renderPositions(positions) {
+            const container = document.getElementById('positions-container');
+
+            if (positions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📊</div>
+                        <p>No active positions</p>
+                        <p style="font-size: 12px; margin-top: 8px;">Open trades will appear here</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = positions.map(position => {
+                const pnlColor = position.pnl >= 0 ? '#10b981' : '#ef4444';
+                const pnlSymbol = position.pnl >= 0 ? '+' : '';
+
+                return `
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <span class="signal-pair">${position.asset}</span>
+                            <span class="signal-direction ${position.direction.toLowerCase()}">${position.direction}</span>
+                        </div>
+
+                        <div class="signal-details">
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">Entry</div>
+                                <div class="signal-detail-value">${position.entry.toFixed(position.asset.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">Current</div>
+                                <div class="signal-detail-value">${position.current.toFixed(position.asset.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">P&L</div>
+                                <div class="signal-detail-value" style="color: ${pnlColor}">${pnlSymbol}${position.pnl.toFixed(2)}</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 8px; margin-top: 8px; font-size: 11px; color: var(--hint-color);">
+                            <span>📊 Size: ${position.size}</span>
+                            ${position.stop_loss ? `<span>🛑 SL: ${position.stop_loss.toFixed(position.asset.includes('JPY') ? 3 : 5)}</span>` : ''}
+                            ${position.take_profit ? `<span>🎯 TP: ${position.take_profit.toFixed(position.asset.includes('JPY') ? 3 : 5)}</span>` : ''}
+                        </div>
+
+                        <div style="font-size: 12px; color: ${pnlColor}; font-weight: 600; margin-top: 8px;">
+                            ${position.pnl_percent >= 0 ? '+' : ''}${position.pnl_percent.toFixed(2)}%
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render AI insights
+        function renderAIInsights(insights) {
+            const container = document.getElementById('insights-container');
+
+            if (insights.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🤖</div>
+                        <p>No AI insights available</p>
+                        <p style="font-size: 12px; margin-top: 8px;">AI analysis will appear here</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = insights.map(insight => {
+                const priorityColor = insight.priority === 'high' ? '#ef4444' : insight.priority === 'medium' ? '#f59e0b' : '#10b981';
+                const icon = insight.type === 'market_regime' ? '📈' : insight.type === 'risk' ? '⚠️' : '💡';
+
+                return `
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <span style="font-size: 14px; font-weight: 600;">${icon} ${insight.type.replace('_', ' ').toUpperCase()}</span>
+                            <span class="badge" style="background: ${priorityColor};">${insight.priority}</span>
+                        </div>
+
+                        <div style="margin-top: 12px; font-size: 14px; line-height: 1.4;">
+                            ${insight.message}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render trading records
+        function renderTradingRecords(records) {
+            const container = document.getElementById('records-container');
+
+            if (records.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📊</div>
+                        <p>No trading records available</p>
+                        <p style="font-size: 12px; margin-top: 8px;">Completed trades will appear here</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = records.slice(0, 5).map(record => { // Show only last 5 records
+                const pnlColor = record.pnl >= 0 ? '#10b981' : '#ef4444';
+                const pnlSymbol = record.pnl >= 0 ? '+' : '';
+                const directionClass = record.direction.toLowerCase();
+
+                return `
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <span class="signal-pair">${record.asset}</span>
+                            <span class="signal-direction ${directionClass}">${record.direction}</span>
+                        </div>
+
+                        <div class="signal-details">
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">Entry</div>
+                                <div class="signal-detail-value">${record.entry.toFixed(record.asset.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">Exit</div>
+                                <div class="signal-detail-value">${record.exit.toFixed(record.asset.includes('JPY') ? 3 : 5)}</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="signal-detail-label">P&L</div>
+                                <div class="signal-detail-value" style="color: ${pnlColor}">${pnlSymbol}${record.pnl.toFixed(2)}</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 8px; margin-top: 8px; font-size: 11px; color: var(--hint-color);">
+                            <span>📊 ${record.strategy}</span>
+                            <span>⏱️ ${record.duration}</span>
+                            <span>🎯 ${record.pips} pips</span>
+                        </div>
+
+                        <div style="font-size: 12px; color: var(--hint-color); margin-top: 8px;">
+                            ${record.date}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Time ago helper
+        function getTimeAgo(timestamp) {
+            const seconds = Math.floor((new Date() - new Date(timestamp)) / 1000);
+            if (seconds < 60) return 'Just now';
+            const minutes = Math.floor(seconds / 60);
+            if (minutes < 60) return `${minutes}m ago`;
+            const hours = Math.floor(minutes / 60);
+            if (hours < 24) return `${hours}h ago`;
+            const days = Math.floor(hours / 24);
+            return `${days}d ago`;
+        }
+
+        // Tab filtering
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.dataset.filter;
+                renderSignals(allSignals, filter);
+            });
+        });
+
+        // Open signal details
+        function openSignal(pair) {
+            tg.showAlert(`Opening ${pair} signal details...`);
+            // In production, this would navigate to detail view or call bot command
+        }
+
+        // Auto-refresh data every 30 seconds
+        function startAutoRefresh() {
+            setInterval(() => {
+                fetchSignals();
+                fetchPositions();
+                fetchAIInsights();
+                // Trading records don't change as frequently, refresh every 5 minutes
+            }, 30000); // 30 seconds
+
+            // Refresh trading records every 5 minutes
+            setInterval(() => {
+                fetchTradingRecords();
+            }, 300000); // 5 minutes
+        }
+
+        // Update connection status
+        function updateConnectionStatus() {
+            const statusElement = document.getElementById('connection-status');
+            const lastUpdateElement = document.getElementById('last-update');
+
+            if (isOnline) {
+                statusElement.innerHTML = '🟢 Online';
+                statusElement.style.color = '#10b981';
+            } else {
+                statusElement.innerHTML = '🔴 Offline';
+                statusElement.style.color = '#ef4444';
+            }
+
+            // Update last update time
+            const secondsAgo = Math.floor((Date.now() - lastUpdate) / 1000);
+            if (secondsAgo < 60) {
+                lastUpdateElement.textContent = 'Updated just now';
+            } else if (secondsAgo < 3600) {
+                lastUpdateElement.textContent = `Updated ${Math.floor(secondsAgo / 60)}m ago`;
+            } else {
+                lastUpdateElement.textContent = `Updated ${Math.floor(secondsAgo / 3600)}h ago`;
+            }
+        }
+
+        // Initialize app - fetch real data from Personal Dashboard API
+        setTimeout(async () => {
+            // Request notification permissions
+            await requestNotificationPermission();
+
+            fetchSignals();
+            fetchPositions();
+            fetchAIInsights();
+            fetchTradingRecords();
+            startAutoRefresh();
+
+            // Update status every 10 seconds
+            setInterval(updateConnectionStatus, 10000);
+            updateConnectionStatus(); // Initial update
+        }, 500);
+
+        // Main button action
+        tg.MainButton.setText('📱 Back to Bot');
+        tg.MainButton.show();
+        tg.MainButton.onClick(() => {
+            tg.close();
+        });
+    </script>
+</body>
+
+</html>
