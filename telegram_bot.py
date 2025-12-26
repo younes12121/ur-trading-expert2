@@ -55,7 +55,7 @@ def safe_print(*args, **kwargs):
             pass  # If even logging fails, silently ignore
 
 # Standard imports
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
 
 # Error learning integration
@@ -2058,6 +2058,48 @@ async def dashboard_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ])
 
     await update.message.reply_text(message, parse_mode='HTML', reply_markup=keyboard)
+
+
+# ============================================================================
+# MOBILE APP COMMAND
+# ============================================================================
+
+async def mobile_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Open mobile trading dashboard via Telegram WebApp"""
+    user = update.effective_user
+    if not user:
+        await update.message.reply_text("❌ User not found. Please try again.")
+        return
+    
+    # GitHub Pages URL for mobile app
+    mobile_app_url = "https://younes12121.github.io/ur-trading-expert-mobile/mobile_app.html"
+    
+    # Create WebApp button
+    keyboard = [[
+        InlineKeyboardButton(
+            "📱 Open Mobile Dashboard",
+            web_app=WebAppInfo(url=mobile_app_url)
+        )
+    ]]
+    
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
+    # Send message with WebApp button
+    await update.message.reply_text(
+        "📱 *UR Trading Expert Mobile*\n\n"
+        "Access your trading dashboard on any device!\n\n"
+        "*Features:*\n"
+        "✅ Live trading signals\n"
+        "✅ Real-time stats & analytics\n"
+        "✅ Portfolio tracking\n"
+        "✅ Win rate monitoring\n"
+        "✅ Performance metrics\n"
+        "✅ AI insights\n"
+        "✅ Beautiful mobile interface\n\n"
+        "_Tap the button below to launch:_",
+        reply_markup=reply_markup,
+        parse_mode='Markdown'
+    )
 
 
 # ============================================================================
@@ -13573,6 +13615,8 @@ def main():
         app.add_handler(CommandHandler("quickstart", quickstart_command))
         app.add_handler(CommandHandler("search", search_command))
         app.add_handler(CommandHandler("dashboard", dashboard_command))
+        app.add_handler(CommandHandler("mobile", mobile_command))
+        app.add_handler(CommandHandler("app", mobile_command))
     # who alias removed in Phase 4 duplicate cleanup
     
         # ========================================================================
