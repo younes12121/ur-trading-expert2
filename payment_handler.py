@@ -6,7 +6,7 @@ Handles Stripe payment integration for subscriptions
 import os
 import json
 from datetime import datetime, timedelta
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 
 # Load environment variables from .env file
 try:
